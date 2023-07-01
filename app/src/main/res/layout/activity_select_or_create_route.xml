@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.selectorcreateroute.SelectORCreateRouteViewModel" />
+    </data>
+
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_8"
+            android:maxHeight="@dimen/dimen_8"
+            android:orientation="horizontal"
+            android:progress="30"
+            android:progressBackgroundTint="@color/progress_color"
+            android:progressTint="@color/orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/challenge_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingTop="@dimen/dimen_32"
+            android:paddingBottom="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_horizontal">
+
+            <TextView
+                android:id="@+id/tv_back"
+                style="@style/Text.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:text="@string/go_back"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_16"
+                app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/save_draft_txt"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/save_as_draft_without_line"-->
+            <!--            android:textColor="@color/orange"-->
+            <!--            android:textSize="@dimen/text_15"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintTop_toTopOf="parent" />-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvSaveAsDraft"
+                    style="@style/Text.Roboto.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save_as_draft"
+                    android:onClick="@{viewModel::onActionClick}"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/text_15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/whitedot"
+                    android:layout_width="2.5dp"
+                    android:layout_height="2.5dp"
+                    android:layout_marginLeft="@dimen/dimen_4"
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:backgroundTint="@color/grey"
+                    android:gravity="center"
+                    android:src="@drawable/grey_circle_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSkip"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSaveAsDraft"
+                    app:layout_constraintTop_toTopOf="@+id/tvSkip" />
+
+                <TextView
+                    android:id="@+id/tvSkip"
+                    style="@style/Text.Roboto.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/skip"
+                    android:onClick="@{viewModel::onActionClick}"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/text_15"
+                    app:layout_constraintLeft_toRightOf="@+id/whitedot"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/step_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/step_3_10"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar" />
+
+        <TextView
+            android:id="@+id/addchallenge_label"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/add_challenge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/step_label" />
+
+        <TextView
+            android:id="@+id/pick_challenge_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingBottom="@dimen/dimen_20"
+            android:text="@string/choose_route"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addchallenge_label" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutTitle"
+            style="@style/TextInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:hint="@string/title"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_challenge_label"
+            app:setError="@{viewModel.routeNameError}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Text.Small"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:fontFamily="@font/roboto_medium"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="32"
+                android:maxLines="1"
+                android:onTextChanged="@{viewModel::onTitleChanged}"
+                android:paddingStart="@dimen/dimen_15"
+                android:paddingEnd="0dp"
+                android:text="@={viewModel.routeName}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/descriptionTextInputLayout"
+            style="@style/TextInputStyleNew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_20"
+            android:hint="@string/route_description_astric"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTitle"
+            app:setError="@{viewModel.descriptionError}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:onTextChanged="@{viewModel::onDescriptionChanged}"
+                android:paddingStart="@dimen/dimen_20"
+                android:paddingEnd="0dp"
+                android:singleLine="true"
+                android:text="@={viewModel.description}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/text_15"
+                tools:targetApi="o" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/textAddRoute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_25"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/add_route"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionTextInputLayout" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_250"
+            android:layout_margin="@dimen/dimen_25"
+            app:cardCornerRadius="@dimen/dimen_5"
+            app:layout_constraintBottom_toTopOf="@+id/popular_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textAddRoute">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_250"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setImageRes="@{viewModel.mapImage}" />
+
+                <ImageView
+                    android:id="@+id/ivAddRoute"
+                    android:layout_width="@dimen/dimen_60"
+                    android:layout_height="@dimen/dimen_60"
+                    android:layout_margin="@dimen/dimen_15"
+                    android:elevation="@dimen/dimen_5"
+                    android:onClick="@{viewModel::onActionClick}"
+                    android:padding="@dimen/dimen_10"
+                    android:scaleType="fitXY"
+                    android:src="@{viewModel.isRouteCreated()?@drawable/ic_edit_circle_icon :@drawable/ic_add_circle}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivMap"
+                    app:layout_constraintStart_toStartOf="@+id/ivMap" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/popular_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="@dimen/dimen_10"
+            android:onClick="@{viewModel::onActionClick}"
+            android:padding="@dimen/dimen_20"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/popular_txt"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onActionClick}"
+                android:padding="@dimen/dimen_10"
+                android:paddingStart="@dimen/dimen_15"
+                android:text="@string/popular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/like_separator_id"
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="@+id/popular_txt"
+                app:layout_constraintEnd_toStartOf="@+id/latest_txt"
+                app:layout_constraintStart_toEndOf="@+id/popular_txt"
+                app:layout_constraintTop_toTopOf="@+id/popular_txt" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/latest_txt"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onActionClick}"
+                android:padding="@dimen/dimen_10"
+                android:paddingStart="@dimen/dimen_10"
+                android:text="@string/latest"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/dislike_separator_id"
+                app:layout_constraintStart_toEndOf="@+id/like_separator_id"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--                    -->
+
+            <View
+                android:id="@+id/dislike_separator_id"
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="@+id/latest_txt"
+                app:layout_constraintEnd_toStartOf="@+id/favorites_txt"
+                app:layout_constraintStart_toEndOf="@+id/latest_txt"
+                app:layout_constraintTop_toTopOf="@+id/latest_txt" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/favorites_txt"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onActionClick}"
+                android:padding="@dimen/dimen_10"
+                android:paddingStart="@dimen/dimen_10"
+                android:text="@string/favroites"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dislike_separator_id"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:elevation="@dimen/dimen_10"
+            app:layout_constraintTop_toBottomOf="@+id/popular_layout"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@{viewModel.isRouteCreated?@color/black:@color/btnDisable}"
+            android:clickable="@{viewModel.isRouteCreated?true:false}"
+            android:fontFamily="@font/roboto_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onActionClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/continue_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            app:backgroundTint="@null"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    </ScrollView>-->
+</layout>

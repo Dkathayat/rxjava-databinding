@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.manageuser.vm.ItemManageUserViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingVertical="@dimen/dimen_25">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dimen_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView11"
+                android:layout_width="@dimen/dimen_52"
+                android:layout_height="@dimen/dimen_52"
+                android:background="@color/grey_e3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageRes="@{viewModel.item.profileImage}"
+                app:shapeAppearance="@style/ProfileImageAppearance" />
+
+            <TextView
+                android:id="@+id/textView28"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:paddingHorizontal="@dimen/dimen_8"
+                android:paddingTop="@dimen/dimen_8"
+                android:text="@{viewModel.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toStartOf="@+id/unblock_btn"
+                app:layout_constraintStart_toEndOf="@+id/shapeableImageView11"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView11"
+                tools:text="Muheeb Mehrak" />
+
+            <TextView
+                android:id="@+id/textView29"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:paddingHorizontal="@dimen/dimen_8"
+                android:text="@{viewModel.stateAndCountry}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toStartOf="@+id/unblock_btn"
+                app:layout_constraintStart_toEndOf="@+id/shapeableImageView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView28"
+                tools:text="1d ago" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/unblock_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:onClick="@{viewModel::onItemClick}"
+                android:paddingHorizontal="@dimen/dimen_20"
+                android:paddingVertical="@dimen/dimen_10"
+                android:text="@string/unblock"
+                android:textColor="@color/orange"
+                android:visibility="@{viewModel.unblockVisibility ? View.VISIBLE : View.GONE}"
+                app:cornerRadius="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/orange"
+                app:strokeWidth="@dimen/dimen_2" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/un_mute_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:onClick="@{viewModel::onItemClick}"
+                android:paddingHorizontal="@dimen/dimen_20"
+                android:paddingVertical="@dimen/dimen_10"
+                android:text="@string/unmute"
+                android:textColor="@color/orange"
+                android:visibility="@{viewModel.unMuteVisibility ? View.VISIBLE : View.GONE}"
+                app:cornerRadius="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/orange"
+                app:strokeWidth="@dimen/dimen_2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/unFav_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:onClick="@{viewModel::onItemClick}"
+                android:paddingHorizontal="@dimen/dimen_20"
+                android:paddingVertical="@dimen/dimen_10"
+                android:text="Remove"
+                android:textColor="@color/orange"
+                android:visibility="@{viewModel.unFavoriteVisibility ? View.VISIBLE : View.GONE}"
+                app:cornerRadius="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/orange"
+                app:strokeWidth="@dimen/dimen_2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

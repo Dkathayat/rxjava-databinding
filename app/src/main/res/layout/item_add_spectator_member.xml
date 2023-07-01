@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addspectator.ItemAddSpectatorMember" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:background="@color/white"
+            android:layout_marginHorizontal="@dimen/dimen_5"
+            android:paddingHorizontal="@dimen/dimen_15"
+            app:layout_constraintBottom_toTopOf="@+id/dividerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/memberCheckbox"
+                android:layout_width="@dimen/dimen_26"
+                android:layout_height="@dimen/dimen_26"
+                android:background="@drawable/custom_checkbox"
+                android:button="@android:color/transparent"
+                android:checked="@{viewModel.item.isSelected}"
+                android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onCheckedChange(compoundButton, checked)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/shortName"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:background="@drawable/br_cirecle_name"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:maxLength="2"
+                android:text="@={viewModel.shortName}"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_15"
+                android:visibility="@{viewModel.isImageAvailable?View.INVISIBLE:View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/profile_icon"
+                app:layout_constraintStart_toEndOf="@+id/memberCheckbox"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profile_icon"
+                android:layout_width="@dimen/dimen_50"
+                android:layout_height="@dimen/dimen_50"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:background="#474747"
+                android:padding="@dimen/dimen_5"
+                android:scaleType="centerCrop"
+                android:visibility="@{viewModel.isImageAvailable?View.VISIBLE:View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/memberCheckbox"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setUserImage="@{viewModel.item.profileImage}"
+                app:shapeAppearance="@style/ProfileImageAppearance" />
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/tvCreatedDate"-->
+            <!--            style="@style/Text.Roboto.Bold"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="@dimen/dimen_5"-->
+            <!--            android:paddingStart="@dimen/dimen_13"-->
+            <!--            android:text="@{viewModel.item.createdOn}"-->
+            <!--            android:textColor="@color/black"-->
+            <!--            android:textSize="@dimen/text_15"-->
+            <!--            app:layout_constraintEnd_toStartOf="@+id/ivChat"-->
+            <!--            app:layout_constraintStart_toEndOf="@+id/profile_icon"-->
+            <!--            app:layout_constraintTop_toTopOf="@+id/profile_icon" />-->
+
+
+            <TextView
+                android:id="@+id/tvMemberName"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_10"
+                android:paddingEnd="0dp"
+                android:text="@{viewModel.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toStartOf="@+id/ivChat"
+                app:layout_constraintStart_toEndOf="@+id/profile_icon"
+                app:layout_constraintTop_toTopOf="@+id/profile_icon" />
+
+            <TextView
+                android:id="@+id/tvAgeRelation"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_10"
+                android:paddingEnd="0dp"
+                android:text="@{viewModel.cityCountry}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_13"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivChat"
+                app:layout_constraintStart_toEndOf="@+id/profile_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tvMemberName" />
+
+            <ImageView
+                android:id="@+id/ivChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onItemClick}"
+                android:paddingStart="@dimen/dimen_5"
+                android:paddingEnd="@dimen/dimen_10"
+                android:src="@drawable/ic_chat"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAgeRelation"
+                app:layout_constraintEnd_toStartOf="@+id/ivOptions"
+                app:layout_constraintTop_toTopOf="@+id/tvMemberName" />
+
+
+            <ImageView
+                android:id="@+id/ivOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onItemClick}"
+                android:paddingStart="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_5"
+                android:paddingEnd="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_5"
+                android:src="@drawable/ic_icon_side_menu_black"
+                app:layout_constraintBottom_toBottomOf="@+id/ivChat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivChat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/dividerView"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey_da"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

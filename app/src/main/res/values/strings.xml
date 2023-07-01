@@ -1,0 +1,695 @@
+<resources>
+    <string name="app_name">Yew App</string>
+    <string name="ok">OK</string>
+
+
+    <string name="general_channel_name">Yew App General Channel</string>
+    <string name="channel_description">Yew App notification channel for the purpose of showing Notifications.</string>
+    <string name="general_notification_channel_id">base_general_notification_channel</string>
+    <string name="camera_permission_title">Camera Permission</string>
+    <string name="gallery_permission_title">Gallery Permission</string>
+    <string name="gallery_permission_description">Access to gallery has been prohibited.
+        \n\nTo enable click \'APP SETTINGS\' below and activate \'Storage\' under the permissions menu.</string>
+    <string name="camera_permission_description">Access to camera has been prohibited.
+        \n\nTo enable click \'APP SETTINGS\' below and activate \'Camera\' under the permissions menu.</string>
+    <string name="contact_permission_description">Access to Contact has been prohibited.
+        \n\nTo enable click \'APP SETTINGS\' below and activate \'Contacts\' under the permissions menu.</string>
+    <string name="location_permission_description">Access to Location has been prohibited.
+        \n\nTo enable click \'APP SETTINGS\' below and activate \'Storage\' under the permissions menu.</string>
+    <string name="record_audio_permission_description">Record Audio Permission has been prohibited.
+        \n\nTo enable click \'APP SETTINGS\' below and activate \'Microphone\' under the permissions menu.</string>
+    <string name="app_settings">App Settings</string>
+    <string name="not_now">Not Now</string>
+    <string name="skip">Skip</string>
+    <string name="onboarding_title_1">Discover new adventures, achieve new goals, experience it with the world.</string>
+    <string name="onboarding_sub_title_1">Push yourself and those you know and share your adventures on YEW.</string>
+    <string name="onboarding_title_2">Join an existing challenge or create your own. Invite friends and make new ones.</string>
+    <string name="onboarding_sub_title_2">Watch the leaderboard and find out who’s up for  the challenge. Yew!</string>
+    <string name="onboarding_title_3">Rack up points! Earn them with every hike, run or bike activity you track.</string>
+    <string name="onboarding_sub_title_3">Use points to enter sponsored giveaways and a chance to win a prize.</string>
+
+
+    <string name="sign_in_with_facebook">Continue with Facebook</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_up_with_email">Sign up with Email</string>
+    <string name="login">Login</string>
+    <string name="joined">Joined</string>
+
+    <string name="already_a_member">Already a member</string>
+    <string name="log_in_sign_up">Log In / Sign Up</string>
+    <string name="enter_email_password"><![CDATA[Enter Email & Password]]></string>
+    <string name="please_enter_your_registered_email_id_and_password">Please enter your registered Email ID and Password.</string>
+    <string name="enter_email_username">Enter Email/ Username*</string>
+    <string name="password">Password*</string>
+    <string name="forgot_your_password_click_here">Forgot Your Password? Click Here</string>
+    <string name="sig_up">Sign Up</string>
+    <string name="enter_email">Enter Email*</string>
+    <string name="confirm_password">Confirm Password*</string>
+    <string name="referral_code">Referral Code (Optional)</string>
+    <string name="terms_and_conditions"><![CDATA[By signing up you are agreeing to our Terms of Service & Privacy Policy.]]></string>
+    <string name="sign_up_instruction">Please enter your Email ID and Choose a Password for your profile</string>
+    <string name="email_verification">Email Verification</string>
+    <string name="verification_code_sent_on_email">An OTP has been shared on your provided email id %1s</string>
+    <string name="verification_code_sent_on_mobile">An OTP has been shared on your provided mobile number. %1s</string>
+    <string name="verify_otp">Verify Otp</string>
+    <string name="invalid_code">Entered code is not valid please try again or click on Resend Code button below.</string>
+    <string name="resend_code"><u>Resend Code</u></string>
+    <string name="timer_format"><u>%02d:%02d</u></string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="sign_success_info">Account has been created successfully with your email id %s</string>
+    <string name="add_details">Add Details</string>
+    <string name="enter_registered_email">Please enter the Email ID you used to register with Yew! App.</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="step_1_3">Step ⅓</string>
+    <string name="verify_email">Verify Email</string>
+    <string name="passwords_must_contain_at_least_8_character">Passwords must contain at least 8 characters a symbol(@,#,$ etc).</string>
+    <string name="create_password">Create Password</string>
+    <string name="step_label">Step %d/3</string>
+    <string name="password_created_successfully">You have successfully created your new password. You can now login with your new password.</string>
+    <string name="you_don_t_have_any_followers_or_following">You don\'t have any followers or following. Please follow someone or post your feed.</string>
+    <string name="you_don_t_have_any_reffered_friends">You don\'t have any referred friend. Please refer someone.</string>
+    <string name="add_feed">Add Feed</string>
+    <string name="send_report">Send Report</string>
+    <string name="all_feeds">All feeds</string>
+    <string name="my_feeds">My Feeds</string>
+    <string name="go_back">Go Back</string>
+    <string name="save_as_draft"><u>Save As Draft</u></string>
+    <string name="save_as_draft_without_line">Save As Draft</string>
+    <string name="continue_label">Continue</string>
+    <string name="title">Title*</string>
+    <string name="write_comment">Write Comment</string>
+    <string name="email_id">Enter Email Id*</string>
+    <string name="date_birth">Date Of Birth*</string>
+    <string name="enteryour">Enter your</string>
+
+
+    <string name="reason">Reason*</string>
+    <string name="comments">Comments*</string>
+    <string name="comment">Comments</string>
+
+    <string name="what_s_in_your_mind">What\'s in your mind?</string>
+    <string name="publish">Publish</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="abraham_tesla">Abraham Tesla</string>
+    <string name="subtitle_follower_toolbar">Oakwill USA • Male</string>
+    <string name="my_followers">My Followers</string>
+    <string name="my_following">My Following</string>
+    <string name="created_by_me">Created</string>
+    <string name="active">Active</string>
+    <string name="past_challenge">Past</string>
+    <string name="search_hint">Search Member…</string>
+    <string name="challenges">Challenges</string>
+    <string name="me">Me</string>
+    <string name="profile">Profile</string>
+    <string name="activities">Activities</string>
+    <string name="my_points">My Points</string>
+    <string name="associate">Associate</string>
+
+    <string name="challenge">Challenge</string>
+    <string name="search">Search…</string>
+    <string name="draft">DRAFT</string>
+    <string name="virtual_new_york_city_marathon">Virtual New York City Marathon</string>
+    <string name="starts_in_20_days">Starts in 20 Days</string>
+    <string name="subtitle_text_challenge"><![CDATA[Climb a total of 3,000 meters on your bike & earn 500 pnts.]]></string>
+    <string name="profile_setting">Profile Setting</string>
+    <string name="manage_notification">Manage Notification</string>
+    <string name="manage_users">Manage Users</string>
+    <string name="about_yew">About Yew!</string>
+    <string name="logout">Logout</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="faq_s">FAQ\'S</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="subscription">Subscription</string>
+    <string name="refer_friends">Refer Friends</string>
+    <string name="manage_devices">Manage Devices</string>
+    <string name="manage_ads">Manage Ads</string>
+    <string name="manage_feeds">Manage Feeds</string>
+    <string name="contactus_note"><b>Important Note</b>: Fields marked as mandatory (*) cannot be sent blank.</string>
+    <string name="phone_number_optional">Phone Number (Optional)</string>
+    <string name="message">Message*</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="attachments">Attachments:</string>
+    <string name="upload_report_image_note">Images should be of format .png, .jpg. Maximum size should not exceed 20mb.</string>
+    <string name="upload_report_image_feedback">Images should be of format .png, .jpg or mp4.Size should not be more than 15mb.</string>
+    <string name="image_can_be_png_jpg_or_webp_amp_should_not_exceed_5mb"><![CDATA[Image can be .png, .jpg or .webp & should not exceed 5mb]]></string>
+    <string name="submit">Submit</string>
+    <string name="associate_add">Add Members</string>
+    <string name="submit_comment">Submit Comment</string>
+
+    <string name="upload_image_report">to upload screenshot or file</string>
+
+    <string name="edit">Edit</string>
+    <string name="biking">Biking</string>
+    <string name="running">Running</string>
+    <string name="hiking">Hiking</string>
+    <string name="about">About Me</string>
+    <string name="calories">Calories</string>
+    <string name="calorie">Calorie</string>
+    <string name="distance">Distance</string>
+    <string name="time">Time</string>
+    <string name="elevation">Elev. Gain</string>
+    <string name="compare_statistics">Compare Statistics</string>
+    <string name="compare_stats_privacy">Compare Stats Privacy</string>
+    <string name="compare_stats_description">If enabled other users will be able to see your points and stats when they use Compare Stats feature</string>
+    <string name="who_can_see_your_stats">Who can see your stats?</string>
+    <string name="allow_to_see_points">Allow users to see points</string>
+    <string name="privacy_settings">Privacy Settings</string>
+    <string name="hide_phone_number">Hide Phone Number</string>
+    <string name="hide_email_id">Hide Email ID</string>
+    <string name="points">Points</string>
+    <string name="error_no_internet_connection">Failed to connect. Make sure you have an active internet connection</string>
+    <string name="server_maintenance">Something went wrong</string>
+    <string name="bad_request">Unauthorized access</string>
+    <string name="success">Success</string>
+    <string name="empty_email_error">Email/Username cannot be empty</string>
+    <string name="empty_fullname_error">Name cannot be empty</string>
+    <string name="empty_comment_error">Comment cannot be empty</string>
+    <string name="empty_reason_error">Reason cannot be empty</string>
+    <string name="empty_reply_error">Reply cannot be empty</string>
+
+    <string name="invalid_email_error">Enter a valid email</string>
+
+    <string name="email_updated_success_message">Your email is updated successfully.Please login with updated email id.</string>
+    <string name="mobile_updated_success_message">Your mobile number is updated successfully.</string>
+
+    <string name="invalid_phoneNumber_error">Enter a valid Phone Number</string>
+    <string name="empty_phoneNumber_error">Phone Number cannot be empty</string>
+    <string name="empty_password_error">Password cannot be empty</string>
+    <string name="empty_message_error">Message cannot be empty</string>
+    <string name="invalid_password_error">Password needs to be at least 8–16 characters long with an uppercase letter, a lowercase letter, an alphanumeric character and a number.</string>
+    <string name="password_not_match">Passwords do not match</string>
+    <string name="referral_code_error">Invalid referral code</string>
+    <string name="admin">Admin</string>
+    <string name="challenge_detail_description"><![CDATA[Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architect nde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectonde. Know More >]]></string>
+    <string name="minimum_points_required">Minimum Points required : 2.4k</string>
+    <string name="score_get">• Run 3 Miles\n• Burn 300 Calories\n• Total Time 23 Days</string>
+    <string name="important_text"><b>Important Note:</b> Winner will have to pay all the charges for the Shipment of any giveaways in a challenge.</string>
+    <string name="ride_description"><![CDATA[Ride your bike for 32 miles hike within 3 days \n& get a chance to win a Gear Bike.]]></string>
+    <string name="challenge_details">Challenge Details</string>
+    <string name="about_yew_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beata. unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beata unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi Aunde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beataSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beata. unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beata unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi Aunde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beata</string>
+    <string name="date">Andy Lopez . 12 November 2021</string>
+    <string name="rate_app">RATE APP</string>
+    <string name="version">Yew! Version 1.0 (1221777)</string>
+    <string name="question">Can I share my location?</string>
+    <string name="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="sport_images">Sports &amp; Images</string>
+    <string name="profile_details">Profile Details</string>
+    <string name="first_name_astrik">First Name*</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name*</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="choose_country">Choose Country</string>
+    <string name="choose_country_astrik">Choose Country*</string>
+    <string name="choose_city">Choose City</string>
+    <string name="choose_city_astrik">Choose City*</string>
+    <string name="address">Address</string>
+    <string name="address_astik">Address*</string>
+    <string name="zip_code">ZIP Code</string>
+    <string name="gender">Gender</string>
+    <string name="dob">Date of Birth</string>
+    <string name="dobastric">Date of Birth*</string>
+    <string name="weight">Weight (lbs)</string>
+    <string name="max_heart_rate">Max Heart Rate (BPM)</string>
+    <string name="bio">Bio*</string>
+    <string name="bio_without_astrik">Bio</string>
+    <string name="save">Save</string>
+    <string name="choose_state">Choose State</string>
+    <string name="choose_state_astrik">Choose State*</string>
+
+    <string name="empty_first_name">First name cannot be empty</string>
+    <string name="invalid_first_name">First name should be 4 to 32 characters long</string>
+    <string name="empty_last_name">Last name cannot be empty</string>
+    <string name="invalid_last_name">Last name should be 4 to 32 characters long</string>
+    <string name="country_id_error">You need to select a country</string>
+    <string name="state_id_error">You need to select a state</string>
+    <string name="city_id_error">You need to select a city</string>
+    <string name="empty_zip_code">Zipcode cannot be empty</string>
+    <string name="empty_relation">Relation cannot be empty</string>
+    <string name="invalid_zipcode">Zipcode should be 5 to 10 digits long</string>
+    <string name="invalid_weight">Invalid weight</string>
+    <string name="invalid_heart_rate">Invalid heart rate</string>
+    <string name="statistics">Statistics</string>
+    <string name="location">Location</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="empty_title_error">Title cannot be empty</string>
+    <string name="empty_description_error">Description cannot be empty</string>
+    <string name="empty_status_error">Status cannot be empty</string>
+    <string name="read_contact_permission">You need to enable the read contact permission to access contacts over the application</string>
+
+    <string name="video_permission_rationale">You need to enable the storage permission to share media over the application</string>
+    <string name="choose_from">Choose from</string>
+    <string name="filter_feed">Filter Feed</string>
+    <string name="apply_filter">Apply Filter</string>
+
+
+    <string name="send_request">SEND REQUEST</string>
+    <string name="move_points">Move Points</string>
+    <string name="choose_contacts">Choose Contacts</string>
+    <string name="referred_friends">Referred Friends</string>
+    <string name="contact_name">Elizabeth Queen</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="phone_number">9876543210</string>
+    <string name="descpiption_comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</string>
+    <string name="sign_in_with_apple">Sign in with Apple</string>
+    <string name="terms_of_use">terms-of-use</string>
+    <string name="privacy_policy_constant">privacy-policy</string>
+    <string name="date_of_birth">Date of Birth*</string>
+    <string name="only_18_users_are_allowed_to_create_a_yew_account">Only 18+ users are allowed to create a Yew Account.</string>
+    <string name="terms_n_conditions">terms_and_conditions</string>
+    <string name="you_cannot_upload_morethan_three_video">You are not allowed to upload more than three video .</string>
+    <string name="you_cannot_upload_morethan_five_images">You are not allowed to upload more than five images .</string>
+    <string name="you_cannot_upload_morethan_three_images">You are not allowed to upload more than three images .</string>
+    <string name="you_cannot_upload_morethan_one_images">You are not allowed to upload more than one images .</string>
+
+    <string name="add_challenge">Add Challenge</string>
+    <string name="pick_challenge">Let\'s get started. Pick your challenge type.</string>
+    <string name="create_running_event">Create a running event</string>
+    <string name="create_hiking_event">Create a hiking event</string>
+    <string name="create_biking_event">Create a biking event</string>
+    <string name="enter_giveaway">ENTER GIVEAWAY</string>
+    <string name="giveaway_details">Giveaway Details</string>
+    <string name="give_details_description">Winner of the challenge will get a Sneaker and a pair of cool YEW! T-Shirts</string>
+    <string name="giveaway_detail_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo. Eaque ipsa quae ab illo inventore veritatis et quasi architect nde omnis iste natus error sit.</string>
+    <string name="details">Details</string>
+    <string name="location_details"><![CDATA[Location & Sport Details]]></string>
+    <string name="country">Country</string>
+    <string name="country_astrik">Country*</string>
+    <string name="state">State</string>
+    <string name="state_astrik">State*</string>
+    <string name="zipcode">ZIP Code</string>
+    <string name="sport_type">Sport Type</string>
+    <string name="sport_type_astrik">Sport Type*</string>
+    <string name="hikings">Hiking</string>
+    <string name="usa">USA</string>
+    <string name="city">City</string>
+    <string name="city_astrik">City*</string>
+    <string name="zip_code_value">L4T0A4</string>
+    <string name="_15_20_yrs">15–20 Yrs</string>
+    <string name="age_group">Age Group</string>
+    <string name="age_group_astrik">Age Group*</string>
+
+    <string name="sport_sub_type">Sport Sub Type</string>
+    <string name="mountain_bike">Mountain Bike</string>
+    <string name="overview">Overview</string>
+    <string name="overview_description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architect nde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectonde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</string>
+    <string name="rules_description">• Sed ut perspiciatis unde omnis iste natus error sit voluptatem\n\n• Sed ut perspiciatis unde omnis \n\n• Sed ut perspiciatis unde omnis iste natus error sit voluptatem</string>
+
+    <string name="rewards">Rewards</string>
+    <string name="additional_information">Additional Information</string>
+    <string name="rules">Rules</string>
+    <string name="qualifying_activities">Qualifying Activities</string>
+    <string name="empty_dob_error">DOB cannot be empty</string>
+    <string name="associate_name">Hi Abraham,</string>
+    <string name="associate_description">You haven\'t added any Associate Accounts.</string>
+    <string name="next">NEXT</string>
+    <string name="add_associate">Add Associate</string>
+    <string name="update_associate">Update Associate</string>
+    <string name="create_credentials">Create Credentials</string>
+    <string name="description_associate">Select a user name and password for this associate account</string>
+    <string name="pass_note">Note: Password should contain a symbol(@,#,!,$,%...etc), a capital letter and should be more than 8 characters.</string>
+    <string name="password_policy_label">Passwords must contain at least 8 characters.</string>
+    <string name="new_password">New Password*</string>
+    <string name="user_profile_updated">Profile updated successfully</string>
+    <string name="complete_profile">Please edit your profile and provide\nall the essential details to continue\nusing our app</string>
+    <string name="empty_bio">Bio cannot be empty</string>
+    <string name="empty_address">Address cannot be empty</string>
+
+    <!--    <string name="complete_profile_use_feed">Complete your profile to create feeds and share your journey</string>-->
+    <string name="complete_profile_use_feed">Please edit your profile and provide\nall the essential details to continue\nusing our app</string>
+    <string name="complete_profile_to_create_challenge">Please edit your profile and provide\nall the essential details to continue\nusing our app</string>
+    <string name="edit_sport_type">Edit Sport Type*</string>
+    <string name="additional_details">Additional Details</string>
+    <string name="hiking_experience">Hiking Experience*</string>
+    <string name="add_sub_sport_type">Add Sub Sport Type</string>
+    <string name="sub_sport">Sub Sport*</string>
+    <string name="make_model">Make/Model*</string>
+    <string name="step_1_10">Steps 1/10</string>
+    <string name="step_2_10">Steps 2/10</string>
+    <string name="step_4_10">Steps 4/10</string>
+    <string name="step_5_10">Steps 5/10</string>
+    <string name="step_6_10">Steps 6/10</string>
+    <string name="step_7_10">Steps 7/10</string>
+
+    <string name="choose_startend_date"><![CDATA[Choose a Start & End date for your challenge.]]></string>
+<!--    <string name="lifetime">Lifetime</string>-->
+    <string name="lifetime">No Selection</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoieWV3YXBwIiwiYSI6ImNrd2t6d216dDF4MXUydnFpenIxa3ppa2YifQ.DQqCFvFfQPCrOMLvE6uRAQ</string>
+    <!--    <string name="mapbox_access_token">pk.eyJ1IjoicmlzaGkyNTEyIiwiYSI6ImNrd2JwMnBuMDFhbXoycXAyNm55cTZhZ3gifQ.cp8S9H-ixq1mrNtEJlKFUQ</string>-->
+    <!--    <string name="mapbox_secret_key">ssk.eyJ1IjoieWV3YXBwIiwiYSI6ImNsM2xmNHpxajA4bnczam8xeGl1N3Jlam0ifQ.npIExM6UygOxT0GGS41-Mg</string>-->
+    <string name="step_3_10">steps 3/10</string>
+    <string name="choose_route">Create or choose a popular, latest route.</string>
+    <string name="line_distance_textview">Line distance in %1$s: %2$s</string>
+    <string name="line_distance_tap_instruction">Tap on map at least twice to create and measure a line</string>
+    <string name="popular">Popular</string>
+    <string name="latest">Latest</string>
+    <string name="search_location">Search Location</string>
+    <string name="location_permission_title">Location Permission</string>
+    <string name="favroites">Favorites</string>
+    <string name="popular_routes">Popular Routes</string>
+    <string name="chooseroute">Choose Route</string>
+    <string name="enter_location_detail">Enter challenge details</string>
+    <string name="challenge_name">Challenge Name*</string>
+    <string name="name_astric">Name*</string>
+    <string name="challenge_description">Challenge Description*</string>
+    <string name="description_astric">Description*</string>
+    <string name="cahllenge_visibillity">Challenge Visibility*</string>
+    <string name="visibillity_astric">Visibility*</string>
+    <string name="sports_requirement">Specific Sport Equipment</string>
+    <string name="enter_location__additional_detail"><![CDATA[Location & Additional Details]]></string>
+    <string name="zip_code_astrik">Zipcode*</string>
+    <string name="chooselocation">Choose Location</string>
+    <string name="select_sport_type">Select Sub Sport</string>
+    <string name="select_sport_typeastric">Select Sub Sport*</string>
+    <string name="select_brand_make">Brand/Make</string>
+    <string name="select_model">Model</string>
+    <!--    <string name="make_model">Make/Model</string>-->
+    <string name="sport_level_astrik">Sport Level*</string>
+    <string name="hiking_type_model">Hiking Type &amp; Model</string>
+    <string name="min_goal">Set a min. goal requirement to qualify the challenge</string>
+    <string name="calorie_cal">Calories (cal)*</string>
+    <string name="miles_mil">Miles (mi)*</string>
+    <string name="elevation_gain">Elevation Gain</string>
+    <string name="average_watt">Avg Watt</string>
+    <string name="time_astrik">Time*</string>
+    <string name="max_member_astrik">Max. Members *</string>
+    <string name="note_min_goal"><b>Note:</b> Number of people who can join this Challenge</string>
+    <string name="enter_additional_detail">Enter additional details</string>
+    <string name="winner_astrik">Winner*</string>
+    <string name="additional_information_optional">Additional Information (Optional)</string>
+    <string name="guidelines">Guidelines</string>
+    <string name="qualification">Qualification</string>
+    <string name="add_banner">Add challenge banner and icon</string>
+    <string name="challenge_banner">Challenge Banner</string>
+    <string name="step_8_10">Step 8/10</string>
+    <string name="step_9_10">Step 9/10</string>
+    <string name="image_vallidation_message">Image can be .png, .jpg or .webp &amp; should not exceed 5mb</string>
+    <string name="step_10_10">step 10/10</string>
+    <string name="invite_member">Invite members to this challenge</string>
+    <string name="choose_challenge_visibility">Choose Challenge Visibility</string>
+    <string name="choose_sports">Choose Sports Level</string>
+    <string name="challenge_icon">Challenge Icon</string>
+    <string name="challenge_area">Challenge Area</string>
+    <string name="for_location">For Location</string>
+    <string name="radius">Radius</string>
+    <string name="location_radius">Location Radius</string>
+    <string name="overview_astrik">OverView*</string>
+    <string name="rules_astrik">Rules*</string>
+    <string name="qualification_astrik">Qualification*</string>
+    <string name="empty_prize_error">Please prize awarded</string>
+    <string name="empty_overview_error">Overview cannot be empty</string>
+    <string name="empty_select_winner_error">Please pick winner</string>
+    <string name="empty_winner_error">Winner cannot be empty</string>
+    <string name="empty_rules_error">Rules cannot be empty</string>
+    <string name="empty_qualification_error">Qualification cannot be empty</string>
+    <string name="empty_name_error">Name cannot be empty</string>
+    <string name="challenge_name_length">Challenge Name must be minimum for characters</string>
+    <string name="empty_age_group_error">Age Group cannot be empty</string>
+    <string name="empty_challengevisibility_error">Challenge Visibility cannot be empty</string>
+    <string name="empty_sportlevel_error">Sports Level cannot be empty</string>
+    <string name="set">Set</string>
+    <string name="please_select_challenge_before_proceed">Please select challenge before proceed.</string>
+    <string name="winner_will_be_picked">Winner Will Be Picked</string>
+    <string name="winner_prize_awarded">Winner Prize Awarded</string>
+    <string name="number_picker_formatter">%02d</string>
+    <string name="challenge_preview">Challenge Preview</string>
+    <string name="statusastric">Status*</string>
+    <string name="status">Status</string>
+    <string name="follow">Follow</string>
+    <string name="Idle">Idle</string>
+
+    <string name="brand_model">Brand/Model</string>
+    <string name="choose_brand_model">Choose Brand &amp; Model</string>
+    <string name="reported">Reported</string>
+    <string name="favorite_manage_user">Favorite</string>
+    <string name="commented">Commented</string>
+    <string name="notifications">Notifications</string>
+    <string name="settings">Settings</string>
+    <string name="likes">Likes</string>
+    <string name="likes_subheading">Notify me when I receive like</string>
+    <string name="comment_subheading">Notify me when someone comments on my activity</string>
+    <string name="lostcr">Lost CR</string>
+    <string name="lost_cr_subheading">Notify me when I lose the top place on a leaderboard</string>
+    <string name="device_sync">Device Activity Synced</string>
+    <string name="device_sync_subheading">Notify me when an activity from my device syncs to YEW</string>
+    <string name="beacon">Beacon</string>
+    <string name="beacon_subheading">Notify me when I’m sharing my location with safety contacts</string>
+    <string name="become_spector">Become Spectator</string>
+    <string name="spectors">Spectators</string>
+    <string name="become_spector_subheading">Notify me when someone make me their spectator.</string>
+    <string name="activity_subheading">Notify me when user will start and end their activity</string>
+    <string name="activity">Activity</string>
+    <string name="friend_joins">Friend Joins</string>
+    <string name="friend">Friends</string>
+    <string name="friends_join_subheading">Notify me when someone I know joins YEW</string>
+    <string name="new_follower">New Follower</string>
+    <string name="friends_activity">Friends’ Activities</string>
+    <string name="friend_activity_subheading">Notify me when my friends post interesting activities, and when friends I’ve favorited post activities</string>
+    <string name="feeds_video_feed">Feeds/Video Feeds</string>
+    <string name="feeds_like_feed">Feed Like</string>
+    <string name="feed_like">Feed Like</string>
+    <string name="feed_like_subheading">Notify me when I receive some like on a feed</string>
+    <string name="feed_comment">Feed Comments</string>
+    <string name="feed_comment_subheading">Notify me when someone comments on my feed or replies to my comment on a feed</string>
+    <string name="chat">Chat</string>
+    <string name="new_message">New Message</string>
+    <string name="new_msg_subheading">Notify me when someone text me in the chat</string>
+    <string name="chat_subscription_subheading">Notify me before the next billing cycle of subscription will yet to come (2 days, 1 day before).</string>
+    <string name="marketing">Marketing</string>
+    <string name="marketing_subheading">Allow YEW to send me push notifications about promotions or other marketing announcements.</string>
+    <string name="others">Others</string>
+    <string name="feature_subscription_tips">Feature and Subscription Tips</string>
+    <string name="feature_subscription_subheading">Receive announcements about new features and tips for how to best use them.</string>
+    <string name="email_subheading">Occasionally, we’d like to email you quick updates about new features, personalized data visualizations or promotions and offers from YEW and its partners that we think you’ll appreciate. And it’s just some fun between us – we don’t share or sell your contact information and you can change these settings at any time.</string>
+    <string name="email_alert">Email Alert</string>
+    <string name="feeds_like_feed_video">Feeds/Video Feeds</string>
+    <string name="new_challenge">New Challenge</string>
+    <string name="new_challenge_subheading">Notify me when public challenge published in the application in which I am eligible to join.</string>
+    <string name="challenge_process">Challenge Progress</string>
+    <string name="challenge_process_subheading">Notify me when I’ve joined, made progress on or completed either a YEW challenge or Group challenge</string>
+    <string name="challenge_reward">Challenge Rewards</string>
+    <string name="challenge_reward_subheading">Notify me when I complete a challenge that has a reward, donation, or an opportunity to learn more</string>
+    <string name="challenge_invite">Challenge Invites</string>
+    <string name="challenge_invite_subheading">Notify me when someone invites me to either a YEW challenge</string>
+    <string name="challenge_comment">Challenge Comments</string>
+    <string name="challenge_comment_subheading">Notify me when someone comments on a challenge</string>
+    <string name="challenge_joined">Challenge Joined</string>
+    <string name="challenge_joined_subheading">Notify me when someone join challenge in which I have joined or created</string>
+    <string name="challenge_leaderboard">Challenge Leaderboard Changed</string>
+    <string name="challenge_leaderboard_subheading">Notify me when someone passes me on a challenge leaderboard</string>
+    <string name="muted">Muted</string>
+    <string name="block">Blocked</string>
+    <string name="unblock">Unblock</string>
+    <string name="unmute">UnMute</string>
+    <string name="click_here"><u>Click Here</u></string>
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="yes">yes</string>
+    <string name="do_you_really_want">Do you really want to mute this feed?</string>
+    <string name="no">No</string>
+    <string name="do_you_want_to_mute_this_feed">Do you want to mute the notifications?</string>
+    <string name="do_you_want_to_report_this_feed">Do you want to report the feed?</string>
+    <string name="do_you_want_to_report_this_comment">Do you want to report the Comment?</string>
+    <string name="do_you_want_to_report_this_user">Do you want to report the User?</string>
+
+    <string name="report">Report</string>
+    <string name="do_you_want_to_block_this_feed">Do you want to block the user?</string>
+    <string name="do_you_want_to_add_this_feed_to_favourite">Do you want to make the user as a favorite user?</string>
+    <string name="create_feed_message">You don\'t have any followers or following.\nPlease follow someone or post your feed.</string>
+    <string name="dash">----</string>
+    <string name="nofeed_availabel">No feeds available</string>
+    <string name="updated_email">New Email Id</string>
+    <string name="updated_mobile_no">New Mobile Number</string>
+    <string-array name="feed_options">
+        <item>Follow</item>
+        <item>Chat</item>
+        <item>Mute</item>
+        <item>Add to Favourite</item>
+        <item>Block User</item>
+    </string-array>
+
+    <string-array name="month">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string name="audio">Audio</string>
+    <string name="camera">Camera</string>
+    <string name="capture">Capture</string>
+    <string name="stop">Stop</string>
+    <string name="pause">Pause</string>
+    <string name="Resume">Resume</string>
+    <string name="Start">Start</string>
+    <string name="Finalize">Finalize</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="video_viewer_tips">Tips for the page:\n\t- tap anywhere to replay\n\t- tap system back button to go back</string>
+    <string name="alpha_warning">CameraX VideoCapture is at its alpha phase:\n
+                                    \t- things might change and probably will change\n
+                                    \t- if you need something unavailable, request them now\n
+                                    \nAbout this sample:\n
+                                    \t- demonstrates VideoCapture with Recorder case\n
+                                    \t- is at alpha phase, may have rough edges too\n
+                                    \nWhat is next:\n
+                                    \t** tap anywhere to continue when you are ready **\n</string>
+    <string name="publish_video">PUBLISH VIDEO</string>
+    <string name="caption">Caption*</string>
+    <string name="visibility">Visibility</string>
+    <string name="title_can_not_be_empty">Title can not be empty.</string>
+    <string name="caption_can_not_be_empty">Caption can not be empty.</string>
+    <string name="please_select_visibility_type">Please select visibility type.</string>
+    <string name="feed_save_successfully">Feed Posted successfully</string>
+    <string name="phonecode">Code</string>
+    <string name="empty_phone_code">Please select country code</string>
+    <string name="update">Update</string>
+    <string name="choose_country_code">Choose Country Code</string>
+    <string name="new_phonenumber">Enter new Mobile number*</string>
+    <string name="country_code">Code</string>
+    <string name="mobile_verification">Mobile Number Verification</string>
+    <string name="entercomment_here">Enter Comment Here</string>
+    <string name="enter_reply">Reply here</string>
+    <string name="add_member">Add Members</string>
+    <string name="search_members">Search Members</string>
+    <string name="search_by_name_email_phone">Search by name,email and phone no...</string>
+    <string name="message_label">Message</string>
+    <string name="unfollow">UnFollow</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="comment_added_successfull">Comment added succesfully</string>
+    <string name="driving_profile">Driving</string>
+    <string name="walking_profile">Walking</string>
+    <string name="cycling_profile">Cycling</string>
+    <string name="instruction">Insruction</string>
+    <string name="click_instructions">Instructions</string>
+    <string name="only_twelve_stops_allowed">Only twelve spots are allowed</string>
+    <string name="null_in_response">Null is coming in response</string>
+    <string name="successful_but_no_routes">Success but no route found</string>
+    <string name="no_success">No Success</string>
+    <string name="no_active_challenge_are_available">You don\'t have any active challenges.</string>
+    <string name="no_reported_comments_are_available">You don\'t have any Reported comments.</string>
+    <string name="no_reported_shorts">You don\'t have any Reported Shorts.</string>
+    <string name="no_reported_shorts_comments">You don\'t have any Reported Shorts comments.</string>
+    <string name="no_blocked_user">You don\'t have any Blocked users.</string>
+    <string name="no_favorite_user">You don\'t have any Favorite users.</string>
+    <string name="no_muted_user">You don\'t have any Muted users.</string>
+    <string name="no_reported_feed_are_available">You don\'t have any Reported feeds.</string>
+    <string name="no_created_challenge_are_available">You don\'t have any created challenges.</string>
+    <string name="no_member_available">You don\'t have any member.</string>
+    <string name="no_favorite_challenge_are_available">You don\'t have any favorite challenges.</string>
+    <string name="favorite">Favorite</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="route_description_astric">Route Description*</string>
+    <string name="add_route">Add Route</string>
+    <string name="title_empity">Please enter title</string>
+    <string name="descpiption_empty">"Please enter description "</string>
+
+    <string name="empty_location_error">Location cannot be empty</string>
+    <string name="empty_radius_error">Radius cannot be empty</string>
+    <string name="empty_country_error">Country cannot be empty</string>
+    <string name="empty_state_error">State cannot be empty</string>
+    <string name="empty_city_error">City cannot be empty</string>
+
+    <string name="empty_calories_error">Calories cannot be empty</string>
+    <string name="empty_miles_error">Miles cannot be empty</string>
+    <string name="empty_ele_error">Elevation cannot be empty</string>
+    <string name="empty_watt_error">Avg. watt cannot be empty</string>
+    <string name="empty_time_error">Time cannot be empty</string>
+    <string name="empty_max_member_error">Max member cannot be empty</string>
+    <string name="max_member_error">Max member cannot be greater than </string>
+    <string name="all_participants">All Participants</string>
+    <string name="you_can_only_add_1_member_in_current_subscription_plan_upgrade_now"><![CDATA[You can only add 1 member in current subscription plan…Upgrade Now >]]></string>
+    <string name="yew_status">Yew! Status</string>
+    <string name="relation">Relation</string>
+    <string name="relation_astric">Relation*</string>
+    <string name="associate_permissions">Associate Permissions</string>
+    <string name="permission_message">Select the permission that will be allowed for the Associate Account Members</string>
+    <string name="feed">Feeds</string>
+    <string name="followers_following_feeds"><![CDATA[Followers & Following Feeds]]></string>
+    <string name="parents_followers_following_feeds"><![CDATA[Parents Followers & Following Feeds]]></string>
+    <string name="add_feeds">Add Feeds</string>
+    <string name="video_feeds">Video Feeds</string>
+    <string name="record_publish"><![CDATA[Record & Publish]]></string>
+    <string name="all_followers_following_feeds"><![CDATA[All Followers & Following Feeds]]></string>
+    <string name="join_challenge">Join Challenge</string>
+    <string name="create_challenge">Create Challenge</string>
+    <string name="routes">Routes</string>
+    <string name="create_routes">Create Routes</string>
+    <string name="add_associate_account">ADD ASSOCIATE ACCOUNT</string>
+    <string name="update_associate_account">UPDATE ASSOCIATE ACCOUNT</string>
+    <string name="migrate_associate">Migrate Associate Account</string>
+    <string name="provide_an_email_id_and_password_for_your_new_account">Provide an Email ID and Password for your new account.</string>
+    <string name="old_password_astric">Old Password*</string>
+    <string name="new_password_astric">New Password*</string>
+    <string name="login_to_your_account">LOGIN TO YOUR ACCOUNT</string>
+    <string name="migrate_another_account"><![CDATA[Migrate Another Account >]]></string>
+    <string name="associate_migrate_success_message">Selected account has been migrated as a unique Yew! Member. Go to login screen and enjoy your Yew! experience.</string>
+    <string name="reload_page">Reload Page</string>
+    <string name="no_internet_connection_found_please_check_your_your_connection_and_try_reloading_the_page">No internet connection found please check your connection and try reloading the page</string>
+    <string name="oops">OOPS!</string>
+    <string name="what_s_on_your_mind">What\'s On Your Mind?</string>
+    <string name="chat_with_parent">Chat With Parent</string>
+    <string name="add_spectator">Add Spectator</string>
+    <string name="add_spectator_members">Add Spectator Members</string>
+    <string name="choose_users_from">Choose Users From</string>
+
+
+    <string name="facebook_app_id">520021683530054</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">6cc283088dd5cb2f7dd1e58c172e6a5e</string>
+    <string name="share_feedback">Share Feedback</string>
+    <string name="favourite">Favourite</string>
+    <string name="wheel_size">Wheel Size</string>
+    <string name="frame">Frame</string>
+    <string name="year">Year</string>
+    <string name="grade_level">Grade Level</string>
+    <string name="work_your_way_up_from_beginner_to_an_intermediate_to_an_expert_track_your_activity_and_our_algo_will_place_you_where_you_belong_yeww">Work your way up from Beginner to an Intermediate to an Expert. Track your activity and our algo will place you where you belong. Yeww!</string>
+    <string name="models_equipments"><![CDATA[Models & Equipments]]></string>
+    <string name="view_all">View all</string>
+    <string name="become_sponsor">Become Sponsor</string>
+    <string name="become_advertiser">Become Advertiser</string>
+    <string name="hide_activity_starting_location">Hide Activity Starting Location</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="pricing_plans"><![CDATA[Pricing & Plans]]></string>
+    <string name="manage_short_video">Manage Short Video</string>
+    <string name="device_home_disc">Select your device manufacturer from the \nbottom list and connect it to Yew! App to track \nall the activity that you perform.</string>
+    <string name="device_home_title">Choose Device Type</string>
+    <string name="garmin_device">Garmin Device</string>
+    <string name="garmin_connect_info_txt">Upload your Garmin Activities to Yew by \nconnecting your Garmin Connect and Yew \naccounts. Click Connect Device below to log in \nto your Garmin connect account and authorize \nYew access.</string>
+    <string name="add_model">Add Model</string>
+    <string name="add_equipment">Add Equipment</string>
+    <string name="update_details">Update Details</string>
+    <string name="sub_sports_category">Sub Sports Category</string>
+    <string name="history">History</string>
+    <string name="no_reward_available">"No rewards available! "</string>
+    <string name="manage_shorts">Manage Shorts</string>
+    <string name="refer_a_friend">Refer a friend</string>
+    <string name="remove_account">Remove Account</string>
+    <string name="are_you_sure_you_want_to_remove_this_associate_account_once_removed_you_will_not_bew_able_to_recover_any_of_it_s_data_like_the_earned_points_stats_and_followers_etc">Are you sure you want to remove this Associate Account? Once removed you will not be able to recover any of it\'s data like the earned points, Stats and Followers etc.</string>
+    <string name="remove_sport_type_message">Are you sure you want to remove this Sports Type? Once delete you will loss sports model and equipment data </string>
+    <string name="remove_account_q">Remove Account?</string>
+    <string name="remove_spectator_message">Are you sure you want to remove this Spectator account?</string>
+    <string name="equipment">Equipment</string>
+    <string name="delete_sport">Delete Sport Type</string>
+    <string name="type">Type</string>
+    <string name="winner_picked_message"><b>Note:</b> You can choose winner either by choosing from leaderboard or randomly.</string>
+    <string name="note_radius"><b>Note:</b> Radius in which User can join the challenge</string>
+    <string name="no_sports_available">No Sports Available!</string>
+    <string name="in_active_challenge_message">Your challenge status is inactive so it will be moved to Save As Draft</string>
+
+
+</resources>

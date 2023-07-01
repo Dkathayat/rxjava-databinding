@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addspectator.AddSpectatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!--    <ImageView-->
+        <!--        android:id="@+id/tv_back"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:padding="@dimen/dimen_20"-->
+        <!--        android:layout_marginTop="@dimen/dimen_24"-->
+        <!--        android:onClick="@{viewModel::onBackPressed}"-->
+        <!--        android:src="@drawable/ic_close"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toTopOf="parent" />-->
+        <TextView
+            android:id="@+id/tvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_28"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:drawablePadding="@dimen/dimen_5"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:onClick="@{viewModel::onBackPressed}"
+            android:text="@string/go_back"
+            android:textSize="@dimen/text_15"
+            app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/add_feed_text"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:text="@string/add_spectator_members"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBack" />
+
+        <EditText
+            android:id="@+id/search_EditTxt"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_64"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/text_15"
+            android:layout_marginEnd="@dimen/dimen_24"
+            android:layout_marginBottom="@dimen/text_15"
+            android:background="@drawable/grey_square_background"
+            android:drawableStart="@drawable/ic_icon_search"
+            android:drawablePadding="@dimen/dimen_20"
+            android:elevation="@dimen/dimen_10"
+            android:ellipsize="end"
+            android:hint="@string/search_members"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dimen_20"
+            android:paddingEnd="@dimen/dimen_70"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintTop_toBottomOf="@+id/add_feed_text" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvUserType"
+            style="@style/TextInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:hint="@string/choose_users_from"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_EditTxt">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userType"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:cursorVisible="false"
+                android:drawableEnd="@drawable/ic_drop_down_arrow"
+                android:focusable="false"
+                android:fontFamily="@font/roboto_medium"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:longClickable="false"
+                android:onClick="@{viewModel::onActionClick}"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:text="@={viewModel.userFrom}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSpectatorMembers"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:visibility="@{viewModel.userFromYew?View.VISIBLE:View.INVISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/loader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserType"
+            tools:listitem="@layout/item_add_spectator_member" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvContactNumber"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:visibility="@{viewModel.userFromYew?View.GONE:View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/loader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserType"
+            tools:listitem="@layout/item_choose_contact" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddSpectatorMEmber"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@{viewModel.isBtnActive?@color/black:@color/btnDisable}"
+            android:clickable="@{viewModel.isBtnActive?true:false}"
+            android:fontFamily="@font/roboto_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onActionClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/add_spectator"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            app:backgroundTint="@null"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loader"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:background="@color/white"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading"
+            app:lottie_speed="2" />
+
+        <!--        <com.airbnb.lottie.LottieAnimationView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/rvSpectatorMembers"-->
+        <!--            app:lottie_autoPlay="true"-->
+        <!--            app:lottie_loop="true"-->
+        <!--            app:lottie_rawRes="@raw/feed_loading" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

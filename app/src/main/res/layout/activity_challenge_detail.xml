@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.challengeDetails.vm.ChallengeDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_challenge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:padding="@dimen/dimen_16"
+            android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:src="@drawable/ic_back_arrow" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:drawablePadding="@dimen/dimen_16"
+                android:fontFamily="@font/raleway_bold"
+                android:gravity="center"
+                android:paddingTop="@dimen/dimen_16"
+                android:paddingBottom="@dimen/dimen_16"
+                android:text="@string/challenge_details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:id="@+id/scroll_Challenge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_challenge">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".ui.modules.challengeDetails.ChallengeDetailActivity">
+
+
+                <ImageView
+                    android:id="@+id/banner_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="202dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/challenge_banner"
+                    app:layout_constraintBottom_toBottomOf="@+id/skull_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.29"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/skull_img"
+                    android:layout_width="89dp"
+                    android:layout_height="89dp"
+                    android:layout_marginTop="158dp"
+                    android:src="@drawable/challenge_skull_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/admin_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_32"
+                    android:layout_marginStart="@dimen/dimen_12"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:background="@drawable/bg_draft"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:text="@string/admin"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_12"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="@dimen/dimen_24"
+                    android:background="@drawable/bg_circular"
+                    android:src="@drawable/ic_shoe"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/admin_btn" />
+
+                <TextView
+                    android:id="@+id/challenge_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="20 in 20 Adventure Challenge."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/skull_img" />
+
+                <TextView
+                    android:id="@+id/challenge_detail_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="Oakwill, New york"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_detail_title" />
+
+                <TextView
+                    android:id="@+id/challenge_detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:fontFamily="@font/raleway_medium"
+                    android:onClick="@{viewModel::onWinnerClick}"
+                    android:text="@string/challenge_detail_description"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_detail_subtitle" />
+
+                <View
+                    android:id="@+id/challenge_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                    android:background="@drawable/layout_view_drawable"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_detail_description" />
+
+                <TextView
+                    android:id="@+id/join_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_add_image"
+                    android:fontFamily="@font/raleway_medium"
+                    android:padding="@dimen/dimen_16"
+                    android:text="JOIN"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toStartOf="@+id/share"
+                    app:layout_constraintHorizontal_bias="0.52"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_view" />
+
+                <TextView
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic__share"
+                    android:drawablePadding="@dimen/dimen_8"
+                    android:fontFamily="@font/raleway_medium"
+                    android:padding="@dimen/dimen_16"
+                    android:text="SHARE"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/join_text"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_view" />
+
+                <View
+                    android:id="@+id/view_challenge"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="@color/light_grey"
+                    app:layout_constraintTop_toBottomOf="@+id/share" />
+
+                <TextView
+                    android:id="@+id/min_point_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:drawableStart="@drawable/ic_point_required"
+                    android:drawablePadding="@dimen/dimen_16"
+                    android:fontFamily="@font/raleway_medium"
+                    android:padding="@dimen/dimen_16"
+                    android:text="@string/minimum_points_required"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_challenge" />
+
+                <TextView
+                    android:id="@+id/winner_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:drawableStart="@drawable/ic_winner"
+                    android:drawablePadding="@dimen/dimen_16"
+                    android:fontFamily="@font/raleway_medium"
+                    android:onClick="@{viewModel::onWinnerClick}"
+                    android:padding="@dimen/dimen_16"
+                    android:text="Winner of the challenge will get a Sneaker and a pair of cool YEW! T-Shirts... Know More >"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/min_point_text" />
+
+                <TextView
+                    android:id="@+id/score_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:drawableStart="@drawable/ic_score_details"
+                    android:drawablePadding="@dimen/dimen_16"
+                    android:fontFamily="@font/raleway_medium"
+                    android:padding="@dimen/dimen_16"
+                    android:text="@string/score_get"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/winner_text" />
+
+                <View
+                    android:id="@+id/challenge_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                    android:background="@drawable/layout_view_drawable"
+                    app:layout_constraintTop_toBottomOf="@+id/score_text" />
+
+                <TextView
+                    android:id="@+id/important_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:fontFamily="@font/raleway_medium"
+                    android:padding="@dimen/dimen_16"
+                    android:text="@string/important_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_view2" />
+
+                <View
+                    android:id="@+id/view_challenge2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_64"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:background="@color/light_grey"
+                    app:layout_constraintTop_toBottomOf="@+id/important_text" />
+
+                <TextView
+                    android:id="@+id/popular_challenges_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_bold"
+                    android:paddingStart="@dimen/dimen_24"
+                    android:text="Popular Challenges"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toBottomOf="@+id/view_challenge2"
+                    app:layout_constraintStart_toStartOf="@+id/view_challenge2"
+                    app:layout_constraintTop_toTopOf="@+id/view_challenge2" />
+
+                <ImageView
+                    android:id="@+id/banner_img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="202dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/challenge_banner"
+                    app:layout_constraintBottom_toBottomOf="@+id/skull_img2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.29"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_challenge2"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/skull_img2"
+                    android:layout_width="89dp"
+                    android:layout_height="89dp"
+                    android:layout_marginTop="158dp"
+                    android:elevation="@dimen/dimen_24"
+                    android:src="@drawable/challenge_skull_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/banner_img2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/banner_img2"
+                    app:layout_constraintTop_toTopOf="@+id/banner_img2"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/banner_img2">
+
+                    <TextView
+                        android:id="@+id/ride_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_64"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Ride the bike, earn the delight!"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/date_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_8"
+                        android:drawableStart="@drawable/ic_shoe"
+                        android:drawablePadding="@dimen/dimen_8"
+                        android:fontFamily="@font/raleway_medium"
+                        android:padding="@dimen/dimen_8"
+                        android:text="Ends on 12 January 2022"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ride_title" />
+
+                    <TextView
+                        android:id="@+id/ride_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_32"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:layout_marginEnd="@dimen/dimen_32"
+                        android:text="@string/ride_description"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/date_text" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        android:text="Min. Pnts: 200"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textView11"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ride_description" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        android:text="Win a Mountain Bike"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView12"
+                        app:layout_constraintTop_toBottomOf="@+id/ride_description" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!--    <include
+                android:id="@+id/bottom_include"
+                layout="@layout/layout_bottom_navigation_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

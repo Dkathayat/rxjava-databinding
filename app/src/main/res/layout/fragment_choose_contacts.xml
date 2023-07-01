@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.refer.vm.ChooseContactsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/search_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:background="@drawable/layout_searchview_border"
+            android:drawableStart="@drawable/ic_icon_search"
+            android:drawablePadding="@dimen/dimen_16"
+            android:fontFamily="@font/raleway_medium"
+            android:hint="@string/search_hint"
+            android:padding="@dimen/dimen_16"
+            android:textColor="@color/black"
+            android:textColorHint="@color/dark_grey"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_choose"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dimen_8"
+            android:gravity="center"
+            android:padding="@dimen/dimen_8"
+            android:text="@string/referred_friends"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintBottom_toTopOf="@+id/send_request_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_edittext" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/send_request_button"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onSendRequestClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/send_request"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            android:visibility="@{viewModel.isLoading?View.INVISIBLE:View.VISIBLE}"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminateTint="@color/black"
+                    android:indeterminateTintMode="src_in"
+                    android:visibility="@{viewModel.isLoading?View.VISIBLE:View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/send_request_button"
+                    app:layout_constraintEnd_toEndOf="@+id/send_request_button"
+                    app:layout_constraintStart_toStartOf="@+id/send_request_button"
+                    app:layout_constraintTop_toTopOf="@+id/send_request_button" />
+        -->
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/send_request_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_edittext"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

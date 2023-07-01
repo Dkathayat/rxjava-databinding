@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.routedetail.RouteDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/header_tv"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dimen_20"
+            android:onClick="@{viewModel::onActionClick}"
+            android:padding="@dimen/dimen_20"
+            android:text="@string/popular_routes"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            app:drawableStartCompat="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_20"
+            app:layout_constraintTop_toBottomOf="@+id/header_tv">
+
+            <TextView
+                android:id="@+id/route_title_tv"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.routeTitle}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_20"
+                app:layout_constraintEnd_toStartOf="@+id/bookmark_img"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/bookmark_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10"
+                android:src="@{viewModel.isRouteFavorite?@drawable/ic_bookmark_active:@drawable/ic_bookmark_inactive}"
+                app:layout_constraintStart_toEndOf="@+id/route_title_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/share_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10"
+                android:src="@drawable/ic_share"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bookmark_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivSportType"
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/route_title_tv"
+                app:setImageRes="@{viewModel.sportTypeIcon}" />
+
+            <TextView
+                android:id="@+id/miles_value_tv"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:drawablePadding="@dimen/dimen_10"
+                android:paddingStart="@dimen/dimen_5"
+                android:text="@{viewModel.distance}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintStart_toEndOf="@+id/ivSportType"
+                app:layout_constraintTop_toBottomOf="@+id/route_title_tv" />
+
+            <View
+                android:id="@+id/dot_view"
+                android:layout_width="@dimen/dimen_3"
+                android:layout_height="@dimen/dimen_3"
+                android:layout_marginHorizontal="@dimen/dimen_10"
+                android:background="@drawable/black_dot"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/athelet_count_tv"
+                app:layout_constraintStart_toEndOf="@+id/miles_value_tv"
+                app:layout_constraintTop_toTopOf="@+id/miles_value_tv" />
+
+            <TextView
+                android:id="@+id/athelet_count_tv"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:text="@{viewModel.athelete}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15"
+                app:layout_constraintStart_toEndOf="@+id/dot_view"
+                app:layout_constraintTop_toBottomOf="@+id/route_title_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mapbox.mapboxsdk.maps.MapView xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/detail_mapView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            mapbox:layout_constraintBottom_toTopOf="@+id/calorie_layout"
+            mapbox:layout_constraintStart_toStartOf="parent"
+            mapbox:layout_constraintTop_toBottomOf="@+id/detail_layout"
+            mapbox:mapbox_cameraTargetLat="40.7128"
+            mapbox:mapbox_cameraTargetLng="-74.0060"
+            mapbox:mapbox_cameraZoom="15" />
+
+        <ImageView xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/detail_mapViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/calorie_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_layout"
+            app:setImageRes="@{viewModel.mapIcon}" />
+
+
+        <LinearLayout
+            android:id="@+id/calorie_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingVertical="@dimen/dimen_20"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_10"
+            android:weightSum="2.1"
+            app:layout_constraintBottom_toTopOf="@+id/calorie_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/calories_label"
+                    style="@style/Text.Roboto.Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_40"
+                    android:paddingEnd="@dimen/dimen_40"
+                    android:text="@string/calories"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Text.Roboto.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{viewModel.calories}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_17"
+                    app:layout_constraintEnd_toEndOf="@+id/calories_label"
+                    app:layout_constraintStart_toStartOf="@+id/calories_label"
+                    app:layout_constraintTop_toBottomOf="@+id/calories_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/distance_label"
+                app:layout_constraintStart_toEndOf="@+id/calories_label"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/distance_label"
+                    style="@style/Text.Roboto.Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_40"
+                    android:paddingEnd="@dimen/dimen_40"
+                    android:text="@string/distance"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Text.Roboto.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{viewModel.distance}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_17"
+                    app:layout_constraintEnd_toEndOf="@+id/distance_label"
+                    app:layout_constraintStart_toStartOf="@+id/distance_label"
+                    app:layout_constraintTop_toBottomOf="@+id/distance_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/calorie_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/layout_view_drawable"
+            app:layout_constraintBottom_toTopOf="@+id/elevation_time_layout" />
+
+        <LinearLayout
+            android:id="@+id/elevation_time_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingVertical="@dimen/dimen_20"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_10"
+            android:weightSum="2.1"
+            app:layout_constraintBottom_toTopOf="@+id/choose_route_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/elevation_label"
+                    style="@style/Text.Roboto.Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dimen_50"
+                    android:paddingEnd="@dimen/dimen_50"
+                    android:text="@string/time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Text.Roboto.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{viewModel.time}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_17"
+                    app:layout_constraintEnd_toEndOf="@+id/elevation_label"
+                    app:layout_constraintStart_toStartOf="@+id/elevation_label"
+                    app:layout_constraintTop_toBottomOf="@+id/elevation_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ele_gain_label"
+                app:layout_constraintStart_toEndOf="@+id/elevation_label"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/ele_gain_label"
+                    style="@style/Text.Roboto.Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dimen_40"
+                    android:paddingEnd="@dimen/dimen_40"
+                    android:text="@string/elevation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_13"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Text.Roboto.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{viewModel.elevation}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_17"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/ele_gain_label"
+                    app:layout_constraintTop_toBottomOf="@+id/ele_gain_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/choose_route_btn"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onActionClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/chooseroute"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            app:backgroundTint="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

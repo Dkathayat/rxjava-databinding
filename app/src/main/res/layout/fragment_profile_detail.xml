@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.editProfile.vm.ProfileDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profilefragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/first_name_astrik"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.firstNameError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:maxLength="32"
+                        android:maxLines="1"
+                        android:onTextChanged="@{viewModel::onFirstNameChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.firstName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout1"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/last_name"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.lastNameError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:inputType="textPersonName"
+                        android:maxLength="32"
+                        android:maxLines="1"
+                        android:onTextChanged="@{viewModel::onLastNameChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.lastName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout2"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/enter_email"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.emailError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:drawableEnd="@drawable/ic_edit"
+                        android:drawableTint="@color/grey"
+                        android:editable="false"
+                        android:focusableInTouchMode="false"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="254"
+                        android:maxLines="1"
+                        android:onClick="@{viewModel::onEmailClick}"
+                        android:onTextChanged="@{viewModel::onEmailChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.email}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout3"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/mobile_number"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.mobileError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:drawableEnd="@drawable/ic_edit"
+                        android:drawableTint="@color/grey"
+                        android:editable="false"
+                        android:focusableInTouchMode="false"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:onClick="@{viewModel::onPhoneClick}"
+                        android:onTextChanged="@{viewModel::onMobileChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.mobile}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--                <TextView-->
+                <!--                    style="@style/Text.Bold"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_8"-->
+                <!--                    android:text="@string/address_astik"-->
+                <!--                    android:textColor="@color/dark_grey"-->
+                <!--                    android:textSize="@dimen/text_14" />-->
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/textView20"-->
+                <!--                    style="@style/Text.Roboto.Medium"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_8"-->
+                <!--                    android:gravity="center_vertical"-->
+                <!--                    android:onClick="@{viewModel::onAddressClick}"-->
+                <!--                    android:text="@{viewModel.address}"-->
+                <!--                    android:textAlignment="gravity"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="@dimen/text_16"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                <View-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0.5dp"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:background="@color/grey" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textView20"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/address_astik"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.addressError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down_arrow"
+                        android:focusable="false"
+                        android:fontFamily="@font/roboto_medium"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:onClick="@{viewModel::onAddressClick}"
+                        android:onTextChanged="@{viewModel::onAddressChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@{viewModel.address}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--                <TextView-->
+                <!--                    style="@style/Text.Bold"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_8"-->
+                <!--                    android:text="@string/choose_country_astrik"-->
+                <!--                    android:textColor="@color/dark_grey"-->
+                <!--                    android:textSize="@dimen/text_14" />-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textView27"
+                        style="@style/TextInputStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_8"
+                        android:hint="@string/choose_country_astrik"
+                        app:endIconMode="clear_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:setError="@{viewModel.countryError}">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCountry"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:cursorVisible="false"
+                            android:drawableEnd="@drawable/ic_drop_down_arrow"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_medium"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:longClickable="false"
+                            android:onClick="@{viewModel::onCountryClick}"
+                            android:onTextChanged="@{viewModel::onCountryChange}"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="@{viewModel.selectedCountry}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_15" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:indeterminateTint="@color/grey"
+                        android:padding="@dimen/dimen_8"
+                        android:visibility="@{viewModel.isCountryLoading() ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView27"
+                        app:layout_constraintEnd_toEndOf="@+id/textView27"
+                        app:layout_constraintTop_toTopOf="@+id/textView27" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                <View-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0.5dp"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:background="@color/grey" />-->
+
+                <!--                <TextView-->
+                <!--                    style="@style/Text.Bold"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_8"-->
+                <!--                    android:text="@string/choose_state_astrik"-->
+                <!--                    android:textColor="@color/dark_grey"-->
+                <!--                    android:textSize="@dimen/text_14" />-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textView30"
+                        style="@style/TextInputStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_8"
+                        android:hint="@string/choose_state_astrik"
+                        app:endIconMode="clear_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:setError="@{viewModel.stateError}">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etState"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:cursorVisible="false"
+                            android:drawableEnd="@drawable/ic_drop_down_arrow"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_medium"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:longClickable="false"
+                            android:onClick="@{viewModel::onStateClick}"
+                            android:onTextChanged="@{viewModel::onStateChange}"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="@={viewModel.selectedState}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_15" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:indeterminateTint="@color/grey"
+                        android:padding="@dimen/dimen_8"
+                        android:visibility="@{viewModel.isStateLoading() ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                        app:layout_constraintEnd_toEndOf="@+id/textView30"
+                        app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                <View-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0.5dp"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:background="@color/grey" />-->
+
+                <!--                <TextView-->
+                <!--                    style="@style/Text.Bold"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_8"-->
+                <!--                    android:text="@string/choose_city_astrik"-->
+                <!--                    android:textColor="@color/dark_grey"-->
+                <!--                    android:textSize="@dimen/text_14" />-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textView31"
+                        style="@style/TextInputStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_8"
+                        android:hint="@string/choose_city_astrik"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:setError="@{viewModel.stateError}">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCity"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:cursorVisible="false"
+                            android:drawableEnd="@drawable/ic_drop_down_arrow"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_medium"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:longClickable="false"
+                            android:onClick="@{viewModel::onCityClick}"
+                            android:onTextChanged="@{viewModel::onCityChange}"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="@{viewModel.selectedCity}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_15" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:indeterminateTint="@color/grey"
+                        android:padding="@dimen/dimen_8"
+                        android:visibility="@{viewModel.isCityLoading() ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView31"
+                        app:layout_constraintEnd_toEndOf="@+id/textView31"
+                        app:layout_constraintTop_toTopOf="@+id/textView31" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                <View-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0.5dp"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:background="@color/grey" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout5"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/zip_code_astrik"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.zipCodeError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:digits="1234567890"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:onTextChanged="@{viewModel::onZipCodeChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.zipCode}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvGender"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/gender"
+                    app:endIconMode="clear_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:digits="1234567890"
+                        android:imeOptions="actionNext"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down_arrow"
+                        android:focusable="false"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:onClick="@{viewModel::onGenderClick}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@{viewModel.gender}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvDob"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/dob"
+                    app:endIconMode="clear_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:digits="1234567890"
+                        android:imeOptions="actionNext"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down_arrow"
+                        android:focusable="false"
+                        android:fontFamily="@font/roboto_medium"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:onClick="@{viewModel::onDobClick}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@{viewModel.dobDisplayed}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout7"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/weight"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.weightError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:digits="1234567890."
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:onTextChanged="@{viewModel::onWeightChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.weight}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout8"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/max_heart_rate"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.heartRateError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:digits="1234567890"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:onTextChanged="@{viewModel::heartRateChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.maxHeartRate}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout9"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:hint="@string/bio_without_astrik"
+                    app:endIconMode="clear_text"
+                    app:setError="@{viewModel.bioError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:maxLength="500"
+                        android:maxLines="3"
+                        android:onTextChanged="@{viewModel::bioChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.bio}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_sign_up"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:fontFamily="@font/raleway_medium"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:onClick="@{viewModel::onSubmitClick}"
+                    android:paddingVertical="@dimen/dimen_24"
+                    android:text="@string/save"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16"
+                    android:visibility="@{viewModel.isLoading() ? View.GONE : View.VISIBLE}"
+                    app:backgroundTint="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <include
+                    layout="@layout/layout_progress"
+                    android:layout_width="@dimen/dimen_32"
+                    android:layout_height="@dimen/dimen_32"
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_sign_up"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_sign_up"
+                    app:layout_constraintStart_toStartOf="@+id/btn_sign_up"
+                    app:layout_constraintTop_toTopOf="@+id/btn_sign_up"
+                    bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

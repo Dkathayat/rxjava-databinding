@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.comments.vm.ItemCommentsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:background="@color/white"
+        android:paddingVertical="@dimen/dimen_8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_header_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grey_bottom_line"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingVertical="@dimen/dimen_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView11"
+                android:layout_width="@dimen/dimen_48"
+                android:layout_height="@dimen/dimen_48"
+                android:background="@color/grey"
+                android:src="@{viewModel.comment.createdBy.profileImage}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ProfileImageAppearance" />
+
+            <TextView
+                android:id="@+id/textView28"
+                style="@style/Text.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_8"
+                android:text="@{viewModel.comment.createdBy.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/shapeableImageView11"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView11"
+                tools:text="Phoebe Buffay" />
+
+            <View
+                android:id="@+id/dot"
+                android:layout_width="@dimen/dimen_4"
+                android:layout_height="@dimen/dimen_4"
+                android:layout_marginStart="@dimen/dimen_5"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:background="@drawable/grey_circle_background"
+                app:layout_constraintBottom_toBottomOf="@+id/textView28"
+                app:layout_constraintStart_toEndOf="@+id/textView28"
+                app:layout_constraintTop_toTopOf="@id/textView28" />
+
+            <TextView
+                android:id="@+id/textView29"
+                style="@style/Text.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_8"
+                android:paddingTop="@dimen/dimen_8"
+                android:text="@{viewModel.createdAt}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintStart_toEndOf="@+id/dot"
+                app:layout_constraintTop_toTopOf="@id/textView28"
+                tools:text="3 min ago" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8"
+                android:src="@drawable/ic_icon_side_menu"
+                app:layout_constraintBottom_toBottomOf="@+id/textView28"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView28" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/Text.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:layout_marginEnd="@dimen/dimen_24"
+                android:autoLink="all"
+                android:text="@{viewModel.comment.comment}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView28"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--    <View-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="@dimen/dimen_1"-->
+        <!--        android:background="@drawable/layout_view_drawable"-->
+        <!--        android:layout_marginTop="@dimen/dimen_16"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/tv_description"/>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

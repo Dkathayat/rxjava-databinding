@@ -1,0 +1,80 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.addchallengesportstype.vm.ItemSportListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{viewModel::onItemClick}">
+
+        <ImageView
+            android:id="@+id/running_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_172"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImageRes="@{viewModel.item.backgroundImage}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/running_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/running_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/running_img">
+
+            <ImageView
+                android:id="@+id/running_shoe_img"
+                android:layout_width="@dimen/dimen_72"
+                android:layout_height="@dimen/dimen_32"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageRes="@{viewModel.item.icon}" />
+
+            <TextView
+                android:id="@+id/running_label"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{viewModel.item.name}"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintStart_toEndOf="@+id/running_shoe_img"
+                app:layout_constraintTop_toTopOf="@+id/running_shoe_img" />
+
+            <TextView
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@{viewModel.item.description}"
+                android:textSize="@dimen/text_13"
+                app:layout_constraintBottom_toBottomOf="@+id/running_shoe_img"
+                app:layout_constraintStart_toEndOf="@+id/running_shoe_img"
+                app:layout_constraintTop_toBottomOf="@+id/running_label" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_172"
+            android:background="@color/challenge_selected_bg"
+            android:visibility="@{viewModel.item.isSelected ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--            android:visibility="@{viewModel.hikingClicked ? View.VISIBLE : View.GONE}"-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/dimen_28"
+            android:layout_marginTop="@dimen/dimen_35"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView54">
+
+            <ImageView
+                android:id="@+id/text_garmin"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:background="@drawable/device_type_border"
+                android:elevation="@dimen/dimen_15"
+                android:onClick="@{viewModel::deviceClicked}"
+                android:padding="@dimen/dimen_15"
+                android:src="@drawable/device_logo_garmin" />
+
+            <ImageView
+                android:id="@+id/text_zepp"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@drawable/device_type_border"
+                android:elevation="@dimen/dimen_15"
+                android:onClick="@{viewModel::deviceClicked}"
+                android:padding="@dimen/dimen_20"
+                android:src="@drawable/devices__logo_zepp" />
+
+            <ImageView
+                android:id="@+id/text_fitbit"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@drawable/device_type_border"
+                android:elevation="@dimen/dimen_15"
+                android:onClick="@{viewModel::deviceClicked}"
+                android:padding="@dimen/dimen_20"
+                android:src="@drawable/devices_logo_fitbit" />
+
+            <ImageView
+                android:id="@+id/text_samsung"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@drawable/device_type_border"
+                android:elevation="@dimen/dimen_15"
+                android:onClick="@{viewModel::deviceClicked}"
+                android:padding="@dimen/dimen_20"
+                android:src="@drawable/devices_logo_samsung" />
+
+            <ImageView
+                android:id="@+id/text_google"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@drawable/device_type_border"
+                android:elevation="@dimen/dimen_15"
+                android:onClick="@{viewModel::deviceClicked}"
+                android:padding="@dimen/dimen_10"
+                android:src="@drawable/devices_logo_google" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="start"
+            android:text="@string/device_home_disc"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textView48"
+            app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+        <TextView
+            android:id="@+id/textView48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="@dimen/dimen_40"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/device_home_title"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dimen_16"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingTop="@dimen/dimen_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:paddingEnd="@dimen/dimen_16"
+                android:paddingVertical="@dimen/dimen_8"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8"
+                android:src="@drawable/ic_notification"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="@{viewModel::onSettingClick}"
+                android:padding="@dimen/dimen_8"
+                android:contentDescription="@string/garmin_device"
+                android:src="@drawable/ic_settings_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/Text.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/manage_devices"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView8"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.managedevices.vm.ManageDevicesViewModel" />
+    </data>
+
+</layout>

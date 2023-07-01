@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.viewMedia.vm.ViewImageVideoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.jsibbold.zoomage.ZoomageView
+            android:id="@+id/imagezoom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:visibility="@{viewModel.videoIconVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:setImageRes="@{viewModel.image}"
+            app:zoomage_animateOnReset="true"
+            app:zoomage_autoCenter="true"
+            app:zoomage_autoResetMode="UNDER"
+            app:zoomage_maxScale="8"
+            app:zoomage_minScale="0.6"
+            app:zoomage_restrictBounds="false"
+            app:zoomage_translatable="true"
+            app:zoomage_zoomable="true" />
+
+        <ImageView
+            android:id="@+id/video_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:onClick="@{()->viewModel.onVideoPlayClick()}"
+            android:visibility="@{viewModel.videoIconVisibility ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImageRes="@{viewModel.image}" />
+
+        <!-- <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+             android:id="@+id/videoFullScreenPlayer1"
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_centerInParent="true"
+             android:layout_centerVertical="true"
+             android:background="#A6000000"
+             android:visibility="@{viewModel.isPlayingVideo() ? View.VISIBLE : View.GONE}"            app:layout_constraintBottom_toTopOf="@+id/guideline"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="1.0"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintVertical_bias="1.0"
+             app:repeat_toggle_modes="none"
+             app:show_buffering="when_playing"
+             app:show_timeout="45000"
+             app:surface_type="texture_view"
+             app:use_controller="false" />-->
+
+
+        <ImageView
+            android:id="@+id/video_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_6"
+            android:src="@drawable/ic_video_icon"
+            android:visibility="@{viewModel.videoIconVisibility ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/video_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cross_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_6"
+            android:onClick="@{()->viewModel.onCrossImageClick()}"
+            android:padding="@dimen/dimen_26"
+            android:src="@drawable/ic_close_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--        android:visibility="@{viewModel.isPlayingVideo() ? View.VISIBLE : View.GONE}"-->
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mediaRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:paddingVertical="@dimen/dimen_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+
+

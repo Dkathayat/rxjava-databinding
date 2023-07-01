@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.settings.contactus.ContactUsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/contactus_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingHorizontal="@dimen/dimen_32"
+                android:paddingVertical="@dimen/dimen_16">
+
+                <TextView
+                    android:id="@+id/contactus_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:drawableStart="@drawable/ic_back_arrow"
+                    android:drawablePadding="@dimen/dimen_16"
+                    android:fontFamily="@font/roboto_bold"
+                    android:onClick="@{viewModel::onBackPressed}"
+                    android:text="Contact Us"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/notification_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_13"
+                    android:background="@drawable/ic_notification"
+                    android:backgroundTint="#909090"
+                    app:layout_constraintBottom_toBottomOf="@+id/contactus_text"
+                    app:layout_constraintEnd_toStartOf="@+id/settings_img"
+                    app:layout_constraintTop_toTopOf="@+id/contactus_text" />
+
+                <ImageView
+                    android:id="@+id/settings_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:background="@drawable/ic_settings_icon"
+                    android:onClick="@{viewModel::onSettingClick}"
+                    app:layout_constraintBottom_toBottomOf="@+id/notification_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/notification_img" />
+
+                <TextView
+                    android:id="@+id/note_text"
+                    style="@style/Text.Roboto.Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:text="@string/contactus_note"
+                    android:textColor="@color/challenge_bg"
+                    android:textSize="@dimen/text_12"
+
+                    app:layout_constraintEnd_toEndOf="@+id/notification_img"
+                    app:layout_constraintStart_toStartOf="@+id/contactus_text"
+                    app:layout_constraintTop_toBottomOf="@+id/contactus_text" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_edittext"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:background="@color/white"
+                    android:hint="Full Name*"
+                    android:imeOptions="actionNext"
+                    android:textColorHint="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/note_text"
+                    app:showError="@{viewModel.nameError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/grey_bottom_line"
+                        android:fontFamily="@font/roboto_medium"
+                        android:onTextChanged="@{viewModel::onNameChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:singleLine="true"
+                        android:text="@={viewModel.name}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/name_edittext"
+                    app:showError="@{viewModel.emailError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/grey_bottom_line"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="Email"
+                        android:imeOptions="actionNext"
+                        android:onTextChanged="@{viewModel::onEmailChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:singleLine="true"
+                        android:text="@{viewModel.email}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_edit_text"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/email_edittext"
+                    app:showError="@{viewModel.phoneError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/grey_bottom_line"
+                        android:digits="0123456789"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/phone_no"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:onTextChanged="@{viewModel::onPhoneChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:singleLine="true"
+                        android:text="@={viewModel.phone}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/message_edittext"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:textColorHint="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_edit_text"
+                    app:showError="@{viewModel.messageError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/grey_bottom_line"
+                        android:backgroundTint="@color/white"
+                        android:fontFamily="@font/roboto_medium"
+                        android:hint="@string/message"
+                        android:imeOptions="actionDone"
+                        android:maxLength="400"
+                        android:onTextChanged="@{viewModel::onMessageChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:singleLine="true"
+                        android:text="@={viewModel.message}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/upload_img_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/upload_image"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@+id/message_edittext"
+                    app:layout_constraintTop_toBottomOf="@+id/message_edittext" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/image_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_126"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_10"
+                    app:layout_constraintBottom_toBottomOf="@+id/image_note"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="@+id/upload_img_text"
+                    app:layout_constraintTop_toBottomOf="@+id/upload_img_text">
+
+                    <ImageView
+                        android:id="@+id/uploaded_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="126dp"
+                        android:background="@drawable/dotted_border"
+                        android:imeOptions="actionDone"
+                        android:padding="0.5dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="@+id/message_edittext"
+                        app:layout_constraintStart_toStartOf="@+id/upload_img_text"
+                        app:layout_constraintTop_toBottomOf="@+id/upload_img_text"
+                        app:setImageUpload="@{viewModel.attachedImage}" />
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/cross_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/dimen_6"
+                    android:onClick="@{()->viewModel.onCrossImageClick()}"
+                    android:padding="@dimen/dimen_15"
+                    android:src="@drawable/ic_feed_removeimage"
+                    android:visibility="@{viewModel.dropboxIconVisibility?View.GONE:View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="@+id/image_card"
+                    app:layout_constraintTop_toTopOf="@+id/image_card" />
+
+                <ImageView
+                    android:id="@+id/add_image_icon"
+                    android:layout_width="@dimen/dimen_48"
+                    android:layout_height="@dimen/dimen_48"
+                    android:elevation="@dimen/dimen_10"
+                    android:onClick="@{viewModel::onBottomMenuClick}"
+                    android:src="@drawable/ic_add"
+                    android:visibility="@{viewModel.dropboxIconVisibility?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/image_card"
+                    app:layout_constraintEnd_toEndOf="@+id/image_card"
+                    app:layout_constraintStart_toStartOf="@+id/image_card"
+                    app:layout_constraintTop_toTopOf="@+id/image_card" />
+
+                <TextView
+                    android:id="@+id/image_note"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/image_can_be_png_jpg_or_webp_amp_should_not_exceed_5mb"
+                    android:textColor="@color/image_size_note_color"
+                    android:textSize="@dimen/dimen_13"
+                    app:layout_constraintEnd_toEndOf="@+id/image_card"
+                    app:layout_constraintStart_toStartOf="@+id/image_card"
+                    app:layout_constraintTop_toBottomOf="@+id/image_card" />
+
+
+                <ProgressBar
+                    android:id="@+id/pb"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:indeterminateDrawable="@drawable/my_progress_indeterminate"
+                    android:indeterminateTint="@color/orange"
+                    android:visibility="@{viewModel.isUploading() ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--                <ProgressBar-->
+                <!--                    android:id="@+id/loading_pb"-->
+                <!--                    style="?android:attr/progressBarStyleSmall"-->
+                <!--                    android:layout_width="@dimen/dimen_40"-->
+                <!--                    android:layout_height="@dimen/dimen_40"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"-->
+                <!--                    android:indeterminate="true"-->
+                <!--                    android:indeterminateTint="@color/orange"-->
+                <!--                    android:indeterminateDrawable="@drawable/my_progress_indeterminate"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onSubmitClick}"
+            android:paddingVertical="@dimen/dimen_15"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            layout="@layout/layout_progress"
+            android:layout_width="@dimen/dimen_32"
+            android:layout_height="@dimen/dimen_32"
+            app:layout_constraintBottom_toBottomOf="@+id/submit"
+            app:layout_constraintEnd_toEndOf="@+id/submit"
+            app:layout_constraintStart_toStartOf="@+id/submit"
+            app:layout_constraintTop_toTopOf="@+id/submit"
+            bind:viewModel="@{(BaseViewModel)viewModel}" />
+        <!-- <include
+             android:id="@+id/include4"
+             layout="@layout/layout_contactus_bottom_nav"
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/contactus_toolbar" />
+ -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

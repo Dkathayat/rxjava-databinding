@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.chat.ChatViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80"
+        android:background="@color/white"
+        android:elevation="@dimen/dimen_10"
+        android:paddingStart="@dimen/dimen_10"
+        android:paddingTop="@dimen/dimen_20"
+        android:paddingEnd="@dimen/dimen_10"
+        android:paddingBottom="@dimen/dimen_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/ivEmojy"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:background="@drawable/ic_emo_grey"
+            android:padding="@dimen/dimen_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/etMessage"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5"
+            android:background="@color/white"
+            android:hint="@string/what_s_on_your_mind"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:gravity="start|center"
+            android:onTextChanged="@{viewModel::onMessageChanged}"
+            android:text="@={viewModel.message}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivSend"
+            app:layout_constraintStart_toEndOf="@+id/ivEmojy"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteY="25dp" />
+
+
+        <ImageView
+            android:id="@+id/ivSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:onClick="@{viewModel::onItemClick}"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_2"
+            android:paddingBottom="@dimen/dimen_10"
+            android:src="@{viewModel.isSendBtnActive?@drawable/ic_icon_send_active:@drawable/ic_icon_send_inactive}"
+            app:layout_constraintBottom_toBottomOf="@+id/etMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etMessage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

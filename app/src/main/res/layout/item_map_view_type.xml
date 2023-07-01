@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.createroute.ItemMapTypeViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/dimen_80"
+        android:layout_height="85dp"
+        android:layout_marginEnd="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:onClick="@{viewModel.onItemClick}"
+        app:cardCornerRadius="@dimen/dimen_5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageRes="@{viewModel.selectedMapImageUrl}" />
+
+            <TextView
+                android:id="@+id/tvMapType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/map_type_bg_text"
+                android:elevation="@dimen/dimen_5"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:maxLines="2"
+                android:paddingStart="@dimen/dimen_5"
+                android:paddingLeft="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_2"
+                android:paddingEnd="@dimen/dimen_5"
+                android:paddingRight="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_2"
+                android:text="@{viewModel.item.mapViewType}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_8"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

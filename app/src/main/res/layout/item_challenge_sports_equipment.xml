@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.addchallengedetails.adapter.ItemChallengeSportsEquipmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dimen_5">
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardView.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_20"
+            app:cardBackgroundColor="@color/light_grey"
+            app:cardCornerRadius="@dimen/dimen_10"
+            app:cardElevation="@dimen/dimen_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginEnd="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10">
+
+                <ImageView
+                    android:id="@+id/deleteLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_15"
+                    android:onClick="@{viewModel::onItemClick}"
+                    android:src="@{viewModel.item.isSelected?@drawable/ic_check_enabled:@drawable/ic_unchecked__checkbox}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvSubSports"
+                    style="@style/TextInputStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sub_sports_category"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deleteLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSubSports"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_grey"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:gravity="start|center"
+                        android:text="@{viewModel.item.subSportName}"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                    <!--        android:onClick="@{viewModel::onActionClick}"-->
+                    <!--        android:text="@={viewModel.subSportValue}"-->
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvBrandMake"
+                    style="@style/TextInputStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/select_brand_make"
+
+                    app:layout_constraintEnd_toStartOf="@+id/tvModel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubSports">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etBrandMake"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_grey"
+                        android:cursorVisible="false"
+                        android:text="@{viewModel.item.brandName}"
+                        android:focusable="false"
+                        android:gravity="start|center"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                    <!--        android:onClick="@{viewModel::onActionClick}"-->
+                    <!--        android:text="@={viewModel.subSportValue}"-->
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvModel"
+                    style="@style/TextInputStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:hint="@string/select_model"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvBrandMake"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubSports">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etModel"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/light_grey"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:text="@{viewModel.item.modelName}"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/black" />
+                    <!--                android:onClick="@{viewModel::onActionClick}"-->
+                    <!--                android:text="@{viewModel.modelValue}"-->
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvType"
+                    style="@style/TextInputStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBrandMake">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etType"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/light_grey"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:gravity="start|center"
+                        android:imeOptions="actionNext"
+                        android:text="@{viewModel.item.equipmentType}"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                    <!--        android:onClick="@{viewModel::onActionClick}"-->
+                    <!--        android:text="@={viewModel.subSportValue}"-->
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvOther"
+                    style="@style/TextInputStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:hint="@string/others"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvType">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/eOther"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_grey"
+                        android:gravity="start|center"
+                        android:imeOptions="actionDone"
+                        android:maxLines="3"
+                        android:editable="false"
+                        android:longClickable="false"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:text="@{viewModel.item.other}"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                    <!--        android:onClick="@{viewModel::onActionClick}"-->
+                    <!--        android:text="@={viewModel.subSportValue}"-->
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

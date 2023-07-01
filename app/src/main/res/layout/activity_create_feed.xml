@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.feed.vm.CreateFeedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.modules.feed.CreateFeedActivity">
+
+
+        <!--        <com.airbnb.lottie.LottieAnimationView-->
+        <!--            android:layout_width="@dimen/dimen_100"-->
+        <!--            android:layout_height="@dimen/dimen_100"-->
+        <!--            android:visibility="@{viewModel.isUploading() ? View.VISIBLE : View.GONE}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:lottie_autoPlay="true"-->
+        <!--            app:lottie_loop="true"-->
+        <!--            app:lottie_rawRes="@raw/feed_loading" />-->
+
+        <include
+            android:id="@+id/feed_include"
+            layout="@layout/feed_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:viewModel="@{viewModel}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/feed_include">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/add_feed_text"
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:text="@string/add_feed"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feed_include" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btm_nav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_feed_text">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_100">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/title_text_input_layout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:background="@color/white"
+                    android:backgroundTint="@android:color/transparent"
+                    android:gravity="top"
+                    android:textColorHint="@color/grey"
+                    app:errorTextAppearance="@color/black"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:showError="@{viewModel.titleError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:afterTextChanged="@{viewModel::onTitleChange}"
+                        android:background="@color/white"
+                        android:fontFamily="@font/raleway_medium"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:maxLines="2"
+                        android:paddingEnd="0dp"
+                        android:paddingStart="0dp"
+                        android:singleLine="true"
+                        android:text="@={viewModel.title}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        app:onFocusChangeListener="@{viewModel::onTitleFocusChanged}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:id="@+id/feed_edit_text"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:afterTextChanged="@{viewModel::onDescriptionChange}"
+                    android:background="@color/white"
+                    android:backgroundTint="@android:color/transparent"
+                    android:gravity="start"
+                    android:hint="@string/what_s_in_your_mind"
+                    android:imeOptions="actionDone"
+                    android:isScrollContainer="true"
+                    android:minLines="10"
+                    android:text="@={viewModel.description}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toTopOf="@+id/imagerecyclerview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_text_input_layout"
+                    app:onFocusChangeListener="@{viewModel::onDescriptionFocusChanged}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imagerecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feed_edit_text" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/first_card"
+                    style="@style/CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_150"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:visibility="@{viewModel.videoImage1Status ? View.VISIBLE : View.GONE}"
+                    app:cardCornerRadius="@dimen/dimen_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagerecyclerview">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/video_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:scaleType="centerCrop"
+                            android:visibility="@{viewModel.videoImage1Status ? View.VISIBLE : View.GONE}"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:setImageRes="@{viewModel.videoImage1}" />
+
+                        <ImageView
+                            android:id="@+id/one_video_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="@dimen/dimen_6"
+                            android:padding="@dimen/dimen_8"
+                            android:src="@drawable/ic_video_icon"
+                            app:layout_constraintBottom_toBottomOf="@+id/video_one"
+                            app:layout_constraintEnd_toEndOf="@+id/video_one"
+                            app:layout_constraintStart_toStartOf="@+id/video_one"
+                            app:layout_constraintTop_toTopOf="@+id/video_one" />
+
+                        <ImageView
+                            android:id="@+id/first_cross_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="@dimen/dimen_6"
+                            android:onClick="@{viewModel::onActionClick}"
+                            android:padding="@dimen/dimen_8"
+                            android:src="@drawable/ic_feed_removeimage"
+                            android:visibility="@{viewModel.videoImage1Status ? View.VISIBLE : View.GONE}"
+                            app:layout_constraintEnd_toEndOf="@+id/video_one"
+                            app:layout_constraintTop_toTopOf="@+id/video_one" />
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/group6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:constraint_referenced_ids="video_one,one_video_icon,first_cross_icon" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- dummy-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/first_card">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/second_card"
+                        style="@style/CardView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_100"
+                        android:visibility="@{viewModel.videoImage2Status ? View.VISIBLE : View.GONE}"
+                        app:cardCornerRadius="@dimen/dimen_10"
+                        app:layout_constraintEnd_toStartOf="@+id/third_card"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/video_two"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:scaleType="centerCrop"
+                                android:visibility="@{viewModel.videoImage2Status ? View.VISIBLE : View.GONE}"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:setImageRes="@{viewModel.videoImage2}" />
+
+                            <ImageView
+                                android:id="@+id/second_video_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:elevation="@dimen/dimen_6"
+                                android:padding="@dimen/dimen_8"
+                                android:src="@drawable/ic_video_icon"
+                                app:layout_constraintBottom_toBottomOf="@+id/video_two"
+                                app:layout_constraintEnd_toEndOf="@+id/video_two"
+                                app:layout_constraintStart_toStartOf="@+id/video_two"
+                                app:layout_constraintTop_toTopOf="@+id/video_two" />
+
+                            <ImageView
+                                android:id="@+id/second_cross_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:elevation="@dimen/dimen_6"
+                                android:onClick="@{viewModel::onActionClick}"
+                                android:padding="@dimen/dimen_8"
+                                android:src="@drawable/ic_feed_removeimage"
+                                android:visibility="@{viewModel.videoImage2Status ? View.VISIBLE : View.GONE}"
+                                app:layout_constraintEnd_toEndOf="@+id/video_two"
+                                app:layout_constraintTop_toTopOf="@+id/video_two" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/third_card"
+                        style="@style/CardView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dimen_100"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:visibility="@{viewModel.videoImage3Status ? View.VISIBLE : View.GONE}"
+                        app:cardCornerRadius="@dimen/dimen_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/second_card"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/video_three"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:scaleType="centerCrop"
+                                android:visibility="@{viewModel.videoImage3Status ? View.VISIBLE : View.GONE}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:setImageRes="@{viewModel.videoImage3}" />
+
+                            <ImageView
+                                android:id="@+id/third_cross_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:elevation="@dimen/dimen_6"
+                                android:onClick="@{viewModel::onActionClick}"
+                                android:padding="@dimen/dimen_8"
+                                android:src="@drawable/ic_feed_removeimage"
+                                android:visibility="@{viewModel.videoImage3Status ? View.VISIBLE : View.GONE}"
+                                app:layout_constraintEnd_toEndOf="@+id/video_three"
+                                app:layout_constraintTop_toTopOf="@+id/video_three" />
+
+                            <ImageView
+                                android:id="@+id/third_video_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:elevation="@dimen/dimen_6"
+                                android:padding="@dimen/dimen_8"
+                                android:src="@drawable/ic_video_icon"
+                                app:layout_constraintBottom_toBottomOf="@+id/video_three"
+                                app:layout_constraintEnd_toEndOf="@+id/video_three"
+                                app:layout_constraintStart_toStartOf="@+id/video_three"
+                                app:layout_constraintTop_toTopOf="@+id/video_three" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="@dimen/dimen_24"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_10"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/first_card">-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/video_two"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="100dp"-->
+                <!--                        android:scaleType="centerCrop"-->
+                <!--                        android:visibility="@{viewModel.videoImage2Status ? View.VISIBLE : View.GONE}"-->
+                <!--                        app:layout_constraintEnd_toStartOf="@+id/video_three"-->
+                <!--                        app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent"-->
+                <!--                        app:setImageRes="@{viewModel.videoImage2}" />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/second_video_icon"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:elevation="@dimen/dimen_6"-->
+                <!--                        android:padding="@dimen/dimen_8"-->
+                <!--                        android:src="@drawable/ic_video_icon"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="@+id/video_two"-->
+                <!--                        app:layout_constraintEnd_toEndOf="@+id/video_two"-->
+                <!--                        app:layout_constraintStart_toStartOf="@+id/video_two"-->
+                <!--                        app:layout_constraintTop_toTopOf="@+id/video_two" />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/second_cross_icon"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:elevation="@dimen/dimen_6"-->
+                <!--                        android:onClick="@{viewModel::onActionClick}"-->
+                <!--                        android:padding="@dimen/dimen_8"-->
+                <!--                        android:src="@drawable/ic_feed_removeimage"-->
+                <!--                        android:visibility="@{viewModel.videoImage2Status ? View.VISIBLE : View.GONE}"-->
+                <!--                        app:layout_constraintEnd_toEndOf="@+id/video_two"-->
+                <!--                        app:layout_constraintTop_toTopOf="@+id/video_two" />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/video_three"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="100dp"-->
+                <!--                        android:layout_marginStart="@dimen/dimen_10"-->
+                <!--                        android:scaleType="centerCrop"-->
+                <!--                        android:visibility="@{viewModel.videoImage3Status ? View.VISIBLE : View.GONE}"-->
+                <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                        app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                        app:layout_constraintStart_toEndOf="@+id/video_two"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent"-->
+                <!--                        app:setImageRes="@{viewModel.videoImage3}" />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/third_cross_icon"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:elevation="@dimen/dimen_6"-->
+                <!--                        android:padding="@dimen/dimen_8"-->
+                <!--                        android:onClick="@{viewModel::onActionClick}"-->
+                <!--                        android:src="@drawable/ic_feed_removeimage"-->
+                <!--                        android:visibility="@{viewModel.videoImage3Status ? View.VISIBLE : View.GONE}"-->
+                <!--                        app:layout_constraintEnd_toEndOf="@+id/video_three"-->
+                <!--                        app:layout_constraintTop_toTopOf="@+id/video_three" />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/third_video_icon"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:elevation="@dimen/dimen_6"-->
+                <!--                        android:padding="@dimen/dimen_8"-->
+                <!--                        android:src="@drawable/ic_video_icon"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="@+id/video_three"-->
+                <!--                        app:layout_constraintEnd_toEndOf="@+id/video_three"-->
+                <!--                        app:layout_constraintStart_toStartOf="@+id/video_three"-->
+                <!--                        app:layout_constraintTop_toTopOf="@+id/video_three" />-->
+
+                <!--                    <androidx.constraintlayout.widget.Group-->
+                <!--                        android:id="@+id/group"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:visibility="@{viewModel.videoImage3Status ? View.VISIBLE : View.GONE}"-->
+                <!--                        app:constraint_referenced_ids="video_three,third_cross_icon,third_video_icon" />-->
+
+                <!--                    <androidx.constraintlayout.widget.Group-->
+                <!--                        android:id="@+id/group2"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:visibility="@{viewModel.videoImage2Status ? View.VISIBLE : View.GONE}"-->
+                <!--                        app:constraint_referenced_ids="video_two,second_video_icon,second_cross_icon" />-->
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/btm_nav"
+            layout="@layout/layout_feed_bottom_navbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/publish_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:viewModel="@{viewModel}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/publish_button"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_tint"
+            android:enabled="@{viewModel.isPublishEnabled}"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onPublishClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/publish"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            layout="@layout/layout_progress"
+            android:layout_width="@dimen/dimen_32"
+            android:layout_height="@dimen/dimen_32"
+            app:layout_constraintBottom_toBottomOf="@id/publish_button"
+            app:layout_constraintEnd_toEndOf="@id/publish_button"
+            app:layout_constraintStart_toStartOf="@id/publish_button"
+            app:layout_constraintTop_toTopOf="@id/publish_button"
+            bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/my_progress_indeterminate"
+            android:indeterminateTint="@color/orange"
+            android:visibility="@{viewModel.isUploading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

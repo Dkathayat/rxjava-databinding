@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_close_filter"
+        android:layout_width="@dimen/dimen_32"
+        android:layout_height="@dimen/dimen_32"
+        android:layout_gravity="end"
+        android:layout_marginHorizontal="@dimen/dimen_32"
+        android:padding="@dimen/dimen_8"
+        android:src="@drawable/ic_cross"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title_date"
+        style="@style/Text.Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_35"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_close_filter"
+        tools:text="Choose a Start &amp; End Date " />
+
+    <TextView
+        android:id="@+id/tvMonthYear"
+        style="@style/Text.Roboto.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_marginHorizontal="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:animateLayoutChanges="true"
+        android:drawablePadding="@dimen/dimen_20"
+        android:gravity="center"
+        android:paddingStart="@dimen/dimen_5"
+        android:paddingEnd="@dimen/dimen_10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_date" />
+
+    <ImageView
+        android:id="@+id/ivMonthYear"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:src="@drawable/ic_drop_down_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMonthYear"
+        app:layout_constraintStart_toEndOf="@+id/tvMonthYear" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/monthSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/grey"
+        android:drawableEnd="@drawable/ic_drop_down_arrow"
+        android:gravity="start"
+        android:paddingStart="0dp"
+        android:paddingTop="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_20"
+        android:paddingBottom="@dimen/dimen_10"
+        app:layout_constraintStart_toStartOf="@+id/tvMonthYear"
+        app:layout_constraintTop_toBottomOf="@+id/tvMonthYear"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/yearSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/grey"
+        android:drawableEnd="@drawable/ic_drop_down_arrow"
+        android:paddingStart="@dimen/dimen_5"
+        android:paddingTop="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_20"
+        android:paddingBottom="@dimen/dimen_10"
+        app:layout_constraintBottom_toBottomOf="@+id/monthSpinner"
+        app:layout_constraintStart_toEndOf="@+id/monthSpinner"
+        app:layout_constraintTop_toTopOf="@+id/monthSpinner"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <com.shuhart.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarView2"
+        style="@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20"
+        app:layout_constraintBottom_toTopOf="@+id/apply_filter_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthSpinner"
+        app:mcv_bottomTopDayPadding="4dp"
+        app:mcv_selectionColor="@color/progress_track_color"
+        app:mcv_selectionRangeColor="#EFCC8D"
+        app:mcv_tileSize="55dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/apply_filter_button"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:paddingVertical="@dimen/dimen_24"
+        android:text="@string/apply_filter"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_15"
+        app:backgroundTint="@color/button_tint"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

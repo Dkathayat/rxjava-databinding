@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.addchallengedetails.ChallengeLocationDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        bind:context=".ui.base.BaseActivity">
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_8"
+            android:maxHeight="@dimen/dimen_8"
+            android:orientation="horizontal"
+            android:progress="40"
+            android:progressBackgroundTint="@color/progress_color"
+            android:progressTint="@color/orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/challenge_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingTop="@dimen/dimen_32"
+            android:paddingBottom="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_horizontal">
+
+            <TextView
+                android:id="@+id/tv_back"
+                style="@style/Text.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:text="@string/go_back"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_16"
+                app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvSaveAsDraft"
+                    style="@style/Text.Roboto.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save_as_draft"
+                    android:onClick="@{viewModel::onActionClick}"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/text_15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/step_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/step_4_10"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar" />
+
+        <TextView
+            android:id="@+id/addchallenge_label"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/add_challenge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/step_label" />
+
+        <TextView
+            android:id="@+id/pick_challenge_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingBottom="@dimen/dimen_32"
+            android:text="@string/enter_location_detail"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addchallenge_label" />
+
+        <ScrollView
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_challenge_label">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="@dimen/dimen_24">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nameTextInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:hint="@string/name_astric"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:showError="@{viewModel.nameError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:onTextChanged="@{viewModel::onChallengeName}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.challengeName}"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--                <com.google.android.material.textfield.TextInputLayout-->
+                <!--                    android:id="@+id/descriptionTextInputLayout"-->
+                <!--                    style="@style/TextInputStyle"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_20"-->
+                <!--                    android:hint="@string/challenge_description"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/nameTextInputLayout"-->
+                <!--                    app:showError="@{viewModel.descriptionError}">-->
+
+                <!--                    <com.google.android.material.textfield.TextInputEditText-->
+                <!--                        style="@style/EditTextStyle"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:background="@color/white"-->
+                <!--                        android:imeOptions="actionNext"-->
+                <!--                        android:inputType="text"-->
+                <!--                        android:onTextChanged="@{viewModel::onDescription}"-->
+                <!--                        android:paddingStart="0dp"-->
+                <!--                        android:paddingEnd="0dp"-->
+                <!--                        android:text="@={viewModel.description}"-->
+                <!--                        android:textColor="@color/black" />-->
+                <!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/challenge_visibilityTextInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:hint="@string/visibillity_astric"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTextInputLayout">
+                    <!--                    app:setError="@{viewModel.challengeVisibilityError}"-->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/challenge_visibility_edt"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:drawableEnd="@drawable/ic_drop_down_arrow"
+                        android:focusable="false"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:onClick="@{viewModel::onActionClick}"
+                        android:onTextChanged="@{viewModel::onChallengeVisibility}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.selectedChallengeVisibility}"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/sport_typeTextInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:hint="@string/sport_level_astrik"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_visibilityTextInputLayout">
+                    <!--                    app:setError="@{viewModel.sportLevelError}"-->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/sports_level_edt"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down_arrow"
+                        android:focusable="false"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:longClickable="false"
+                        android:onClick="@{viewModel::onActionClick}"
+                        android:onTextChanged="@{viewModel::onSportLevel}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.selectedSportsLevelDisplay}"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipSpotsLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sport_typeTextInputLayout" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ageTextInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:hint="@string/age_group_astrik"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chipSpotsLevel">
+                    <!--                    app:setError="@{viewModel.ageGroupError}"-->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/age_group_edt"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down_arrow"
+                        android:focusable="false"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:onClick="@{viewModel::onActionClick}"
+                        android:onTextChanged="@{viewModel::onAgeGroup}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.ageGroup}"
+                        android:textColor="@color/black" />
+                    <!--            android:text="@={viewModel.selectedAgeGroupValue}"-->
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ageTextInputLayout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/statusTextInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:hint="@string/statusastric"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+                    <!--                    app:setError="@{viewModel.statusError}"-->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/status_edt"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down_arrow"
+                        android:focusable="false"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:onClick="@{viewModel::onActionClick}"
+                        android:onTextChanged="@{viewModel::onStatusChange}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.challengeStatus}"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/descriptionTextInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:hint="@string/description_astric"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/statusTextInputLayout">
+                    <!--                    app:showError="@{viewModel.descriptionError}"-->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:onTextChanged="@{viewModel::onDescription}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.description}"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvBrandMake"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:hint="@string/select_sport_typeastric"
+                    android:textSize="@dimen/text_15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTextInputLayout">
+                    <!--                    app:showError="@{viewModel.descriptionError}"-->
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/subSports"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:imeOptions="actionNext"
+                        android:onClick="@{viewModel::onActionClick}"
+                        android:onTextChanged="@{viewModel::onSubSports}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.subSportName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/equipment_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/dimen_20"
+                    android:text="@string/sports_requirement"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_15"
+                    android:visibility="@{viewModel.isEquipmentAvailable?View.VISIBLE:View.INVISIBLE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBrandMake" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/notificationSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:checked="@{viewModel.subSportsVisibility}"
+                    android:longClickable="false"
+                    android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onCheckedChange(compoundButton, checked)}"
+                    android:paddingBottom="@dimen/dimen_20"
+                    android:visibility="@{viewModel.isEquipmentAvailable?View.VISIBLE:View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/equipment_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/equipment_label"
+                    app:thumbTint="@color/transparent"
+                    app:track="@drawable/alert_switch_track"
+                    app:trackTint="@null" />
+
+                <!--                android:background="@drawable/grey_square_background"-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:visibility="@{viewModel.subSportsVisibility?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/equipment_label">
+
+                    <!--                    <LinearLayout-->
+                    <!--                        android:id="@+id/sportsLayoutContainer"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toTopOf="parent">-->
+
+                    <!--                    </LinearLayout>-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/sportsEquipmentRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        bind:listitem="@layout/item_challenge_sports_equipment" />
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/add_icon"-->
+                    <!--                        android:layout_width="@dimen/dimen_32"-->
+                    <!--                        android:layout_height="@dimen/dimen_32"-->
+                    <!--                        android:layout_marginTop="@dimen/dimen_20"-->
+                    <!--                        android:onClick="@{viewModel::onActionClick}"-->
+                    <!--                        android:src="@drawable/ic_add_more"-->
+                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/sportsEquipmentRecycler" />-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:elevation="@dimen/dimen_10"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_continue"
+            app:layout_constraintEnd_toEndOf="@+id/btn_continue"
+            app:layout_constraintStart_toStartOf="@+id/btn_continue"
+            app:layout_constraintTop_toTopOf="@+id/btn_continue"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@{viewModel.isContinueActive?@color/black:@color/btnDisable}"
+            android:clickable="@{viewModel.isContinueActive?true:false}"
+            android:fontFamily="@font/roboto_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onActionClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/continue_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            app:backgroundTint="@null"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

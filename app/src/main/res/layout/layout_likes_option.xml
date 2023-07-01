@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white"
+    android:orientation="horizontal"
+    android:padding="@dimen/dimen_4">
+
+    <ImageView
+        android:id="@+id/img_thumbs_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_4"
+        android:src="@drawable/ic_thumbs_up" />
+
+    <ImageView
+        android:id="@+id/img_surprised"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_4"
+        android:src="@drawable/ic_emo_surprised" />
+
+    <ImageView
+        android:id="@+id/img_sad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_4"
+        android:src="@drawable/ic_emo_sad" />
+
+    <ImageView
+        android:id="@+id/img_happy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_4"
+        android:src="@drawable/ic_emo_happy" />
+
+    <ImageView
+        android:id="@+id/img_smile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_4"
+        android:src="@drawable/ic_emo_smile" />
+
+    <ImageView
+        android:id="@+id/img_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_4"
+        android:src="@drawable/ic_emo_heart" />
+
+
+</LinearLayout>

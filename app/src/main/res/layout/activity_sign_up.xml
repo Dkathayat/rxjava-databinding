@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.signup.vm.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingTop="@dimen/pre_login_vertical_padding"
+        android:paddingBottom="0dp">
+
+        <include
+            layout="@layout/layout_pre_login_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/pre_login_horizontal_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_sign_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/pre_login_horizontal_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/Text.Roboto.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_email_password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_20" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/Text.Roboto.Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:text="@string/sign_up_instruction"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_64"
+                    android:hint="@string/enter_email"
+                    app:showError="@{viewModel.emailError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:afterTextChanged="@{viewModel::afterEmailChange}"
+                        android:background="@color/white"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.email}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        app:onFocusChangeListener="@{viewModel::onEmailFocusChanged}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout1"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:hint="@string/date_of_birth"
+                    app:showError="@{viewModel.dobError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:afterTextChanged="@{viewModel::afterDobChange}"
+                        android:background="@color/white"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        android:inputType="date"
+                        android:onClick="@{viewModel::onDobClick}"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@{viewModel.dob}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Text.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:text="@string/only_18_users_are_allowed_to_create_a_yew_account"
+                    android:textColor="#909090"
+                    android:textSize="@dimen/text_12" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout2"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:hint="@string/password"
+                    app:endIconDrawable="@drawable/password_toggle"
+                    app:endIconMode="password_toggle"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/grey"
+                    app:showError="@{viewModel.passwordError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:afterTextChanged="@{viewModel::afterPasswordChange}"
+                        android:background="@color/white"
+                        android:inputType="textPassword"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.password}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        app:onFocusChangeListener="@{viewModel::onPasswordFocusChanged}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Text.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:text="@string/password_policy_label"
+                    android:textColor="#909090"
+                    android:textSize="@dimen/text_12" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout3"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:hint="@string/confirm_password"
+                    app:endIconDrawable="@drawable/password_toggle"
+                    app:endIconMode="password_toggle"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/grey"
+                    app:showError="@{viewModel.confirmPasswordError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:afterTextChanged="@{viewModel::afterConfirmPasswordChange}"
+                        android:background="@color/white"
+                        android:inputType="textPassword"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.confirmPassword}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        app:onFocusChangeListener="@{viewModel::onConfirmPasswordFocusChanged}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout4"
+                    style="@style/TextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_24"
+                    android:hint="@string/referral_code"
+                    app:showError="@{viewModel.referralCodeError}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:afterTextChanged="@{viewModel::afterReferralCodeChange}"
+                        android:background="@color/white"
+                        android:inputType="textCapCharacters"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:text="@={viewModel.referralCode}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        app:onFocusChangeListener="@{viewModel::onReferralCodeFocusChanged}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Text.Roboto.Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_32"
+                    android:layout_marginBottom="@dimen/dimen_24"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14"
+                    app:initialListener="@{viewModel::onTermsClick}"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_sign_up"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:nextListener="@{viewModel::onPrivacyClick}"
+                    app:requireUnderline="@{viewModel.underline}"
+                    app:secondSpanEnd="@{viewModel.secondSpanEnd}"
+                    app:secondSpanStart="@{viewModel.secondSpanStart}"
+                    app:spanColor="@{viewModel.spanColor}"
+                    app:spanEnd="@{viewModel.spanEnd}"
+                    app:spanStart="@{viewModel.spanStart}"
+                    app:spannableText="@{viewModel.spannableText}" />
+                <!--                android:background="?selectableItemBackgroundBorderless"-->
+                <!--                android:layout_marginHorizontal="@dimen/dimen_32"-->
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include
+            layout="@layout/layout_progress"
+            android:layout_width="@dimen/dimen_32"
+            android:layout_height="@dimen/dimen_32"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_sign_up"
+            app:layout_constraintEnd_toEndOf="@+id/btn_sign_up"
+            app:layout_constraintStart_toStartOf="@+id/btn_sign_up"
+            app:layout_constraintTop_toTopOf="@+id/btn_sign_up"
+            bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sign_up"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="@{viewModel.signUpEnabled}"
+            android:fontFamily="@font/raleway_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onSignUpClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/sig_up"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            app:backgroundTint="@color/button_tint"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

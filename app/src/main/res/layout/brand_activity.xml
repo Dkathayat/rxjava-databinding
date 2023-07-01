@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.brandmodel.BrandViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingHorizontal="@dimen/dimen_24"
+        bind:context=".ui.base.BaseActivity">
+
+        <TextView
+            android:id="@+id/tv_back"
+            style="@style/Text.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTint="@color/orange"
+            android:gravity="center_vertical"
+            android:onClick="@{viewModel::onBackPressed}"
+            android:paddingVertical="@dimen/dimen_30"
+            android:text="@string/go_back"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/text_16"
+            app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/addchallenge_label"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="@string/choose_brand_model"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_back" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_EditTxt"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_64"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/text_15"
+            android:layout_marginBottom="@dimen/text_15"
+            android:background="@drawable/grey_square_background"
+            android:drawableStart="@drawable/ic_icon_search"
+            android:drawablePadding="@dimen/dimen_20"
+            android:editable="false"
+            android:ellipsize="end"
+            android:focusable="false"
+            android:hint="@string/search"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dimen_20"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintTop_toBottomOf="@+id/addchallenge_label" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/brand_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/dimen_20"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_EditTxt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

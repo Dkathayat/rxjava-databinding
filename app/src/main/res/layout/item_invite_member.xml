@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.invitemember.vm.ItemInviteMemberViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{viewModel::onItemClick}"
+        android:paddingHorizontal="@dimen/dimen_10"
+        android:paddingTop="@dimen/dimen_10">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="@dimen/dimen_50"
+            android:layout_height="@dimen/dimen_50"
+            android:background="#474747"
+            android:padding="@dimen/dimen_5"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setUserImage="@{viewModel.item.profileImage}"
+            app:shapeAppearance="@style/ProfileImageAppearance" />
+
+        <TextView
+            android:id="@+id/name_txt"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen_13"
+            android:text="@{viewModel.item.fullName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_15"
+            app:layout_constraintEnd_toStartOf="@+id/btn_add"
+            app:layout_constraintStart_toEndOf="@+id/profile_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/address_txt"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen_13"
+            android:text="@{viewModel.cityAndCountry}"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/dimen_13"
+            app:layout_constraintEnd_toStartOf="@+id/btn_add"
+            app:layout_constraintStart_toEndOf="@+id/profile_icon"
+            app:layout_constraintTop_toBottomOf="@+id/name_txt" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:backgroundTint="@color/white"
+            android:onClick="@{viewModel::onItemClick}"
+            android:padding="@dimen/dimen_10"
+            android:text="+ Add"
+            android:textColor="@color/orange"
+            android:visibility="@{viewModel.item.addStatus ? View.INVISIBLE : View.VISIBLE}"
+            app:cornerRadius="@dimen/dimen_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/orange"
+            app:strokeWidth="@dimen/dimen_1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/added_btn"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:backgroundTint="@color/orange"
+            android:onClick="@{viewModel::onItemClick}"
+            android:padding="@dimen/dimen_10"
+            android:text="Added"
+            android:textColor="@color/white"
+            android:visibility="@{viewModel.item.addStatus ? View.VISIBLE : View.INVISIBLE}"
+            app:cornerRadius="@dimen/dimen_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/orange"
+            app:strokeWidth="@dimen/dimen_1" />
+
+        <View
+            android:id="@+id/calorie_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:background="@drawable/layout_view_drawable"
+            app:layout_constraintTop_toBottomOf="@+id/profile_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

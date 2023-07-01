@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.emailchange.vm.EmailChangeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:background="@mipmap/bg_login"
+        android:paddingTop="@dimen/pre_login_vertical_padding">
+
+        <include
+            android:id="@+id/back_layout"
+            layout="@layout/layout_pre_login_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/pre_login_horizontal_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+        <TextView
+            android:id="@+id/titleTv"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_80"
+            android:includeFontPadding="false"
+            android:text="@string/enteryour"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_layout" />
+
+        <TextView
+            android:id="@+id/welcomeTv"
+            android:fontFamily="@font/roboto_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_18"
+            android:includeFontPadding="false"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:text="@{viewModel.updatedLabel}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_60"
+            android:hint="@string/enter_email"
+            android:visibility="@{viewModel.emailVisibility?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeTv"
+            app:showError="@{viewModel.emailIDError}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:backgroundTint="@color/transparent"
+                android:inputType="textEmailAddress|textFilter|textNoSuggestions|textVisiblePassword"
+                android:longClickable="false"
+                android:onTextChanged="@{viewModel::onEmailIdTextChange}"
+                android:singleLine="true"
+                android:text="@={viewModel.newEmail}"
+                android:textSize="@dimen/text_15"
+                app:onFocusChangeListener="@{viewModel::onEmailFocusChanged}"
+                tools:targetApi="o" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/mobileno_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_60"
+            android:animateLayoutChanges="true"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dimen_20"
+            android:visibility="@{viewModel.emailVisibility?View.GONE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeTv">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/code_inputlayout"
+                style="@style/TextInputStyle"
+                android:layout_width="@dimen/dimen_100"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:layout_marginEnd="@dimen/dimen_18"
+                android:hint="@string/country_code"
+                app:showError="@{viewModel.phoneCodeError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/codeEditTxt"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/dimen_10"
+                    android:cursorVisible="false"
+                    android:editable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="phone"
+                    android:longClickable="false"
+                    android:backgroundTint="@color/transparent"
+                    android:maxLength="10"
+                    android:onClick="@{viewModel::onSelectCountryCode}"
+                    android:onTextChanged="@{viewModel::onCountryCodeTextChange}"
+                    android:singleLine="true"
+                    android:text="@={viewModel.countryID}"
+                    android:textSize="@dimen/text_16"
+                    tools:targetApi="o" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--                <TextView-->
+            <!--                    android:id="@+id/phonecode"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_marginStart="@dimen/dimen_16"-->
+            <!--                    android:layout_marginTop="@dimen/dimen_4"-->
+            <!--                    android:background="@drawable/grey_bottom_line"-->
+            <!--                    android:drawableStart="@drawable/ic_edit"-->
+            <!--                    android:drawableTint="@color/grey"-->
+            <!--                    android:onClick="@{viewModel::onSelectCountryCode}"-->
+            <!--                    android:drawablePadding="@dimen/dimen_10"-->
+            <!--                    -->
+            <!--                    android:fontFamily="@font/roboto_bold"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:paddingStart="@dimen/dimen_20"-->
+            <!--                    android:paddingEnd="@dimen/dimen_20"-->
+            <!--                    android:text="@{viewModel.selectedCountryCode}"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:textSize="@dimen/text_15"/>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mobileno_inputlayout"
+                style="@style/TextInputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginEnd="@dimen/dimen_18"
+                android:hint="@string/new_phonenumber"
+                app:showError="@{viewModel.mobileNumberError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobileNoEditTxt"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="phone"
+                    android:longClickable="false"
+                    android:backgroundTint="@color/transparent"
+                    android:maxLength="10"
+                    android:onTextChanged="@{viewModel::onPhoneNoTextChange}"
+                    android:singleLine="true"
+                    android:text="@={viewModel.mobileNumber}"
+                    android:textSize="@dimen/text_16"
+                    tools:targetApi="o" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <include
+            layout="@layout/layout_progress"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_sign_up"
+            app:layout_constraintEnd_toEndOf="@+id/btn_sign_up"
+            app:layout_constraintStart_toStartOf="@+id/btn_sign_up"
+            app:layout_constraintTop_toTopOf="@+id/btn_sign_up"
+            bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sign_up"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="@{viewModel.updateBtnEnabled}"
+            android:fontFamily="@font/raleway_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onUpdateClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/update"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            app:backgroundTint="@color/button_tint"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

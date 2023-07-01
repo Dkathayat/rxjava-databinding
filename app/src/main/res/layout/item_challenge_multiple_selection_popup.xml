@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.dialogs.challengepopupdialogs.vm.ItemMultipleSelectionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_8">
+
+        <!--        android:onClick="@{()->viewModel.onOptionClick()}"-->
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="@dimen/dimen_26"
+            android:layout_height="@dimen/dimen_26"
+            android:background="@drawable/custom_checkbox"
+            android:button="@android:color/transparent"
+            android:checked="@{viewModel.itemChecked}"
+            android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onCheckedChange(compoundButton, checked)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            style="@style/Text.Rubik.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:text="@{viewModel.item.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:drawableTint="@color/color_90"
+            app:layout_constraintBottom_toBottomOf="@+id/checkbox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/checkbox"
+            app:layout_constraintTop_toTopOf="@+id/checkbox" />
+        <!--        app:drawableEndCompat="@drawable/ic_arrow_right"-->
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/dimen_12"
+            android:background="@color/grey_ef"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

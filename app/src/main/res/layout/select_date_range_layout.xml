@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.addchallengeselectrangedate.SelectRangeDateViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_8"
+            android:maxHeight="@dimen/dimen_8"
+            android:orientation="horizontal"
+            android:progress="20"
+            android:progressBackgroundTint="@color/progress_color"
+            android:progressTint="@color/orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/challenge_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_back"
+                style="@style/Text.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:paddingStart="@dimen/dimen_20"
+                android:paddingTop="@dimen/dimen_30"
+                android:paddingEnd="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_30"
+                android:text="@string/go_back"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_16"
+                app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            <TextView-->
+            <!--                style="@style/Text.Roboto.Medium"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:onClick="@{()->viewModel.saveAsDraft()}"-->
+            <!--                android:padding="@dimen/dimen_30"-->
+            <!--                android:text="@string/save_as_draft_without_line"-->
+            <!--                android:textColor="@color/orange"-->
+            <!--                android:textSize="@dimen/text_15"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/step_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/step_2_10"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar" />
+
+        <TextView
+            android:id="@+id/addchallenge_label"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/add_challenge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/step_label" />
+
+        <TextView
+            android:id="@+id/pick_challenge_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/choose_startend_date"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addchallenge_label" />
+
+        <TextView
+            android:id="@+id/tvMonthYear"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginHorizontal="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:animateLayoutChanges="true"
+            android:drawablePadding="@dimen/dimen_20"
+            android:gravity="center"
+            android:onClick="@{()->viewModel.onMonthYearClicked()}"
+            android:paddingStart="@dimen/dimen_5"
+            android:paddingEnd="@dimen/dimen_10"
+            android:text="@{viewModel.monthYear}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_challenge_label" />
+
+        <ImageView
+            android:id="@+id/ivMonthYear"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_30"
+            android:onClick="@{()->viewModel.onMonthYearClicked()}"
+            android:src="@drawable/ic_drop_down_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMonthYear"
+            app:layout_constraintStart_toEndOf="@+id/tvMonthYear" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/monthSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/grey"
+            android:drawableEnd="@drawable/ic_drop_down_arrow"
+            android:gravity="start"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_20"
+            android:paddingBottom="@dimen/dimen_10"
+            android:visibility="@{viewModel.isMonthYearSpinnerVisible?View.VISIBLE:View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/tvMonthYear"
+            app:layout_constraintTop_toBottomOf="@+id/tvMonthYear"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/yearSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/grey"
+            android:drawableEnd="@drawable/ic_drop_down_arrow"
+            android:paddingStart="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_20"
+            android:paddingBottom="@dimen/dimen_10"
+            android:visibility="@{viewModel.isMonthYearSpinnerVisible?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/monthSpinner"
+            app:layout_constraintStart_toEndOf="@+id/monthSpinner"
+            app:layout_constraintTop_toTopOf="@+id/monthSpinner"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <com.shuhart.materialcalendarview.MaterialCalendarView
+            android:id="@+id/calendarView"
+            style="@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Year"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:visibility="@{viewModel.isMonthYearSpinnerVisible?View.GONE:View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+            app:layout_constraintTop_toBottomOf="@+id/monthSpinner"
+            app:mcv_bottomTopDayPadding="4dp"
+            app:mcv_selectionColor="@color/progress_track_color"
+            app:mcv_selectionRangeColor="#EFCC8D"
+            app:mcv_tileSize="55dp" />
+        <!--        <DatePicker-->
+        <!--            android:id="@+id/date_picker"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:background="@color/black"-->
+        <!--            android:layout_marginTop="@dimen/dimen_20"-->
+        <!--            android:layout_marginHorizontal="@dimen/dimen_20"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/pick_challenge_label"/>-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@{viewModel.isBtnActive()?@color/black:@color/btnDisable}"
+            android:clickable="@{viewModel.isBtnActive?true:false}"
+            android:fontFamily="@font/raleway_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{()->viewModel.onClickContinue()}"
+            android:paddingVertical="@dimen/dimen_20"
+            android:text="@string/continue_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            app:backgroundTint="@null"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

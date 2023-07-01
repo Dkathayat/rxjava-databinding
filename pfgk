@@ -1,0 +1,268 @@
+[33mcommit b8a7ed91a503eeb4c105454c5a2452a78b796233[m[33m ([m[1;36mHEAD -> [m[1;32mnitin[m[33m, [m[1;31morigin/nitin[m[33m)[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Thu Mar 17 11:16:49 2022 +0530
+
+    myfollowers
+
+[33mcommit f9585600202c92a37b426bf8eefc28813dfb9aef[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Wed Mar 16 19:24:51 2022 +0530
+
+    follower list
+
+[33mcommit 33393cf6394fb45246f2451bfb9c00126eede832[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Wed Mar 16 19:24:03 2022 +0530
+
+    follower list
+
+[33mcommit 05f2e0973609bee4c593473ae71d09ba721f12bf[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Wed Mar 16 10:50:31 2022 +0530
+
+    Authorization Header issue fix
+
+[33mcommit f1004af9a2525e20e9bbd2518637568ecb234593[m[33m ([m[1;31morigin/api[m[33m)[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Tue Mar 15 13:59:49 2022 +0530
+
+    Logout API added
+
+[33mcommit 89a163806518c746f11fb4e43fd9af5704720b9a[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Thu Mar 10 16:45:38 2022 +0530
+
+    Login Status added
+
+[33mcommit 1b5ee81089301c955b325b221c16ca7a1e573f7b[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Tue Mar 8 10:37:11 2022 +0530
+
+    Login API added
+
+[33mcommit 102b72175ef480e30b4e133fa94bdd68e3d1d10c[m
+Merge: cfbcea0 756aa04
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Wed Mar 2 16:03:04 2022 +0530
+
+    Merge branch 'design' into api
+
+[33mcommit 756aa04ab3ae88620ecfc767dfcecfa65cd2564b[m[33m ([m[1;31morigin/design[m[33m)[m
+Merge: bb228c6 ff3f700
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Wed Mar 2 16:02:19 2022 +0530
+
+    Branch 'nitin' merged and conflicts resolved
+
+[33mcommit cfbcea07dfbfac8a11f2f5ac304d63506a7bee0d[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Wed Mar 2 15:49:25 2022 +0530
+
+    OnBoarding Content added
+
+[33mcommit 4ed776efd6049e746b798f98dc65306dbda1fce5[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Wed Mar 2 14:09:51 2022 +0530
+
+    Verification API added
+
+[33mcommit bb228c6847735b7ce50fe8fec2d90d964a4875d2[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Tue Mar 1 19:35:13 2022 +0530
+
+    Sign Up Api implemented
+
+[33mcommit ff3f700cec7778454e03afdb7c2728ba8ef8e34e[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Tue Mar 1 18:49:46 2022 +0530
+
+    challengesDetail
+
+[33mcommit e5e444d365f540e30a1e0cd58a3fc72fc2d8546f[m
+Merge: 399a3aa 3d9c33c
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Mon Feb 28 11:20:05 2022 +0530
+
+    Conflicts resolved in Strings.xml
+
+[33mcommit 399a3aaeb8e46323c82b4d8952b1686b6800ecf0[m
+Merge: dbc8e5b 8a4db7b
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Mon Feb 28 11:12:33 2022 +0530
+
+    Conflicts resolved
+
+[33mcommit 3d9c33c47e87ff27629ca3d2190a07f699d4fdc7[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Fri Feb 25 18:46:59 2022 +0530
+
+    Challenges Done
+
+[33mcommit 859a6eea0405e5739ddbb36b69ef09f533f51390[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Thu Feb 24 19:14:57 2022 +0530
+
+    challenge recycler done
+
+[33mcommit 4d57764ca85da67aa5875144f4d2ce360c480928[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Wed Feb 23 13:12:40 2022 +0530
+
+    Contact us Activity Done
+
+[33mcommit dbc8e5bf13b93d35303a42e8988b468d018ced74[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Wed Feb 23 11:24:13 2022 +0530
+
+    Chart added
+
+[33mcommit 1493a4eeaf57718064389c9d4acf7adfc256213e[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Tue Feb 22 14:34:30 2022 +0530
+
+    My points screen
+
+[33mcommit 9f71e108a105d87185a72e195bd708726430dd7d[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Tue Feb 22 12:51:11 2022 +0530
+
+    Activities screen added
+
+[33mcommit 8a4db7b0aca6d29ab74a5b442b2b672cea6186ed[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Mon Feb 21 19:32:13 2022 +0530
+
+    Profile SettingActivity done
+
+[33mcommit 195163055d213e8791b813aefe111f484975322a[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Mon Feb 21 14:44:58 2022 +0530
+
+    Profile Section complete
+
+[33mcommit 09c5f1d938c299c89af4921220c10ab73973dd8a[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Fri Feb 18 17:23:17 2022 +0530
+
+    profile item layout
+
+[33mcommit 54e6ed9626db4220a3d9662a619e1fec660160d2[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Thu Feb 17 22:28:52 2022 +0530
+
+    Profile Section added
+
+[33mcommit e4593220b0729fb7b7b76519f67fc34b8703ce26[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Thu Feb 17 18:43:49 2022 +0530
+
+    challengeitemlayout
+
+[33mcommit 26f101459d13a0213fed262406dc3c74c9c648e0[m
+Merge: 6f6cd3c bfac6e4
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Thu Feb 17 12:38:33 2022 +0530
+
+    Conflicts resolved
+
+[33mcommit bfac6e41f8116c5f8eb1fd88584e88620e4fa687[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Thu Feb 17 12:34:43 2022 +0530
+
+    Create myfolloweritemlayout
+
+[33mcommit 6f6cd3c3508d1126a70a3cef6eb957f928c3a4a3[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Thu Feb 17 11:41:08 2022 +0530
+
+    Create Feed XML refactor, Profile Fragments created
+
+[33mcommit c0ff2f48490bab11c77b03d981db862a294f26d6[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Wed Feb 16 18:44:03 2022 +0530
+
+    Create Follower Activity
+
+[33mcommit 67505541599ac48f96e5ec1f14794869c67017b9[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Tue Feb 15 19:12:16 2022 +0530
+
+    padding added to title feild
+
+[33mcommit a63e7572281376fa098af31100543b9f98f5324e[m
+Author: Nitin Sahu <nitin.sahu@newmediaguru.com>
+Date:   Tue Feb 15 19:06:25 2022 +0530
+
+    Create Feed Screen Design
+
+[33mcommit 9da43fce50da8a96b7e21ff21e84eee74dde969a[m[33m ([m[1;32mdesign[m[33m)[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Mon Feb 14 12:45:39 2022 +0530
+
+    Dashboard Navigation added
+
+[33mcommit b81fd684264eb4ecc44b2ad45eafea33fb5f1c34[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Fri Feb 11 22:25:04 2022 +0530
+
+    Feeds Fragments added
+
+[33mcommit e6a41dd01308ad234be5586d369a7a1ea8b78ed6[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Fri Feb 11 13:09:43 2022 +0530
+
+    Dashboard Sreen
+
+[33mcommit 3022806fd2b410fd80f8fbb10236cf6abcc95c16[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Thu Feb 10 11:08:05 2022 +0530
+
+    Forgot Password Design
+
+[33mcommit 4c300c750b8b3c455f9590a0a4648692fbf45ae1[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Mon Feb 7 12:40:22 2022 +0530
+
+    Forgot Password added
+
+[33mcommit b51fa45e841dd126d0d66db976aa3cac43b30bb9[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Sat Feb 5 22:00:20 2022 +0530
+
+    Forgot Password Screen
+
+[33mcommit f34cc73737a01b4da30fd19782f4ae329a8900c2[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Sat Feb 5 13:39:58 2022 +0530
+
+    Verification, Success Screen added
+
+[33mcommit 1089f5c65838883167f4aff46173952cfad371cb[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Fri Feb 4 19:25:29 2022 +0530
+
+    Verify Code Screen
+
+[33mcommit 89f464ab0aa69f0e638d07dd32aebc902b54f715[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Fri Feb 4 15:36:02 2022 +0530
+
+    Sign Up Design
+
+[33mcommit 31d8773cd48e22ffb69f27b46cdce97717d42fd0[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Thu Feb 3 13:28:07 2022 +0530
+
+    Sign in Screen
+
+[33mcommit 59c3cb02f653bc449d4522306f29cb14458a2073[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Sun Jan 30 14:07:18 2022 +0530
+
+    Splash, OnBoarding, Signup Options Desgin
+
+[33mcommit 3428308d500935dcf7ef4e043f7e125fed87eb27[m
+Author: unknown <muheeb.mehraj@nmgtechnologies.com>
+Date:   Sun Jan 30 14:07:04 2022 +0530
+
+    Splash, OnBoarding, Signup Options Desgin

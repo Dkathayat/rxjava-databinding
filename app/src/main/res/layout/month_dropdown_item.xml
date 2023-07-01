@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:background="@color/white">-->
+
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/answer_textview"
+    style="@style/Text.Roboto.Medium"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen_24"
+    android:background="@drawable/spinner_selected_item_background"
+    android:paddingStart="@dimen/dimen_8"
+    android:paddingTop="@dimen/dimen_10"
+    android:paddingBottom="@dimen/dimen_10"
+    android:textColor="@color/black"
+    android:textSize="@dimen/text_16"
+
+    />
+
+    <!--</LinearLayout>-->

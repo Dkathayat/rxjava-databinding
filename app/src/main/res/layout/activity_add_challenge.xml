@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.addchallengesportstype.AddChallengeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_8"
+            android:maxHeight="@dimen/dimen_8"
+            android:orientation="horizontal"
+            android:progress="10"
+            android:progressBackgroundTint="@color/progress_color"
+            android:progressTint="@color/orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/challenge_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingTop="@dimen/dimen_32"
+            android:paddingBottom="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_back"
+                style="@style/Text.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:text="@string/go_back"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_16"
+                app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/type"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onActionClick}"
+                android:text="@string/save_as_draft_without_line"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/text_15"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/step_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/step_1_10"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/challenge_toolbar" />
+
+        <TextView
+            android:id="@+id/addchallenge_label"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:text="@string/add_challenge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/step_label" />
+
+        <TextView
+            android:id="@+id/pick_challenge_label"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingBottom="@dimen/dimen_32"
+            android:text="@string/pick_challenge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addchallenge_label" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sports_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_challenge_label"
+            bind:listitem="@layout/item_sport_list" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_no_feeds"
+            android:visibility="@{viewModel.noData?View.VISIBLE:View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/sports_recycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pick_challenge_label" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dimen_32"
+            android:text="@string/no_sports_available"
+            android:textColor="@color/dark_grey"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.noData?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+
+
+        <!--        <ScrollView-->
+        <!--            android:id="@+id/scroll_layout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/btn_continue"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/pick_challenge_label">-->
+
+        <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                android:id="@+id/mid_layout"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/running_img"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="@dimen/dimen_172"-->
+        <!--                    android:layout_marginTop="@dimen/dimen_20"-->
+        <!--                    android:background="@drawable/running"-->
+        <!--                    android:onClick="@{viewModel::onActionClick}"-->
+        <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/hiking_img"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="@dimen/dimen_172"-->
+        <!--                    android:background="@drawable/hiking"-->
+        <!--                    android:onClick="@{viewModel::onActionClick}"-->
+        <!--                    app:layout_constraintTop_toBottomOf="@+id/running_img" />-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/biking_img"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="@dimen/dimen_172"-->
+        <!--                    android:background="@drawable/biking"-->
+        <!--                    android:onClick="@{viewModel::onActionClick}"-->
+        <!--                    app:layout_constraintTop_toBottomOf="@+id/hiking_img" />-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="@dimen/dimen_172"-->
+        <!--                    android:layout_marginTop="@dimen/dimen_20"-->
+        <!--                    android:background="#BFFCAC1D"-->
+        <!--                    android:visibility="@{viewModel.runningClicked ? View.VISIBLE : View.GONE}"-->
+        <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="@dimen/dimen_172"-->
+        <!--                    android:background="#BFFCAC1D"-->
+        <!--                    android:visibility="@{viewModel.hikingClicked ? View.VISIBLE : View.GONE}"-->
+        <!--                    app:layout_constraintTop_toBottomOf="@+id/running_img" />-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="@dimen/dimen_172"-->
+        <!--                    android:background="#BFFCAC1D"-->
+        <!--                    android:visibility="@{viewModel.bikingClicked ? View.VISIBLE : View.GONE}"-->
+        <!--                    app:layout_constraintTop_toBottomOf="@+id/hiking_img" />-->
+
+        <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                    android:id="@+id/running_layout"-->
+        <!--                    android:layout_width="300dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    app:layout_constraintBottom_toBottomOf="@+id/running_img"-->
+        <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                    app:layout_constraintStart_toStartOf="parent"-->
+        <!--                    app:layout_constraintTop_toTopOf="@+id/running_img">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:id="@+id/running_shoe_img"-->
+        <!--                        android:layout_width="@dimen/dimen_72"-->
+        <!--                        android:layout_height="@dimen/dimen_32"-->
+        <!--                        android:src="@drawable/ic_running"-->
+        <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                        app:layout_constraintStart_toStartOf="parent"-->
+        <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/running_label"-->
+        <!--                        style="@style/Text.Roboto.Bold"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="@string/running"-->
+        <!--                        android:textSize="@dimen/dimen_15"-->
+        <!--                        app:layout_constraintStart_toEndOf="@+id/running_shoe_img"-->
+        <!--                        app:layout_constraintTop_toTopOf="@+id/running_shoe_img" />-->
+
+        <!--                    <TextView-->
+        <!--                        style="@style/Text.Roboto.Bold"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="@string/create_running_event"-->
+        <!--                        android:textSize="@dimen/dimen_13"-->
+        <!--                        app:layout_constraintBottom_toBottomOf="@+id/running_shoe_img"-->
+        <!--                        app:layout_constraintStart_toEndOf="@+id/running_shoe_img"-->
+        <!--                        app:layout_constraintTop_toBottomOf="@+id/running_label" />-->
+        <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                    android:id="@+id/hiking_layout"-->
+        <!--                    android:layout_width="300dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    app:layout_constraintBottom_toBottomOf="@+id/hiking_img"-->
+        <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                    app:layout_constraintStart_toStartOf="parent"-->
+        <!--                    app:layout_constraintTop_toTopOf="@+id/hiking_img">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:id="@+id/hiking_shoe_img"-->
+        <!--                        android:layout_width="@dimen/dimen_72"-->
+        <!--                        android:layout_height="@dimen/dimen_32"-->
+        <!--                        android:src="@drawable/ic_hiking"-->
+        <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                        app:layout_constraintStart_toStartOf="parent"-->
+        <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/hiking_label"-->
+        <!--                        style="@style/Text.Roboto.Bold"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="@string/hiking"-->
+        <!--                        android:textSize="@dimen/dimen_15"-->
+        <!--                        app:layout_constraintStart_toEndOf="@+id/hiking_shoe_img"-->
+        <!--                        app:layout_constraintTop_toTopOf="@+id/hiking_shoe_img"-->
+
+        <!--                        />-->
+
+        <!--                    <TextView-->
+        <!--                        style="@style/Text.Roboto.Bold"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="@string/create_hiking_event"-->
+        <!--                        android:textSize="@dimen/dimen_13"-->
+        <!--                        app:layout_constraintBottom_toBottomOf="@+id/hiking_shoe_img"-->
+        <!--                        app:layout_constraintStart_toEndOf="@+id/hiking_shoe_img"-->
+        <!--                        app:layout_constraintTop_toBottomOf="@+id/hiking_label"-->
+
+        <!--                        />-->
+        <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                    android:id="@+id/biking_layout"-->
+        <!--                    android:layout_width="300dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    app:layout_constraintBottom_toBottomOf="@+id/biking_img"-->
+        <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                    app:layout_constraintStart_toStartOf="parent"-->
+        <!--                    app:layout_constraintTop_toTopOf="@+id/biking_img">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:id="@+id/biking_shoe_img"-->
+        <!--                        android:layout_width="@dimen/dimen_72"-->
+        <!--                        android:layout_height="@dimen/dimen_32"-->
+        <!--                        android:src="@drawable/ic_biking"-->
+        <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                        app:layout_constraintStart_toStartOf="parent"-->
+        <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/biking_label"-->
+        <!--                        style="@style/Text.Roboto.Bold"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="@string/biking"-->
+        <!--                        android:textSize="@dimen/dimen_15"-->
+        <!--                        app:layout_constraintStart_toEndOf="@+id/biking_shoe_img"-->
+        <!--                        app:layout_constraintTop_toTopOf="@+id/biking_shoe_img"-->
+
+        <!--                        />-->
+
+        <!--                    <TextView-->
+        <!--                        style="@style/Text.Roboto.Bold"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:text="@string/create_biking_event"-->
+        <!--                        android:textSize="@dimen/dimen_13"-->
+        <!--                        app:layout_constraintBottom_toBottomOf="@+id/biking_shoe_img"-->
+        <!--                        app:layout_constraintStart_toEndOf="@+id/biking_shoe_img"-->
+        <!--                        app:layout_constraintTop_toBottomOf="@+id/biking_label"-->
+
+        <!--                        />-->
+        <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--        </ScrollView>-->
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:elevation="@dimen/dimen_10"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_continue"
+            app:layout_constraintEnd_toEndOf="@+id/btn_continue"
+            app:layout_constraintStart_toStartOf="@+id/btn_continue"
+            app:layout_constraintTop_toTopOf="@+id/btn_continue"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@{viewModel.isBtnActive()?@color/black:@color/btnDisable}"
+            android:clickable="@{viewModel.isBtnActive?true:false}"
+            android:fontFamily="@font/roboto_medium"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+            android:onClick="@{viewModel::onActionClick}"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/continue_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            app:backgroundTint="@null"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

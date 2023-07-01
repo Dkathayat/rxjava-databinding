@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.profile.fragment.mypoints.MyPointsViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_close_filter"
+            android:layout_width="@dimen/dimen_32"
+            android:layout_height="@dimen/dimen_32"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginHorizontal="@dimen/dimen_32"
+            android:padding="@dimen/dimen_8"
+            android:src="@drawable/ic_cross"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_title_filter"
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:text="Advance Filter"
+            android:layout_marginTop="@dimen/dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_close_filter"/>
+
+        <TextView
+            android:id="@+id/tv_title_reset"
+            style="@style/Text.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:drawableStart="@drawable/ic_refresh"
+            android:drawableTint="@color/colorPrimary"
+            android:drawablePadding="@dimen/dimen_10"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16"
+            android:text="Reset Filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_close_filter" />
+
+        <TextView
+            android:id="@+id/tv_title_sub_sports"
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_filter"
+            tools:text="Sub Sports Type" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_filter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_200"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_sub_sports"
+            tools:listitem="@layout/item_user_points_filter_activity" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView3"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:elevation="@dimen/dimen_20"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_list_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rv_list_filter"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading"
+            app:lottie_speed="2" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:background="@color/grey_ef"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_list_filter" />
+
+        <TextView
+            android:id="@+id/tv_title_date"
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_30"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:layout_marginTop="@dimen/dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view6"
+            android:text="Choose a Start &amp; End Date" />
+
+        <ImageView
+            android:id="@+id/checkStartEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_30"
+            android:background="@drawable/ic_unchecked__checkbox"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_title_date" />
+
+        <TextView
+            android:id="@+id/tvMonthYear"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:animateLayoutChanges="true"
+            android:drawablePadding="@dimen/dimen_20"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_date"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_date" />
+
+        <ImageView
+            android:id="@+id/ivMonthYear"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_30"
+            android:src="@drawable/ic_drop_down_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMonthYear"
+            app:layout_constraintStart_toEndOf="@+id/tvMonthYear" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/monthSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/grey"
+            android:drawableEnd="@drawable/ic_drop_down_arrow"
+            android:gravity="start"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_20"
+            android:paddingBottom="@dimen/dimen_10"
+            app:layout_constraintStart_toStartOf="@+id/tvMonthYear"
+            app:layout_constraintTop_toBottomOf="@+id/tvMonthYear"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/yearSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/grey"
+            android:drawableEnd="@drawable/ic_drop_down_arrow"
+            android:paddingStart="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_20"
+            android:paddingBottom="@dimen/dimen_10"
+            app:layout_constraintBottom_toBottomOf="@+id/monthSpinner"
+            app:layout_constraintStart_toEndOf="@+id/monthSpinner"
+            app:layout_constraintTop_toTopOf="@+id/monthSpinner"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <com.shuhart.materialcalendarview.MaterialCalendarView
+            android:id="@+id/calendarView2"
+            style="@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginHorizontal="@dimen/dimen_20"
+            app:layout_constraintBottom_toTopOf="@+id/apply_filter_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/monthSpinner"
+            app:mcv_bottomTopDayPadding="4dp"
+            app:mcv_selectionColor="@color/progress_track_color"
+            app:mcv_selectionRangeColor="#EFCC8D"
+            app:mcv_tileSize="55dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/apply_filter_button"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/apply_filter"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            app:backgroundTint="@color/button_tint"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.verifyCode.VerifyCodeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/bg_login"
+            android:paddingTop="@dimen/pre_login_vertical_padding">
+
+            <include
+                android:id="@+id/include"
+                layout="@layout/layout_pre_login_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pre_login_horizontal_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.15" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/pre_login_horizontal_padding"
+                android:text="@string/email_verification"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+            <TextView
+                android:id="@+id/tv_otp_instruction"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:paddingHorizontal="@dimen/pre_login_horizontal_padding"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <!--        android:layout_marginHorizontal="@dimen/pre_login_horizontal_padding"-->
+
+            <!--        <com.mukesh.OtpView-->
+            <!--            android:id="@+id/tvOTP"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_gravity="center_horizontal"-->
+            <!--            android:layout_marginTop="@dimen/dimen_30"-->
+            <!--            android:cursorVisible="true"-->
+            <!--            android:focusableInTouchMode="true"-->
+            <!--            style="@style/Text.Medium"-->
+            <!--            android:gravity="center_horizontal"-->
+            <!--            android:imeOptions="actionDone"-->
+            <!--            android:inputType="number"-->
+            <!--            android:itemBackground="@{viewModel.invalidCode? @drawable/circel_red:@drawable/circel_white}"-->
+            <!--            android:onTextChanged="@{viewModel::onOtpChange}"-->
+            <!--            android:text="@={viewModel.verificationCode}"-->
+            <!--            android:textColor="@color/black"-->
+            <!--            android:textSize="24dp"-->
+            <!--            app:OtpCursorColor="#707070"-->
+            <!--            android:hint="&#45;&#45;&#45;&#45;"-->
+            <!--            app:OtpItemCount="4"-->
+            <!--            app:OtpItemHeight="65dp"-->
+            <!--            app:OtpItemSpacing="@dimen/dimen_16"-->
+            <!--            app:OtpItemWidth="65dp"-->
+            <!--            app:OtpLineColor="@color/white"-->
+            <!--            app:OtpLineWidth="0dp"-->
+            <!--            app:OtpState_filled="true"-->
+            <!--            app:OtpViewType="rectangle"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/star_no"-->
+            <!--            tools:ignore="MissingClass" />-->
+
+            <!--        android:itemBackground="@drawable/bg_otp_view"-->
+
+            <com.mukesh.OtpView
+                android:id="@+id/otp_view"
+                style="@style/Text.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/dimen_20"
+                android:layout_marginTop="48dp"
+                android:cursorVisible="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:hint="@string/dash"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:itemBackground="@{viewModel.invalidCode? @drawable/circel_red:@drawable/circel_white}"
+                android:onTextChanged="@{viewModel::onOtpChange}"
+                android:padding="@dimen/dimen_8"
+                android:text="@={viewModel.verificationCode}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/text_24"
+                app:OtpCursorColor="#707070"
+                app:OtpItemCount="4"
+                app:OtpItemHeight="@dimen/dimen_72"
+                app:OtpItemSpacing="@dimen/dimen_16"
+                app:OtpItemWidth="@dimen/dimen_72"
+                app:OtpLineColor="@color/white"
+                app:OtpLineWidth="0dp"
+                app:OtpState_filled="true"
+                app:OtpViewType="rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction" />
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:text="@{viewModel.codeError}"
+                android:textColor="@color/error_color"
+                android:textSize="@dimen/text_12"
+                android:visibility="@{viewModel.invalidCode ? View.VISIBLE : View.GONE }"
+                app:layout_constraintEnd_toEndOf="@id/otp_view"
+                app:layout_constraintStart_toStartOf="@+id/otp_view"
+                app:layout_constraintTop_toBottomOf="@+id/otp_view" />
+
+            <TextView
+                android:id="@+id/tv_timer"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8"
+                android:gravity="center"
+                android:onClick="@{viewModel::onResendCodeClick}"
+                android:text="@string/resend_code"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_16"
+                app:drawableRotate="@{viewModel.isRotate()}"
+                app:drawableStartCompat="@drawable/ic_refresh"
+                app:drawableTint="@color/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/btn_verify_code"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="@+id/textView6"
+                app:layout_constraintVertical_bias="0.26" />
+
+            <include
+                layout="@layout/layout_progress"
+                android:layout_width="@dimen/dimen_32"
+                android:layout_height="@dimen/dimen_32"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_verify_code"
+                app:layout_constraintEnd_toEndOf="@+id/btn_verify_code"
+                app:layout_constraintStart_toStartOf="@+id/btn_verify_code"
+                app:layout_constraintTop_toTopOf="@+id/btn_verify_code"
+                bind:viewModel="@{(BaseViewModel)viewModel}" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_verify_code"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="@{viewModel::onVerifyCodeClick}"
+                android:paddingVertical="@dimen/dimen_24"
+                android:text="@string/verify_otp"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+                app:backgroundTint="@color/black"
+                app:cornerRadius="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

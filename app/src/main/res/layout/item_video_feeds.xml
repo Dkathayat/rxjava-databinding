@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.videofeeds.vm.ItemVideoFeedsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <VideoView
+            android:id="@+id/idExoPlayerVIew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="@dimen/dimen_20"
+            android:layout_height="@dimen/dimen_20"
+            android:layout_marginStart="@dimen/start_end_margin"
+            android:layout_marginTop="44dp"
+            android:onClick="@{()->viewModel.onClickClose()}"
+            android:src="@drawable/ic_icon_ionic_md_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/ivThreeDot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/start_end_margin"
+            android:backgroundTint="@color/white"
+            android:onClick="@{viewModel::onOptionClick}"
+            android:src="@drawable/ic_icon_elips"
+            app:layout_constraintBottom_toBottomOf="@id/ivCamera"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivCamera" />
+
+
+        <ImageView
+            android:id="@+id/ivCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="21dp"
+            android:backgroundTint="@color/white"
+            android:onClick="@{()->viewModel.onClickCamera()}"
+            android:src="@drawable/ic_icon_feather_camera"
+            app:layout_constraintEnd_toStartOf="@+id/ivThreeDot"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/ivfind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="21dp"
+            android:backgroundTint="@color/white"
+            android:onClick="@{()->viewModel.onClickFind()}"
+            android:src="@drawable/ic_icon_feather_search"
+            app:layout_constraintEnd_toStartOf="@+id/ivCamera"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="@dimen/start_end_margin"
+            android:layout_marginBottom="@dimen/dimen_24"
+            android:background="@drawable/ic_app_logo"
+            android:onClick="@{()->viewModel.onClickProfile()}"
+            android:src="@{viewModel.profileImage}"
+            android:visibility="@{viewModel.profileImageVisibility ? View.VISIBLE:View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearance="@style/ProfileImageAppearance" />
+
+        <TextView
+            android:id="@+id/nametext"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="@dimen/start_end_margin"
+            android:layout_marginBottom="@dimen/dimen_24"
+            android:background="@drawable/light_grey_circle"
+            android:gravity="center"
+            android:onClick="@{()->viewModel.onClickProfile()}"
+            android:text="@={viewModel.profileImageName}"
+            android:textAllCaps="true"
+            android:textColor="@color/dark_grey"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.profileImageVisibility ? View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:text="@{viewModel.item.createdBy.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintEnd_toStartOf="@+id/tvFollow"
+            app:layout_constraintStart_toEndOf="@id/iv"
+            app:layout_constraintTop_toTopOf="@+id/iv" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintBottom_toBottomOf="@+id/iv"
+            app:layout_constraintStart_toEndOf="@id/iv"
+            tools:text="Oakwill • USA" />
+
+        <TextView
+            android:id="@+id/tvFollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/start_end_margin"
+            android:background="@drawable/white_square_background"
+            android:onClick="@{()->viewModel.onFollowClick()}"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@string/follow"
+            android:visibility="@{viewModel.followVisibility ? View.VISIBLE:View.INVISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv" />
+
+        <TextView
+            android:id="@+id/tvUnFollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/start_end_margin"
+            android:background="@drawable/white_square_background"
+            android:onClick="@{()->viewModel.onFollowClick()}"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@string/unfollow"
+            android:visibility="@{viewModel.followVisibility ? View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv" />
+
+
+        <include
+            android:id="@+id/include3"
+            layout="@layout/layout_share_like_coment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/start_end_margin"
+            android:layout_marginBottom="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvFollow"
+            app:layout_constraintEnd_toEndOf="parent"
+            bind:viewModel="@{viewModel}" />
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start_end_margin"
+            android:text="@{viewModel.item.title}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintBottom_toTopOf="@+id/tvDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.yewapp.utils.ShowMoreTextView
+            android:id="@+id/tvDesc"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start_end_margin"
+            android:paddingBottom="44dp"
+            android:text="@{viewModel.item.description}"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <ProgressBar
+            android:id="@+id/videoProgressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

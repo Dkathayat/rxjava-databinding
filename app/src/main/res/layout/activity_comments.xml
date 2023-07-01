@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.comments.vm.CommentsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.modules.comments.CommentsActivity">
+
+        <TextView
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_back_arrow"
+            android:drawablePadding="@dimen/dimen_20"
+            android:fontFamily="@font/roboto_bold"
+            android:onClick="@{viewModel::onBackPressed}"
+            android:paddingStart="@dimen/dimen_24"
+            android:paddingTop="@dimen/dimen_24"
+            android:paddingBottom="@dimen/dimen_24"
+            android:text="@string/comment"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.029999971" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_10"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingBottom="@dimen/dimen_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/backbtn"
+            app:layout_constraintTop_toBottomOf="@+id/backbtn">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_img_layout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <!--                android:background="@drawable/profile_orange_circle_background"-->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shapeableImageView11"
+                    android:layout_width="@dimen/dimen_48"
+                    android:layout_height="@dimen/dimen_48"
+                    android:scaleType="centerCrop"
+                    android:visibility="@{viewModel.profileImageVisibility ?View.VISIBLE:View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setImageRes="@{viewModel.userImage}"
+                    app:shapeAppearance="@style/ProfileImageAppearance" />
+
+                <TextView
+                    android:id="@+id/nametext"
+                    android:layout_width="48dp"
+                    android:layout_height="@dimen/dimen_48"
+                    android:background="@drawable/light_grey_circle"
+                    android:gravity="center"
+                    android:text="@={viewModel.profileImageName}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/dimen_20"
+                    android:visibility="@{viewModel.profileImageVisibility ?View.INVISIBLE:View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/textView28"
+                style="@style/Text.Medium.ExtraBold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_15"
+                android:paddingTop="@dimen/dimen_8"
+                android:text="@{viewModel.profileName}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintStart_toEndOf="@+id/profile_img_layout"
+                app:layout_constraintTop_toTopOf="@+id/profile_img_layout"
+                tools:text="Muheeb Mehrak" />
+            <!--            -->
+            <TextView
+                android:id="@+id/textView29"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_15"
+                android:text="@{viewModel.date}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView28"
+                app:layout_constraintTop_toBottomOf="@+id/textView28"
+                tools:text="1d ago" />
+            <!--            android:text="@{viewModel.d}"-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvComment"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start_end_margin"
+            android:text="@string/write_comment"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_header" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/comment_edt_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="27dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvComment">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/comments_text_input_layout"
+                style="@style/TextInputStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginBottom="32dp"
+                android:gravity="top"
+                android:textColorHint="@color/grey"
+                app:endIconMode="none"
+                app:errorTextAppearance="@color/black"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toStartOf="@+id/ivSend"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <!--                app:showError="@{viewModel.commentError}"-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/messageEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/grey_bottom_line"
+                    android:fontFamily="@font/raleway_medium"
+                    android:hint="@string/entercomment_here"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:maxLength="500"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:singleLine="false"
+                    android:text="@={viewModel.commentMessage}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            <androidx.appcompat.widget.AppCompatEditText-->
+            <!--                android:id="@+id/ed"-->
+            <!--                style="@style/EditTextStyle"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:text="@{viewModel.commentMessage}"-->
+            <!--                app:showError="@{viewModel.commentError}"-->
+            <!--                android:background="@color/transparent"-->
+            <!--                android:hint="@string/entercomment_here"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textColorHint="@color/grey"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/ivSend"-->
+            <!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+            <ImageView
+                android:id="@+id/ivSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onAddCommentClick}"
+                android:padding="@dimen/dimen_20"
+                android:src="@drawable/ic_icon_send_active"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/comments_text_input_layout"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerComment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="27dp"
+            android:paddingVertical="@dimen/dimen_10"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comment_edt_layout" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_submit"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{viewModel::onAddCommentClick}"
+            android:paddingVertical="@dimen/dimen_20"
+            android:text="@string/submit_comment"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.isLoading() ? View.GONE : View.VISIBLE}"
+            app:backgroundTint="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

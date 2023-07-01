@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addmember.vm.ItemSuggestedViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/dimen_147"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_10"
+        android:layout_marginVertical="@dimen/dimen_20"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="@dimen/dimen_32">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="@dimen/dimen_20">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView11"
+                android:layout_width="@dimen/dimen_48"
+                android:layout_height="@dimen/dimen_48"
+                android:background="@color/grey_e3"
+                android:visibility="@{viewModel.profileImageVisibility ? View.VISIBLE:View.INVISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageRes="@{viewModel.image}"
+                app:shapeAppearance="@style/ProfileImageAppearance" />
+
+            <TextView
+                android:id="@+id/nametext"
+                android:layout_width="@dimen/dimen_48"
+                android:layout_height="@dimen/dimen_48"
+                android:background="@drawable/profile_orange_circle_background"
+                android:gravity="center"
+                android:text="@={viewModel.profileImageName}"
+                android:textAllCaps="true"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.profileImageVisibility ? View.INVISIBLE:View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView11" />
+
+            <TextView
+                android:id="@+id/textView28"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:minLines="2"
+                android:paddingHorizontal="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_5"
+                android:text="@{viewModel.item.fullName}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shapeableImageView11"
+                tools:text="Muheeb" />
+
+            <TextView
+                android:id="@+id/country_state_textview"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/dimen_5"
+                android:paddingTop="@dimen/dimen_5"
+                android:text="@{viewModel.location}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28"
+                tools:text="Muheeb Mehrak" />
+
+            <TextView
+                android:id="@+id/followTextview"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:gravity="center_horizontal"
+                android:onClick="@{viewModel::onItemClick}"
+                android:paddingHorizontal="@dimen/dimen_8"
+                android:text="@string/follow"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/text_13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/country_state_textview"
+                tools:text="Follow" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

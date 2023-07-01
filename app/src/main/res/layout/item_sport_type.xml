@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.editProfile.vm.ItemSportTypeViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_5"
+        android:background="@drawable/bg_sport_type"
+        android:padding="@dimen/dimen_10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="start|center|end"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dimen_8"
+            android:paddingVertical="@dimen/dimen_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editSportsType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="@dimen/dimen_26"
+                android:layout_height="@dimen/dimen_26"
+                android:clickable="@{viewModel.modelAdded}"
+                android:focusable="@{viewModel.modelAdded}"
+                android:background="@drawable/bg_chk_box_sport_type"
+                android:button="@android:color/transparent"
+                android:checked="@={viewModel.sportType.checked}"
+                android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onCheckedChange(compoundButton, checked)}" />
+
+
+            <ImageView
+                android:layout_width="@dimen/dimen_32"
+                android:layout_height="@dimen/dimen_20"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dimen_10"
+                app:setImageRes="@{viewModel.sportType.icon}" />
+
+            <TextView
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_marginEnd="@dimen/dimen_5"
+                android:text="@{viewModel.sportType.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:drawableTint="@color/grey_e4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Bicycler" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/editSportsType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.sportType.isModelAdded ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="0.2dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey_da" />
+
+            <ImageView
+                android:id="@+id/deleteSportsType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onClick}"
+                android:padding="@dimen/dimen_10"
+                android:src="@drawable/ic_delete_icon" />
+
+            <ImageView
+                android:id="@+id/ivEditSportsType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onClick}"
+                android:padding="@dimen/dimen_10"
+                android:src="@drawable/ic_edit_icon" />
+        </LinearLayout>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/addSportsType"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:onClick="@{viewModel::onClick}"-->
+<!--            android:padding="@dimen/dimen_10"-->
+<!--            android:src="@drawable/ic_arrow_right_grey"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        android:visibility="@{viewModel.sportType.isModelAdded ? View.INVISIBLE : View.VISIBLE}"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout><!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+    <!--    <data>-->
+
+    <!--        <variable-->
+    <!--            name="viewModel"-->
+    <!--            type="com.yewapp.ui.modules.editProfile.vm.ItemSportTypeViewModel" />-->
+    <!--    </data>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="@dimen/dimen_12"-->
+    <!--        android:background="@drawable/bg_sport_type"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:paddingHorizontal="@dimen/dimen_8"-->
+    <!--        android:paddingVertical="@dimen/dimen_16">-->
+
+    <!--        <androidx.appcompat.widget.AppCompatCheckBox-->
+    <!--            android:layout_width="@dimen/dimen_26"-->
+    <!--            android:layout_height="@dimen/dimen_26"-->
+    <!--            android:background="@drawable/bg_chk_box_sport_type"-->
+    <!--            android:button="@android:color/transparent"-->
+    <!--            android:checked="@={viewModel.sportType.checked}" />-->
+
+    <!--        <ImageView-->
+    <!--            android:layout_width="@dimen/dimen_32"-->
+    <!--            android:layout_height="@dimen/dimen_20"-->
+    <!--            android:layout_gravity="center_vertical"-->
+    <!--            app:setImageRes="@{viewModel.sportType.icon}" />-->
+
+    <!--        <TextView-->
+    <!--            style="@style/Text.Roboto.Medium"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@{viewModel.sportType.name}"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="@dimen/text_16"-->
+    <!--            app:drawableEndCompat="@drawable/ic_arrow_right_grey"-->
+    <!--            app:drawableTint="@color/grey_e4"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:text="Bicycler" />-->
+
+    <!--    </LinearLayout>-->
+
+    <!--</layout>-->

@@ -1,0 +1,1323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.managenotification.vm.SettingsFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_grey">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/activity_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/activities"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/activities"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/like_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/likes"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/activities" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/activity_like_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.activityLike}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/like_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/like_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/like_subtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/likes_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/like_txt" />
+
+                    <View
+                        android:id="@+id/like_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/like_subtext" />
+
+                    <!--      second layout design-->
+
+                    <TextView
+                        android:id="@+id/comment_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/comment"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/like_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/comment_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.activityComment}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/comment_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/comment_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/comment_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/comment_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/comment_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/comment_txt" />
+
+                    <View
+                        android:id="@+id/comment_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/comment_subtext" />
+
+                    <!--                third layout design-->
+
+                    <TextView
+                        android:id="@+id/lost_cr_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/lostcr"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/comment_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/lost_cr_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.activityLostPosition}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/lost_cr_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/lost_cr_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/lost_cr_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/lost_cr_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/lost_cr_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lost_cr_txt" />
+
+                    <View
+                        android:id="@+id/lost_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/lost_cr_subtext" />
+
+                    <!--                fourth layout design-->
+                    <TextView
+                        android:id="@+id/device_sync_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/device_sync"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lost_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/device_sync_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.activityDataSync}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/device_sync_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/device_sync_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/device_sync_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/device_sync_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/device_sync_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/device_sync_txt" />
+
+                    <View
+                        android:id="@+id/device_sync_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/device_sync_subtext" />
+
+                    <!--                fifth layout design-->
+                    <TextView
+                        android:id="@+id/beacon_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/beacon"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/device_sync_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/beacon_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.activityBeacon}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/beacon_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/beacon_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/beacon_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/beacon_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/beacon_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/beacon_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/spectors_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_layout">
+
+                    <TextView
+                        android:id="@+id/spectors_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/spectors"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/become_spector_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/become_spector"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/spectors_heading" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/become_spector_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.becomeSpectator}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/become_spector_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/become_spector_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/become_spector_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/become_spector_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/become_spector_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/become_spector_txt" />
+
+                    <View
+                        android:id="@+id/become_spector_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/become_spector_subtext" />
+
+                    <!--      second layout design-->
+
+                    <TextView
+                        android:id="@+id/activity_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/activity"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/become_spector_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/spector_activity_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.spectatedUserActivity}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/activity_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/activity_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/activity_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/activity_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/spector_activity_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/activity_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/friends_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toBottomOf="@+id/spectors_layout">
+
+                    <TextView
+                        android:id="@+id/friends_join_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/friend"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/friends_join_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/friend_joins"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/friends_join_heading" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/friends_join_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.onFriendJoin}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/friends_join_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/friends_join_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/friends_join_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/friends_join_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/friends_join_switchCompat4"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/friends_join_txt" />
+
+                    <View
+                        android:id="@+id/friends_join_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/friends_join_subtext" />
+
+                    <!--      second layout design-->
+
+                    <TextView
+                        android:id="@+id/new_follower_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/new_follower"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/friends_join_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/new_follower_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.newFollower}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/new_follower_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/new_follower_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/new_follower_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/activity_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/new_follower_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/new_follower_txt" />
+
+                    <View
+                        android:id="@+id/new_follower_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/new_follower_subtext" />
+
+                    <TextView
+                        android:id="@+id/friend_activity_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/friends_activity"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/new_follower_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/friend_activity_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.friendActivity}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/friend_activity_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/friend_activity_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/friend_activity_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/friend_activity_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/friend_activity_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/friend_activity_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/challenge_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toBottomOf="@+id/friends_layout">
+
+                    <TextView
+                        android:id="@+id/challenge_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/challenge"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/new_challenge_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/new_challenge"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_heading" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/new_challenge_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.newPublicChallenge}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/new_challenge_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/new_challenge_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/new_challenge_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/new_challenge_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/new_challenge_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/new_challenge_txt" />
+
+                    <View
+                        android:id="@+id/new_challenge_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/new_challenge_subtext" />
+
+                    <TextView
+                        android:id="@+id/challenge_process_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/challenge_process"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/new_challenge_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/challenge_process_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.challengeProgress}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/challenge_process_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/challenge_process_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/challenge_process_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/challenge_process_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/challenge_process_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_process_txt" />
+
+                    <View
+                        android:id="@+id/challenge_process_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_process_subtext" />
+                    <!--                third-->
+
+                    <TextView
+                        android:id="@+id/challenge_reward_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/challenge_reward"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_process_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/challenge_reward_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.challengeReward}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/challenge_reward_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/challenge_reward_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/challenge_reward_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/challenge_reward_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/challenge_reward_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_reward_txt" />
+
+                    <View
+                        android:id="@+id/challenge_reward_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_reward_subtext" />
+
+                    <TextView
+                        android:id="@+id/challenge_invite_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/challenge_invite"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_reward_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/challenge_invite_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.challengeInvite}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/challenge_invite_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/challenge_invite_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/challenge_invite_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/challenge_invite_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/challenge_invite_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_invite_txt" />
+
+                    <View
+                        android:id="@+id/challenge_invite_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_invite_subtext" />
+                    <!--                challenge- comment-->
+
+                    <TextView
+                        android:id="@+id/challenge_comment_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/challenge_comment"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_invite_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/challenge_comment_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.challengeComment}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/challenge_comment_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/challenge_comment_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/challenge_comment_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/challenge_comment_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/challenge_comment_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_comment_txt" />
+
+                    <View
+                        android:id="@+id/challenge_comment_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_comment_subtext" />
+
+                    <TextView
+                        android:id="@+id/challenge_joined_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/challenge_joined"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_comment_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/challenge_joined_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.challengeJoined}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/challenge_joined_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/challenge_joined_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/challenge_joined_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/challenge_joined_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/challenge_joined_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_joined_txt" />
+
+                    <View
+                        android:id="@+id/challenge_joined_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_joined_subtext" />
+
+                    <TextView
+                        android:id="@+id/challenge_leaderboard_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/challenge_leaderboard"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_joined_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/challenge_leaderboard_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.challengeLeaderboardChange}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/challenge_leaderboard_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/challenge_leaderboard_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/challenge_leaderboard_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/challenge_leaderboard_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/challenge_leaderboard_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/challenge_leaderboard_txt" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/feeds_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toBottomOf="@+id/challenge_layout">
+
+                    <TextView
+                        android:id="@+id/feed_like_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/feeds_like_feed_video"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/feed_like_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/feed_like"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/feed_like_heading" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/feed_like_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.feedLike}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/feed_like_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/feed_like_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/feed_like_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/feed_like_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/feed_like_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/feed_like_txt" />
+
+                    <View
+                        android:id="@+id/feed_like_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/feed_like_subtext" />
+
+                    <!--      second layout design-->
+
+                    <TextView
+                        android:id="@+id/feed_comment_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/feed_comment"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/feed_like_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/feed_comment_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.feedComment}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/feed_comment_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/feed_comment_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/feed_comment_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/feed_comment_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/feed_comment_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/feed_comment_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/chat_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toBottomOf="@+id/feeds_layout">
+
+                    <TextView
+                        android:id="@+id/chat_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/chat"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/chat_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/new_message"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chat_heading" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/chat_message_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.chatMessage}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/message_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/chat_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/message_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/new_msg_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/chat_message_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chat_txt" />
+
+                    <View
+                        android:id="@+id/chat_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/message_subtext" />
+
+                    <!--      second layout design-->
+
+                    <TextView
+                        android:id="@+id/chat_subscription_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/subscription"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chat_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/chat_subscription_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.chatSubscription}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/chat_subscription_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/chat_subscription_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/chat_subscription_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/chat_subscription_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/chat_subscription_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chat_subscription_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/other_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toBottomOf="@+id/chat_layout">
+
+                    <TextView
+                        android:id="@+id/marketing_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/others"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/marketing_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/marketing"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/marketing_heading" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/marketing_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.marketing}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/marketing_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/marketing_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/marketing_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/marketing_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/marketing_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/marketing_txt" />
+
+                    <View
+                        android:id="@+id/marketing_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dimen_12"
+                        android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                        android:background="@drawable/grey_bottom_line"
+                        app:layout_constraintTop_toBottomOf="@+id/marketing_subtext" />
+
+                    <!--      second layout design-->
+
+                    <TextView
+                        android:id="@+id/feature_subscription_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/feature_subscription_tips"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/marketing_view" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/feature_subscription_switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.featureSubscriptionTips}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/feature_subscription_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/feature_subscription_txt"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/feature_subscription_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/feature_subscription_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/feature_subscription_switchCompat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/feature_subscription_txt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/email_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_20"
+                    app:layout_constraintTop_toBottomOf="@+id/other_layout">
+
+                    <TextView
+                        android:id="@+id/email_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/email_alert"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_17"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/email_switchCompat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={viewModel.emailAlerts}"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:thumb="@drawable/togglethumb"
+                        app:layout_constraintBottom_toTopOf="@+id/email_subtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/email_heading"
+                        app:thumbTint="@color/transparent"
+                        app:track="@drawable/alert_switch_track"
+                        app:trackTint="@null" />
+
+                    <TextView
+                        android:id="@+id/email_subtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/email_subheading"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_15"
+                        app:layout_constraintEnd_toStartOf="@+id/email_switchCompat4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email_heading" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_10"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

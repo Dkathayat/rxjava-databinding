@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.report.vm.SendReportViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.modules.report.SendReportActivi vb ty">
+
+        <TextView
+            android:id="@+id/tv_back"
+            style="@style/Text.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:gravity="center_vertical"
+            android:onClick="@{viewModel::onBackPressed}"
+            android:text="@string/go_back"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_16"
+            app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/add_feed_text"
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:text="@string/send_report"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_back" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/upload_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_feed_text">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reason_text_input_layout"
+                style="@style/TextInputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:enabled="false"
+                android:focusable="false"
+                android:gravity="top"
+                android:textColorHint="@color/grey"
+                app:errorTextAppearance="@color/black"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toStartOf="@id/add_reason"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reason_text"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:afterTextChanged="@{viewModel::afterReasonChange}"
+                    android:background="@drawable/grey_bottom_line"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/raleway_medium"
+                    android:hint="@string/reason"
+                    android:imeOptions="actionNext"
+                    android:inputType="textMultiLine"
+                    android:onClick="@{viewModel::onReasonClick}"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="@dimen/dimen_30"
+                    android:singleLine="true"
+                    android:text="@={viewModel.reasonText}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <ImageView
+                android:id="@+id/add_reason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/app_margin"
+                android:onClick="@{viewModel::onReasonClick}"
+                android:padding="@dimen/dimen_10"
+                android:src="@drawable/ic_darkgrey_down_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/reason_text_input_layout"
+                app:layout_constraintEnd_toEndOf="@+id/reason_text_input_layout"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/reason_text_input_layout"
+                app:layout_constraintTop_toTopOf="@id/reason_text_input_layout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/comments_text_input_layout"
+                style="@style/TextInputStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_24"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:layout_marginBottom="32dp"
+                android:background="@color/white"
+                android:gravity="top"
+                android:textColorHint="@color/grey"
+                app:errorTextAppearance="@color/black"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reason_text_input_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:afterTextChanged="@{viewModel::afterCommentChange}"
+                    android:background="@drawable/grey_bottom_line"
+                    android:fontFamily="@font/raleway_medium"
+                    android:hint="@string/comments"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:maxLength="500"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:singleLine="false"
+                    android:text="@={viewModel.comments}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/upload_img_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:fontFamily="@font/raleway_bold"
+                android:text="@string/attachments"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/comments_text_input_layout"
+                app:layout_constraintTop_toBottomOf="@+id/comments_text_input_layout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/img_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_20"
+                android:background="@drawable/dotted_border_report"
+                android:paddingHorizontal="@dimen/dimen_20"
+                android:paddingVertical="@dimen/dimen_30"
+                app:layout_constraintTop_toBottomOf="@+id/upload_img_text">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintBottom_toTopOf="@+id/image_upload_text"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_48"
+                    android:layout_height="@dimen/dimen_48"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:src="@drawable/ic_report_upload"
+                    android:visibility="@{viewModel.dropboxIconVisibility?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_upload_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_5"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:onClick="@{viewModel::onBottomMenuClick}"
+                    android:text="@string/click_here"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/text_12"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/image_upload_text"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_upload_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:onClick="@{viewModel::onBottomMenuClick}"
+                    android:text="@string/upload_image_report"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_12"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_upload_note" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/image_note"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/dimen_20"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/upload_report_image_note"
+                android:textColor="@color/image_size_note_color"
+                android:textSize="@dimen/dimen_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_layout" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/send_report_button"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{viewModel.buttonEnabled}"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="@{viewModel::onSendReportClick}"
+                android:paddingVertical="@dimen/dimen_24"
+                android:text="@string/send_report"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_15"
+                android:visibility="@{viewModel.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+                app:backgroundTint="@color/button_tint"
+                app:cornerRadius="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <include
+                layout="@layout/layout_progress"
+                android:layout_width="@dimen/dimen_32"
+                android:layout_height="@dimen/dimen_32"
+                app:layout_constraintBottom_toBottomOf="@+id/send_report_button"
+                app:layout_constraintEnd_toEndOf="@+id/send_report_button"
+                app:layout_constraintStart_toStartOf="@+id/send_report_button"
+                app:layout_constraintTop_toTopOf="@+id/send_report_button"
+                bind:viewModel="@{(BaseViewModel)viewModel}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/my_progress_indeterminate"
+            android:indeterminateTint="@color/orange"
+            android:visibility="@{viewModel.isUploading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--        <com.airbnb.lottie.LottieAnimationView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:elevation="@dimen/dimen_24"-->
+        <!--            android:visibility="@{viewModel.isUploading() ? View.VISIBLE : View.GONE}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:lottie_autoPlay="true"-->
+        <!--            app:lottie_loop="true"-->
+        <!--            app:lottie_rawRes="@raw/feed_loading" />-->
+
+        <!--        <com.airbnb.lottie.LottieAnimationView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:elevation="@dimen/dimen_24"-->
+        <!--            android:visibility="@{viewModel.isUploading() ? View.VISIBLE : View.GONE}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:lottie_autoPlay="true"-->
+        <!--            app:lottie_loop="true"-->
+        <!--            app:lottie_rawRes="@raw/feed_loading" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

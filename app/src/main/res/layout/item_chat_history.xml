@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.chat.ItemChatViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10">
+
+        <LinearLayout
+            android:id="@+id/llCommonTimeStamp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:visibility="@{viewModel.commonTimeStampVisible ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_weight="1.5"
+                android:background="@color/grey" />
+
+            <TextView
+                android:id="@+id/commonTimeStamp"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/dimen_10"
+                android:paddingTop="@dimen/dimen_5"
+                android:paddingEnd="@dimen/dimen_10"
+                android:paddingBottom="@dimen/dimen_5"
+                android:text="@{viewModel.timeToken}"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/text_10"
+                android:visibility="@{viewModel.isTimeStampVisible ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="11 Sep 2021, 11:30 AM" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.1dp"
+                android:layout_weight="1.5"
+                android:background="@color/grey" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/message_timestamp_reciver"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingEnd="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_5"
+            android:text="@{viewModel.timeToken}"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_10"
+            android:visibility="@{viewModel.isTimeStampVisible ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llCommonTimeStamp"
+            tools:text="7:22 PM" />
+
+
+        <TextView
+            android:id="@+id/receiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:background="@drawable/chat_bg_grey"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="start"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingEnd="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_5"
+            android:text="@{viewModel.chatHistory.message}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:visibility="@{viewModel.isSender?View.GONE:View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/message_timestamp_reciver" />
+
+        <TextView
+            android:id="@+id/message_timestamp_sender"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingEnd="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_5"
+            android:text="@{viewModel.timeToken}"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_10"
+            android:visibility="@{viewModel.isTimeStampVisible() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/sender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llCommonTimeStamp"
+            tools:text="7:22 PM" />
+
+        <TextView
+            android:id="@+id/sender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:background="@drawable/chat_bg_primary"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="end"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingEnd="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_5"
+            android:text="@{viewModel.chatHistory.message}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            android:visibility="@{viewModel.isSender?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/message_timestamp_sender" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

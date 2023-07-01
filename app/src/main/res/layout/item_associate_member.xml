@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.profile.fragment.associate.ItemAssociateMember" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{viewModel::onItemClick}"
+        android:paddingHorizontal="@dimen/dimen_10"
+        android:paddingTop="@dimen/dimen_5">
+
+        <TextView
+            android:id="@+id/shortName"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:background="@drawable/br_cirecle_name"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:maxLength="2"
+            android:text="@={viewModel.shortName}"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            android:visibility="@{viewModel.isImageAvailable?View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_icon"
+            app:layout_constraintEnd_toEndOf="@+id/profile_icon"
+            app:layout_constraintStart_toStartOf="@+id/profile_icon"
+            app:layout_constraintTop_toTopOf="@+id/profile_icon"
+            tools:layout_editor_absoluteX="10dp" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="@dimen/dimen_50"
+            android:layout_height="@dimen/dimen_50"
+            android:background="#474747"
+            android:padding="@dimen/dimen_5"
+            android:scaleType="centerCrop"
+            android:visibility="@{viewModel.isImageAvailable?View.VISIBLE:View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setUserImage="@{viewModel.item.profileImage}"
+            app:shapeAppearance="@style/ProfileImageAppearance" />
+
+        <TextView
+            android:id="@+id/tvCreatedDate"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:paddingStart="@dimen/dimen_13"
+            android:text="@{viewModel.createdOn}"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintEnd_toStartOf="@+id/ivChat"
+            app:layout_constraintStart_toEndOf="@+id/profile_icon"
+            app:layout_constraintTop_toTopOf="@+id/profile_icon" />
+
+
+        <TextView
+            android:id="@+id/tvMemberName"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen_13"
+            android:text="@{viewModel.item.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintEnd_toStartOf="@+id/ivChat"
+            app:layout_constraintStart_toEndOf="@+id/profile_icon"
+            app:layout_constraintTop_toBottomOf="@+id/tvCreatedDate" />
+
+        <TextView
+            android:id="@+id/tvAgeRelation"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:paddingStart="@dimen/dimen_13"
+            android:text="@{viewModel.ageRelation}"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivChat"
+            app:layout_constraintStart_toEndOf="@+id/profile_icon"
+            app:layout_constraintTop_toBottomOf="@+id/tvMemberName" />
+
+        <ImageView
+            android:id="@+id/ivChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onItemClick}"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_5"
+            android:src="@drawable/ic_chat"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAgeRelation"
+            app:layout_constraintEnd_toStartOf="@+id/ivOptions"
+            app:layout_constraintTop_toTopOf="@+id/tvMemberName" />
+
+
+        <ImageView
+            android:id="@+id/ivOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onItemClick}"
+            android:paddingStart="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_5"
+            android:paddingEnd="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_5"
+            android:src="@drawable/ic_icon_side_menu_black"
+            app:layout_constraintBottom_toBottomOf="@+id/ivChat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivChat" />
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/btn_add"-->
+        <!--            style="@style/Text.Roboto.Regular"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginEnd="@dimen/dimen_10"-->
+        <!--            android:backgroundTint="@color/white"-->
+        <!--            android:onClick="@{viewModel::onItemClick}"-->
+        <!--            android:padding="@dimen/dimen_10"-->
+        <!--            android:text="+ Add"-->
+        <!--            android:textColor="@color/orange"-->
+        <!--            android:visibility="@{viewModel.item.addStatus ? View.INVISIBLE : View.VISIBLE}"-->
+        <!--            app:cornerRadius="@dimen/dimen_5"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:strokeColor="@color/orange"-->
+        <!--            app:strokeWidth="@dimen/dimen_1" />-->
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/added_btn"-->
+        <!--            style="@style/Text.Roboto.Regular"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginEnd="@dimen/dimen_10"-->
+        <!--            android:backgroundTint="@color/orange"-->
+        <!--            android:onClick="@{viewModel::onItemClick}"-->
+        <!--            android:padding="@dimen/dimen_10"-->
+        <!--            android:text="Added"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:visibility="@{viewModel.item.addStatus ? View.VISIBLE : View.INVISIBLE}"-->
+        <!--            app:cornerRadius="@dimen/dimen_5"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:strokeColor="@color/orange"-->
+        <!--            app:strokeWidth="@dimen/dimen_1" />-->
+
+        <!--        <View-->
+        <!--            android:id="@+id/calorie_view"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:layout_marginTop="@dimen/dimen_10"-->
+        <!--            android:background="@drawable/layout_view_drawable"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

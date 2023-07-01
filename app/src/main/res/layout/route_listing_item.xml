@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.challengeroutes.popular.vm.ItemPopularRouteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{viewModel::onItemClick}"
+        android:padding="@dimen/dimen_24">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grey_bottom_line"
+            android:paddingBottom="@dimen/dimen_20"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_icon"
+                android:layout_width="@dimen/dimen_57"
+                android:layout_height="@dimen/dimen_60"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageRes="@{viewModel.item.mapIcon}" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_12"
+                android:text="@{viewModel.item.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/sport_icon"
+                android:layout_width="@dimen/dimen_20"
+                android:layout_height="@dimen/dimen_20"
+                app:layout_constraintBottom_toBottomOf="@+id/miles_value"
+                app:layout_constraintEnd_toStartOf="@+id/miles_value"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                app:setImageRes="@{viewModel.item.sportTypeIcon}"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/miles_value"
+                style="@style/Text.Roboto.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5"
+                android:text="@{viewModel.distance}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/sport_icon"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+            <!--        app:drawableStartCompat="@drawable/ic_hiking_black"-->
+            <TextView
+                android:id="@+id/description_tv"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:maxLines="4"
+                android:text="@{viewModel.description}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/miles_value" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

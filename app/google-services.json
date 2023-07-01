@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415964029359",
+    "project_id": "yewapp-e4350",
+    "storage_bucket": "yewapp-e4350.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415964029359:android:7e8ea496d50fa6abbbcf5a",
+        "android_client_info": {
+          "package_name": "com.yewapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415964029359-mnghs1cikogp9u56t1t3iu3vhfnaktv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy07dsyELhSjCMdYHMAdLgve469XuBz10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415964029359-mnghs1cikogp9u56t1t3iu3vhfnaktv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

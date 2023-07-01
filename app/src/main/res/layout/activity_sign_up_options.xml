@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.signup.vm.SignUpOptionsViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/img_sign_up_choice_1">
+
+        <TextView
+            style="@style/Text.Large.ExtraBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_8"
+            android:text="@string/log_in_sign_up"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutCompat"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_40"
+            android:layout_marginVertical="@dimen/dimen_16"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tv_already_member"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="570dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_gmail_sign_up"
+                style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:onClick="@{viewModel::onButtonClick}"
+                android:paddingVertical="@dimen/dimen_12"
+                android:text="@string/sign_in_with_google"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:cornerRadius="@dimen/dimen_8"
+                app:icon="@drawable/ic_google"
+                app:iconTint="@android:color/transparent"
+                app:iconTintMode="add"
+                app:rippleColor="@color/grey"
+                app:strokeColor="@color/btn_stroke_color" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_fb_sign_up"
+                style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:onClick="@{viewModel::onButtonClick}"
+                android:paddingVertical="@dimen/dimen_12"
+                android:text="@string/sign_in_with_facebook"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:cornerRadius="@dimen/dimen_8"
+                app:icon="@drawable/ic_facebook"
+                app:iconTint="@android:color/transparent"
+                app:iconTintMode="add"
+                app:rippleColor="@color/grey"
+                app:strokeColor="@color/btn_stroke_color" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_apple_sign_up"
+                style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:fontFamily="@font/roboto_regular"
+                android:onClick="@{viewModel::onButtonClick}"
+                android:paddingVertical="@dimen/dimen_12"
+                android:text="@string/sign_in_with_apple"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:cornerRadius="@dimen/dimen_8"
+                app:icon="@drawable/ic_apple"
+                app:iconTint="@android:color/transparent"
+                app:iconTintMode="add"
+                app:rippleColor="@color/grey"
+                app:strokeColor="@color/btn_stroke_color" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_email_sign_up"
+                style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:onClick="@{viewModel::onButtonClick}"
+                android:paddingVertical="@dimen/dimen_12"
+                android:text="@string/sign_up_with_email"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:cornerRadius="@dimen/dimen_8"
+                app:icon="@drawable/ic_email"
+                app:iconTint="@android:color/transparent"
+                app:iconTintMode="add"
+                app:rippleColor="@color/grey"
+                app:strokeColor="@color/btn_stroke_color" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/dimen_32"
+            android:layout_marginVertical="@dimen/dimen_16"
+            android:alpha="0.5"
+            android:background="@color/btn_stroke_color"
+            app:layout_constraintBottom_toTopOf="@+id/btn_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_already_member"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/dimen_8"
+            android:text="@string/already_a_member"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_24"
+            android:fontFamily="@font/roboto_regular"
+            android:onClick="@{viewModel::onButtonClick}"
+            android:paddingHorizontal="@dimen/dimen_40"
+            android:paddingVertical="@dimen/dimen_16"
+            android:text="@string/login"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            app:backgroundTint="@color/black"
+            app:cornerRadius="@dimen/dimen_8"
+            app:layout_constraintBottom_toTopOf="@+id/tv_terms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_terms"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_32"
+            android:layout_marginVertical="@dimen/dimen_16"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:initialListener="@{viewModel::onTermsClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:nextListener="@{viewModel::onPrivacyClick}"
+            app:requireUnderline="@{viewModel.underline}"
+            app:secondSpanEnd="@{viewModel.secondSpanEnd}"
+            app:secondSpanStart="@{viewModel.secondSpanStart}"
+            app:spanColor="@{viewModel.spanColor}"
+            app:spanEnd="@{viewModel.spanEnd}"
+            app:spanStart="@{viewModel.spanStart}"
+            app:spannableText="@{viewModel.spannableText}" />
+
+        <RelativeLayout
+            android:id="@+id/loadingPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.8"
+                android:background="#CB393535" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:elevation="@dimen/dimen_15"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading"/>
+
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

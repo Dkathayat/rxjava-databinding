@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.dashboard.fragment.feeds.vm.FeedsLikedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.modules.dashboard.fragment.feeds.FeedsLikedActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/feed_liked_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dimen_24"
+            android:paddingTop="@dimen/dimen_32"
+            android:paddingBottom="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:padding="@dimen/dimen_8"
+                android:src="@drawable/ic_close"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_emojis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_24"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feed_liked_toolbar">
+
+            <TextView
+                android:id="@+id/textView39"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/dimen_8"
+                android:text="@{viewModel.thumbsCount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.isThumbsUpVisible() ? View.VISIBLE : View.GONE}"
+                app:drawableStartCompat="@drawable/ic_thumbs_up"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView37"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView33"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/dimen_8"
+                android:text="@{viewModel.happyCount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.isHappyVisible() ? View.VISIBLE : View.GONE}"
+                app:drawableStartCompat="@drawable/ic_emo_happy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView37"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView37"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/dimen_8"
+                android:text="@{viewModel.surpriseCount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.isSurpriseVisible() ? View.VISIBLE : View.GONE}"
+                app:drawableStartCompat="@drawable/ic_emo_surprised"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView36"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/textView33"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView36"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/dimen_8"
+                android:text="@{viewModel.smileCount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.isSmileVisible() ? View.VISIBLE : View.GONE}"
+                app:drawableStartCompat="@drawable/ic_emo_smile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView35"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView37"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView35"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/dimen_8"
+                android:text="@{viewModel.sadCount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.isSadVisible() ? View.VISIBLE : View.GONE}"
+                app:drawableStartCompat="@drawable/ic_emo_sad"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView34"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView36"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="13" />
+
+            <TextView
+                android:id="@+id/textView34"
+                style="@style/Text.Roboto.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8"
+                android:gravity="center_vertical"
+                android:text="@{viewModel.heartCount}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.isHeartVisible() ? View.VISIBLE : View.GONE}"
+                app:drawableStartCompat="@drawable/ic_emo_heart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView35"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/liked_feeds"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_emojis"
+            tools:listitem="@layout/item_feeds_liked" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_emojis"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

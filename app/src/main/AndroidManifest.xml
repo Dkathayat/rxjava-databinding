@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:allowClearUserData="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:enableOnBackInvokedCallback="true"
+        android:nativeHeapZeroInitialized="true"
+        android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:vmSafeMode="true">
+
+
+        <activity
+            android:name=".ui.modules.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Facebook Signup -->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <!-- optional (needed if default theme has no action bar) -->
+        <activity
+            android:name=".ui.modules.updateparticipants.UpdateParticipantsActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.addmodelandequipments.AddModelEquipmentDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.addspectator.AddSpectatorActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.chat.ChatActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+
+
+        <activity
+            android:name=".ui.modules.migrateassociatesucess.MigrateAssociateSuccessActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.migrateassociate.MigrateAssociateActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addassociatememberdetails.AddMembersDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+
+
+        <activity
+            android:name=".ui.modules.player.PlayerVideoActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.profilesubsportstype.ProfileSubSportsTypeActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.camera.CameraActivity"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.videofeeds.VideoFeedSearchActivity"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.videofeeds.VideoFeedProfileActivity"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.videofeeds.VideoFeedsActivity"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.addassociatepermission.AddAssociatePermissionActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addassociatemember.AddMembersActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.managedevices.extra.DeviceConnectInfoActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.challengeDetails.ChallengeDescriptionDetailActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.giveawayDetails.GiveAwayDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.dashboard.fragment.feeds.FeedsLikedActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.comments.CommentsActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.report.SendReportActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.settings.contactus.ContactUsActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.refer.ReferralActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.managedevices.ManageDevicesActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.managedevices.garmin.MainManageDevicesActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.faqs.FaqsActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.about.AboutActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.challengeDetails.ChallengeDetailActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.settings.setting.SettingsActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.follower.FollowerActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.createroute.CreateRouteActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.onboarding.OnBoardingActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.signup.SignUpOptionsActivity"
+            android:screenOrientation="sensorPortrait" />
+
+
+        <activity
+            android:name=".ui.modules.feedback.ShareFeedbackActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.login.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.signup.SignUpActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.yewapp.ui.modules.managefeeds.ManageFeedsActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.modules.forgotPassword.ForgotPasswordActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.verifyCode.VerifyCodeActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.profile.fragment.mypoints.filteractivity.MyPointsFilterActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.signup.SignUpSuccessActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.forgotPassword.ChangePasswordSuccessActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.dashboard.DashboardActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.feed.CreateFeedActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.editProfile.EditProfileActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.viewMedia.ViewImageVideoActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.cms.CmsActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.editProfile.SportTypeActivity"
+            android:screenOrientation="sensorPortrait" />
+
+
+        <!--     Challenge Step 1-10 Start-->
+        <activity
+            android:name=".ui.modules.addchallenge.addchallengesportstype.AddChallengeActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.addchallengeselectrangedate.SelectRangeDateActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.selectorcreateroute.SelectORCreateRouteActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.addchallengedetails.ChallengeLocationDetailActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.addchallenge.challengeadditionaldetail.ChallengeAdditionalDetailActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.minimumgoal.MinGoalRequirementActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.additionalform.AdditionalFormActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.addchallenge.challengebanner.ChallengeBannerActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.invitemember.InviteMemberActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.challengepreview.ChallengePreviewActivity"
+            android:screenOrientation="sensorPortrait" />
+        <!--     Challenge Step 1-10 END-->
+       <!-- <activity
+            android:name=".ui.modules.addchallenge.addchallengesportstype.AddChallengeActivity"
+            android:screenOrientation="sensorPortrait"
+            android:parentActivityName=".ui.modules.dashboard.DashboardActivity"/>
+        <activity
+            android:name=".ui.modules.addchallenge.addchallengeselectrangedate.SelectRangeDateActivity"
+            android:parentActivityName=".ui.modules.addchallenge.addchallengesportstype.AddChallengeActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.selectorcreateroute.SelectORCreateRouteActivity"
+            android:parentActivityName=".ui.modules.addchallenge.addchallengeselectrangedate.SelectRangeDateActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.addchallengedetails.ChallengeLocationDetailActivity"
+            android:parentActivityName=".ui.modules.addchallenge.selectorcreateroute.SelectORCreateRouteActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.addchallenge.challengeadditionaldetail.ChallengeAdditionalDetailActivity"
+            android:parentActivityName=".ui.modules.addchallenge.addchallengedetails.ChallengeLocationDetailActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.minimumgoal.MinGoalRequirementActivity"
+            android:parentActivityName=".ui.modules.addchallenge.challengeadditionaldetail.ChallengeAdditionalDetailActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.additionalform.AdditionalFormActivity"
+            android:parentActivityName=".ui.modules.addchallenge.minimumgoal.MinGoalRequirementActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ui.modules.addchallenge.challengebanner.ChallengeBannerActivity"
+            android:parentActivityName=".ui.modules.addchallenge.additionalform.AdditionalFormActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.invitemember.InviteMemberActivity"
+            android:parentActivityName=".ui.modules.addchallenge.challengebanner.ChallengeBannerActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.addchallenge.challengepreview.ChallengePreviewActivity"
+            android:parentActivityName=".ui.modules.addchallenge.invitemember.InviteMemberActivity"
+            android:screenOrientation="sensorPortrait" />-->
+
+
+        <activity
+            android:name=".ui.modules.addchallenge.challengeroutes.RouteListingActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.routedetail.RouteDetailActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.searchlocation.SearchLocationActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.manageshortvideo.ManageShortVideoActivity"
+            android:screenOrientation="sensorPortrait" />
+
+
+        <activity
+            android:name=".ui.modules.managenotification.ManageNotificationActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.manageuser.ManageUserActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.emailchange.EmailChangeActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ui.modules.emailphonechangeverifyotp.EmailPhoneChangeVerifyCodeActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.addmember.AddMemberFollowActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.videofeeds.VideoFeedUserFollowerActivity"
+            android:screenOrientation="sensorPortrait" />
+
+
+        <activity
+            android:name=".ui.modules.subscription.SubscriptionActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".ui.modules.addchallenge.selectorcreateroute.MapDirectionActivity"
+            android:screenOrientation="sensorPortrait" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.yew.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove" />
+
+        <service
+            android:name=".ui.service.FirebaseService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+
+</manifest>

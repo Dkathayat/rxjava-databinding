@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.giveawayDetails.vm.GiveAwayDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.modules.giveawayDetails.GiveAwayDetailsActivity">
+
+        <TextView
+            android:id="@+id/tv_back"
+            style="@style/Text.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_32"
+            android:gravity="center_vertical"
+            android:onClick="@{viewModel::onBackPressed}"
+            android:text="@string/go_back"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_16"
+            app:drawableStartCompat="@drawable/ic_arrow_leftgrey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/title_text"
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:text="@string/giveaway_details"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_back" />
+
+        <ImageView
+            android:id="@+id/shoe_img"
+            android:layout_width="match_parent"
+            android:layout_height="202dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:src="@drawable/sneaker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintTop_toBottomOf="@+id/title_text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/giveaway_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="133dp"
+            android:layout_marginTop="@dimen/dimen_2"
+            android:background="@color/black"
+            android:orientation="horizontal"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintTop_toBottomOf="@+id/shoe_img" />
+
+        <TextView
+            android:id="@+id/giveaway_detail_text"
+            style="@style/Text.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="28dp"
+            android:gravity="left"
+            android:text="@string/give_details_description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/giveaway_recycler" />
+
+        <TextView
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="28dp"
+            android:gravity="left"
+            android:text="@string/giveaway_detail_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/giveaway_detail_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/enter_give_away_button"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingVertical="@dimen/dimen_24"
+            android:text="@string/enter_giveaway"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

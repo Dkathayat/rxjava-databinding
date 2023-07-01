@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.videofeedcomment.vm.ItemReplyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_10">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginBottom="@dimen/dimen_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImageRes="@{viewModel.profileImage}"
+            app:shapeAppearance="@style/ProfileImageAppearance" />
+
+        <TextView
+            android:id="@+id/nametext"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginBottom="@dimen/dimen_24"
+            android:background="@drawable/light_grey_circle"
+            android:gravity="center"
+            android:text="@={viewModel.profileImageName}"
+            android:textAllCaps="true"
+            android:textColor="@color/dark_grey"
+            android:textSize="@dimen/text_16"
+            android:visibility="@{viewModel.profileImageVisibility ? View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv" />
+
+        <TextView
+            android:id="@+id/replyTvByName"
+            style="@style/Text.Roboto.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="@{viewModel.item.createdBy.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintEnd_toStartOf="@+id/tvCity"
+            app:layout_constraintStart_toEndOf="@+id/iv"
+            app:layout_constraintTop_toTopOf="@+id/iv" />
+
+        <ImageView
+            android:id="@+id/dot"
+            android:layout_width="1.5dp"
+            android:layout_height="1.5dp"
+            android:layout_marginStart="@dimen/dimen_4"
+            android:layout_marginTop="@dimen/dimen_2"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:src="@drawable/ic_blue_dot"
+            app:layout_constraintBottom_toBottomOf="@id/replyTvByName"
+            app:layout_constraintEnd_toStartOf="@+id/tvCity"
+            app:layout_constraintStart_toEndOf="@+id/replyTvByName"
+            app:layout_constraintTop_toTopOf="@id/replyTvByName" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_3"
+            android:gravity="start"
+            android:text="@={viewModel.date}"
+            android:textColor="#909090"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintBottom_toBottomOf="@+id/replyTvByName"
+            app:layout_constraintEnd_toStartOf="@+id/imageView14"
+            app:layout_constraintStart_toEndOf="@+id/dot"
+            app:layout_constraintTop_toTopOf="@+id/replyTvByName" />
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onOptionClick}"
+            android:paddingHorizontal="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_10"
+            android:src="@drawable/ic_icon_side_menu"
+            android:visibility="@{viewModel.threeDotOptionVisibility?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/dark_grey" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{viewModel.item.comment}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/replyTvByName"
+            app:layout_constraintTop_toBottomOf="@id/tvCity" />
+
+        <ImageView
+            android:id="@+id/ivLikes"
+            android:layout_width="@dimen/dimen_20"
+            android:layout_height="@dimen/dimen_20"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
+            android:onClick="@{()->viewModel.onLikeReply()}"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintStart_toEndOf="@id/iv"
+            app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+
+        <TextView
+            android:id="@+id/tvLikesCount"
+            style="@style/Text.Roboto.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{viewModel.likeCount}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_12"
+            app:layout_constraintBottom_toBottomOf="@id/ivLikes"
+            app:layout_constraintStart_toEndOf="@id/ivLikes"
+            app:layout_constraintTop_toTopOf="@id/ivLikes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

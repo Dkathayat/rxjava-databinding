@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayoutFeed"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen_10"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/dimen_32"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/constraintLayoutTop">
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvFeed"-->
+<!--        style="@style/Text.Bold"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/feed"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/text_17"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/allFeed"-->
+<!--        style="@style/Text.Medium"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dimen_25"-->
+<!--        android:text="@string/all_feeds"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/text_15"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/allFeedsSwitch"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvFeed" />-->
+
+<!--    <androidx.appcompat.widget.SwitchCompat-->
+<!--        android:id="@+id/allFeedsSwitch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="@dimen/dimen_10"-->
+<!--        android:checked="@={viewModel.feedFirstGranted}"-->
+<!--        android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onFeedFirstCheckedChange(compoundButton, checked)}"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/allFeed"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/allFeed"-->
+<!--        app:thumbTint="@color/transparent"-->
+<!--        app:track="@drawable/alert_switch_track"-->
+<!--        app:trackTint="@null" />-->
+
+
+<!--    <View-->
+<!--        android:id="@+id/viewLine1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0.2dp"-->
+<!--        android:layout_marginTop="@dimen/dimen_24"-->
+<!--        android:background="@color/dark_grey"-->
+<!--        android:padding="@dimen/dimen_20"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/allFeed" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvFollowers"-->
+<!--        style="@style/Text.Medium"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dimen_20"-->
+<!--        android:text="@string/followers_following_feeds"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/text_15"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/followerSwitch"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewLine1" />-->
+
+<!--    <androidx.appcompat.widget.SwitchCompat-->
+<!--        android:id="@+id/followerSwitch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="@dimen/dimen_10"-->
+<!--        android:checked="@={viewModel.feedSecondGranted}"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tvFollowers"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tvFollowers"-->
+<!--        app:thumbTint="@color/transparent"-->
+<!--        app:track="@drawable/alert_switch_track"-->
+<!--        app:trackTint="@null" />-->
+<!--    &lt;!&ndash;                    android:visibility="@{viewModel.feedLoadingSecond ? View.INVISIBLE : View.VISIBLE}"&ndash;&gt;-->
+
+
+<!--    &lt;!&ndash;                    <ProgressBar&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:id="@+id/followerFeedSwitchProgressBar"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:indeterminateTint="@color/colorPrimary"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:indeterminateTintMode="src_in"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:visibility="@{viewModel.feedLoadingSecond ? View.VISIBLE : View.INVISIBLE}"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintBottom_toBottomOf="@+id/followerSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintEnd_toEndOf="@+id/followerSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintStart_toStartOf="@+id/followerSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintTop_toTopOf="@+id/followerSwitch" />&ndash;&gt;-->
+
+<!--    <View-->
+<!--        android:id="@+id/viewLine2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0.2dp"-->
+<!--        android:layout_marginTop="@dimen/dimen_24"-->
+<!--        android:background="@color/dark_grey"-->
+<!--        android:padding="@dimen/dimen_20"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvFollowers" />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvParentFollowers"-->
+<!--        style="@style/Text.Medium"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dimen_20"-->
+<!--        android:text="@string/parents_followers_following_feeds"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/text_15"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/parentFollowerSwitch"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewLine2" />-->
+
+<!--    <androidx.appcompat.widget.SwitchCompat-->
+<!--        android:id="@+id/parentFollowerSwitch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="@dimen/dimen_10"-->
+<!--        android:checked="@={viewModel.feedThirdGranted}"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tvParentFollowers"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tvParentFollowers"-->
+<!--        app:thumbTint="@color/transparent"-->
+<!--        app:track="@drawable/alert_switch_track"-->
+<!--        app:trackTint="@null" />-->
+<!--    &lt;!&ndash;                    android:visibility="@{viewModel.feedLoadingThird ? View.INVISIBLE : View.VISIBLE}"&ndash;&gt;-->
+
+
+<!--    &lt;!&ndash;                    <ProgressBar&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:id="@+id/parentFollowerSwitchProgressBar"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:indeterminateTint="@color/colorPrimary"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:indeterminateTintMode="src_in"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:visibility="@{viewModel.feedLoadingThird ? View.VISIBLE : View.INVISIBLE}"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintBottom_toBottomOf="@+id/parentFollowerSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintEnd_toEndOf="@+id/parentFollowerSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintStart_toStartOf="@+id/parentFollowerSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintTop_toTopOf="@+id/parentFollowerSwitch" />&ndash;&gt;-->
+
+<!--    <View-->
+<!--        android:id="@+id/viewLine3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0.2dp"-->
+<!--        android:layout_marginTop="@dimen/dimen_24"-->
+<!--        android:background="@color/dark_grey"-->
+<!--        android:padding="@dimen/dimen_20"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvParentFollowers" />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvAddFeed"-->
+<!--        style="@style/Text.Medium"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dimen_20"-->
+<!--        android:text="@string/add_feeds"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/text_15"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/allFeedsSwitch"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewLine3" />-->
+
+<!--    <androidx.appcompat.widget.SwitchCompat-->
+<!--        android:id="@+id/addFeedSwitch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="@dimen/dimen_10"-->
+<!--        android:checked="@={viewModel.feedFourthGranted}"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tvAddFeed"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tvAddFeed"-->
+<!--        app:thumbTint="@color/transparent"-->
+<!--        app:track="@drawable/alert_switch_track"-->
+<!--        app:trackTint="@null" />-->
+<!--    &lt;!&ndash;                    android:visibility="@{viewModel.feedLoadingFourth ? View.INVISIBLE : View.VISIBLE}"&ndash;&gt;-->
+
+
+<!--    &lt;!&ndash;                    <ProgressBar&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:id="@+id/addFeedSwitchProgressBar"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:indeterminateTint="@color/colorPrimary"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:indeterminateTintMode="src_in"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        android:visibility="@{viewModel.feedLoadingFourth ? View.VISIBLE : View.INVISIBLE}"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintBottom_toBottomOf="@+id/addFeedSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintEnd_toEndOf="@+id/addFeedSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintStart_toStartOf="@+id/addFeedSwitch"&ndash;&gt;-->
+<!--    &lt;!&ndash;                        app:layout_constraintTop_toTopOf="@+id/addFeedSwitch" />&ndash;&gt;-->
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dimen_10"-->
+<!--        android:background="@color/grey_da"-->
+<!--        android:paddingTop="@dimen/dimen_20"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+<!---->

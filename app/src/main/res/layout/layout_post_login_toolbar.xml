@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.dashboard.vm.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingHorizontal="@dimen/dimen_24"
+        android:paddingTop="@dimen/dimen_15"
+        android:paddingBottom="@dimen/dimen_15">
+        <!--        android:paddingTop="@dimen/dimen_36"-->
+        <!--        android:paddingBottom="@dimen/dimen_20"-->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_8"
+            android:src="@drawable/ic_logo_grey"
+            android:visibility="@{viewModel.isDashboardTitleVisible() ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_8"
+            android:text="@{viewModel.dashboardToolbarTitle}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_24"
+            android:visibility="@{viewModel.isDashboardTitleVisible() ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="ME" />
+
+        <!--        <ImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:src="@drawable/ic_notification_dot"-->
+        <!--            android:visibility="@{viewModel.isToolbarIcon1Visible() ? View.VISIBLE : View.GONE}"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/img_icon_1"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/img_icon_1"-->
+        <!--            app:layout_constraintHorizontal_bias="0.74"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/img_icon_1"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/img_icon_1"-->
+        <!--            app:layout_constraintVertical_bias="0.24000001" />-->
+
+        <ImageView
+            android:id="@+id/img_icon_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onToolbarMenuClick}"
+            android:padding="@dimen/dimen_8"
+            android:visibility="@{viewModel.isToolbarIcon1Visible() ? View.VISIBLE : View.GONE}"
+            app:imageDrawable="@{viewModel.toolbarIcon1}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_icon_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_icon_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onToolbarMenuClick}"
+            android:padding="@dimen/dimen_8"
+            android:visibility="@{viewModel.isToolbarIcon2Visible() ? View.VISIBLE : View.GONE}"
+            app:imageDrawable="@{viewModel.toolbarIcon2}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_icon_3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_icon_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onToolbarMenuClick}"
+            android:padding="@dimen/dimen_8"
+            android:visibility="@{viewModel.isToolbarIcon3Visible() ? View.VISIBLE : View.GONE}"
+            app:imageDrawable="@{viewModel.toolbarIcon3}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.modules.settings.setting.SettingsActivity">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.settings.setting.SettingsViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/dimen_20"
+            android:paddingEnd="@dimen/dimen_20"
+            android:paddingBottom="100dp">
+
+
+            <TextView
+                android:id="@+id/chatWithParent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/chat_with_parent"
+                android:textColor="@color/black"
+                android:visibility="@{viewModel.dataManager.user.isAssociate?View.VISIBLE:View.GONE}"
+                app:drawableEndCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable"
+                android:visibility="@{viewModel.dataManager.user.isAssociate?View.VISIBLE:View.GONE}" />
+
+
+            <TextView
+                android:id="@+id/shareFeedback_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/share_feedback"
+                android:textColor="@color/black"
+                app:drawableEndCompat="@drawable/ic_arrow_right_grey" />
+
+
+            <TextView
+                android:id="@+id/notification_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/manage_notification"
+                android:textColor="@color/black"
+                app:drawableEndCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/users_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/manage_users"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/feeds_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/manage_feeds"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/feeds_short"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/manage_short_video"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/Ads_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/manage_ads"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/devices_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/manage_devices"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/refer_friend_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/refer_friends"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/subscription_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/subscription"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/terms_and_condition_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/terms_amp_conditions"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/privacy_policy_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/faqs_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_220"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/faq_s"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/contact_us_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/contact_us"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/about_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/about_yew"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+            <TextView
+                android:id="@+id/logout_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_medium"
+                android:onClick="@{viewModel::profileSettingClicked}"
+                android:paddingTop="@dimen/dimen_profile_top_padding"
+                android:paddingBottom="@dimen/dimen_profile_bottom_padding"
+                android:text="@string/logout"
+                android:textColor="@color/black"
+                app:drawableRightCompat="@drawable/ic_arrow_right_grey" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/dimen_profile_view_end_margin"
+                android:background="@drawable/layout_view_drawable" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

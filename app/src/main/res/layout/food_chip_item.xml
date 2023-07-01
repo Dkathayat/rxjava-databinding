@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.addchallenge.addchallengedetails.ChallengeLocationDetailViewModel" />
+
+    </data>
+
+    <com.google.android.material.chip.Chip
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/dimen_10"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@color/white"
+        app:checkedIconVisible="false"
+        app:chipBackgroundColor="@color/orange"
+        app:chipStrokeColor="@color/orange"
+        app:chipStrokeWidth="0dp" />
+</layout><!--    app:layout_constraintStart_toStartOf="parent"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:layout_constraintTop_toTopOf="parent"-->

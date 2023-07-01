@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.challengeDetails.vm.ChallengeDescriptionDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_details"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:padding="@dimen/dimen_16"
+            android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onBackPressed}"
+                android:padding="@dimen/dimen_4"
+                android:src="@drawable/ic_back_arrow" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_24"
+                android:drawablePadding="@dimen/dimen_16"
+                android:fontFamily="@font/raleway_bold"
+                android:gravity="center"
+                android:paddingTop="@dimen/dimen_8"
+                android:paddingBottom="@dimen/dimen_16"
+                android:text="@string/details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_details">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+
+                <!--  <View
+                      android:id="@+id/view_location"
+                      android:layout_width="match_parent"
+                      android:layout_height="@dimen/dimen_48"
+                      android:layout_marginTop="@dimen/dimen_24"
+                      android:layout_marginBottom="@dimen/dimen_16"
+                      android:background="@color/grey_e4"
+                      app:layout_constraintBottom_toTopOf="@+id/location_text"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                       />-->
+
+                <TextView
+                    android:id="@+id/location_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_e4"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="@dimen/dimen_16"
+                    android:text="@string/location_details"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_e4"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/location_text">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/address_margin_top"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:background="@drawable/detail_border"
+                        android:padding="@dimen/dimen_16">
+
+                        <TextView
+                            android:id="@+id/country_text"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:text="@string/country"
+                            android:textColor="@color/challenge_bg"
+                            android:textSize="@dimen/text_12"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/country_name"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:text="@string/usa"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/address_margin_top"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:background="@drawable/detail_border"
+                        android:padding="@dimen/dimen_16">
+
+                        <TextView
+                            android:id="@+id/state_text"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:text="@string/state"
+                            android:textColor="@color/challenge_bg"
+                            android:textSize="@dimen/text_12"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/state_name"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:text="Oakwill"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/address_margin_top"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:background="@drawable/detail_border"
+                        android:padding="@dimen/dimen_16">
+
+                        <TextView
+                            android:id="@+id/city_text"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:text="@string/city"
+                            android:textColor="@color/challenge_bg"
+                            android:textSize="@dimen/text_12"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/city_name"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:text="Mississauga"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/address_margin_top"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:background="@drawable/detail_border"
+                        android:padding="@dimen/dimen_16">
+
+                        <TextView
+                            android:id="@+id/zipcode_text"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:text="@string/zip_code"
+                            android:textColor="@color/challenge_bg"
+                            android:textSize="@dimen/text_12"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/zipcode"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:text="@string/zip_code_value"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/address_margin_top"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:background="@drawable/detail_border"
+                        android:padding="@dimen/dimen_16">
+
+                        <TextView
+                            android:id="@+id/age_group_text"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:text="@string/age_group"
+                            android:textColor="@color/challenge_bg"
+                            android:textSize="@dimen/text_12"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/age_group_value"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:text="@string/_15_20_yrs"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/address_margin_top"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:background="@drawable/detail_border"
+                        android:padding="@dimen/dimen_16">
+
+                        <TextView
+                            android:id="@+id/sport_type_text"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:text="@string/sport_type"
+                            android:textColor="@color/challenge_bg"
+                            android:textSize="@dimen/text_12"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/sport_type_name"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:text="@string/hiking"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:layout_marginTop="@dimen/address_margin_top"
+                        android:layout_marginEnd="@dimen/dimen_16"
+                        android:background="@drawable/detail_border"
+                        android:padding="@dimen/dimen_16">
+
+                        <TextView
+                            android:id="@+id/sport_sub_type_text"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_8"
+                            android:text="@string/sport_sub_type"
+                            android:textColor="@color/challenge_bg"
+                            android:textSize="@dimen/text_12"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/sport_sub_type_name"
+                            style="@style/Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_20"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:text="@string/mountain_bike"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/text_overview"
+                        style="@style/Text.Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_8"
+                        android:padding="@dimen/dimen_16"
+                        android:text="@string/overview"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/overview_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/overview_description"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_1" />
+
+                <TextView
+                    android:id="@+id/rewards_text"
+                    style="@style/Text.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_e4"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/rewards"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_18"
+                    app:layout_constraintTop_toBottomOf="@+id/overview_description" />
+
+                <TextView
+                    android:id="@+id/rewards_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/overview_description"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/rewards_text" />
+
+                <TextView
+                    android:id="@+id/additional_text"
+                    style="@style/Text.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_e4"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/additional_information"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_18"
+                    app:layout_constraintTop_toBottomOf="@+id/rewards_description" />
+
+                <TextView
+                    android:id="@+id/additional_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/overview_description"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/additional_text" />
+
+                <TextView
+                    android:id="@+id/rules_text"
+                    style="@style/Text.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_e4"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/rules"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_18"
+                    app:layout_constraintTop_toBottomOf="@+id/additional_description" />
+
+                <TextView
+                    android:id="@+id/rules_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/rules_description"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/rules_text" />
+
+                <TextView
+                    android:id="@+id/qualifying_text"
+                    style="@style/Text.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_e4"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/qualifying_activities"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_18"
+                    app:layout_constraintTop_toBottomOf="@+id/rules_description" />
+
+                <TextView
+                    android:id="@+id/qualifying_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_20"
+                    android:text="@string/overview_description"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/qualifying_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

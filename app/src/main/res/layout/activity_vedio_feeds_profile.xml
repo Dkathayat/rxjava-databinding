@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.videofeeds.vm.VideoFeedProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start_end_margin"
+            android:layout_marginTop="44dp"
+            android:onClick="@{viewModel::onBackPressed}"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/grey" />
+
+        <TextView
+            android:id="@+id/tvBack"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onBackPressed}"
+            android:text="@string/go_back"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_15"
+            app:layout_constraintBottom_toBottomOf="@id/backArrow"
+            app:layout_constraintStart_toEndOf="@id/backArrow"
+            app:layout_constraintTop_toTopOf="@id/backArrow" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="@dimen/dimen_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBack">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView11"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:visibility="@{viewModel.profileImageVisibility ? View.VISIBLE:View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImage="@{viewModel.userImage}"
+                app:shapeAppearance="@style/ProfileImageAppearance" />
+
+            <TextView
+                android:id="@+id/nametext"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:layout_marginBottom="@dimen/dimen_24"
+                android:background="@drawable/orange_circle"
+                android:gravity="center"
+                android:text="@={viewModel.profileImageName}"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:visibility="@{viewModel.profileImageVisibility ? View.INVISIBLE:View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView11" />
+
+            <TextView
+                android:id="@+id/textView28"
+                style="@style/Text.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_8"
+                android:paddingTop="@dimen/dimen_8"
+                android:text="@{viewModel.userName}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/shapeableImageView11"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView11" />
+
+            <TextView
+                android:id="@+id/tvDes"
+                style="@style/Text.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_8"
+                android:text="@{viewModel.dateTime}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                app:layout_constraintStart_toEndOf="@+id/shapeableImageView11"
+                app:layout_constraintTop_toBottomOf="@id/textView28" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel::onOptionClick}"
+                android:padding="@dimen/dimen_8"
+                android:src="@drawable/ic_icon_side_menu"
+                app:layout_constraintBottom_toBottomOf="@+id/textView28"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView28" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tvFollow"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="138dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/gray_square_background"
+            android:gravity="center"
+            android:onClick="@{viewModel::onFollowClick}"
+            android:text="@={viewModel.followStatus}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:visibility="@{viewModel.followingVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvMessage"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainLayout" />
+
+        <TextView
+            android:id="@+id/tvMessage"
+            style="@style/Text.Roboto.Medium"
+            android:layout_width="138dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="@dimen/dimen_15"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/gray_square_background"
+            android:gravity="center"
+            android:text="Message"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:visibility="@{viewModel.followingVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvFollow"
+            app:layout_constraintTop_toBottomOf="@id/mainLayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_follower_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:visibility="@{viewModel.followingVisibility ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMessage">
+
+            <TextView
+                android:id="@+id/tv_follower"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="138dp"
+                android:layout_height="38dp"
+                android:background="@drawable/gray_square_background"
+                android:gravity="center"
+                android:onClick="@{viewModel::onFollowClick}"
+                android:text="Follower"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toStartOf="@+id/tv_following"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_following"
+                style="@style/Text.Roboto.Medium"
+                android:layout_width="138dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="@dimen/dimen_15"
+                android:background="@drawable/gray_square_background"
+                android:gravity="center"
+                android:onClick="@{viewModel::onFollowClick}"
+                android:text="Following"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_follower"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="@dimen/dimen_40"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/my_progress_indeterminate"
+            android:indeterminateTint="@color/orange"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/restart"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="13dp"-->
+        <!--            android:background="@drawable/ic_refresh_camera"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/record_stop_layout"-->
+        <!--            app:layout_constraintHorizontal_chainStyle="packed"-->
+        <!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:id="@+id/record_stop_layout"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/camera_button"-->
+        <!--            app:layout_constraintStart_toEnd="@+id/restart"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/restart">-->
+
+        <!--            <ImageButton-->
+        <!--                android:id="@+id/capture_button"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:background="@drawable/ic_play_icon"-->
+        <!--                android:contentDescription="@string/capture"-->
+        <!--                android:scaleType="fitCenter"-->
+        <!--                android:translationX="48dp"-->
+        <!--                app:layout_constraintBottom_toBottomOf="@+id/stop_button"-->
+        <!--                app:layout_constraintEnd_toEndOf="@+id/stop_button"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="@+id/stop_button"-->
+        <!--                tools:ignore="ImageContrastCheck" />-->
+
+        <!--            <ImageButton-->
+        <!--                android:id="@+id/stop_button"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:background="@drawable/ic_stop"-->
+        <!--                android:contentDescription="@string/stop"-->
+        <!--                android:scaleType="fitCenter"-->
+        <!--                android:translationX="48dp"-->
+        <!--                android:visibility="visible"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="@+id/capture_button"-->
+        <!--                app:layout_constraintStart_toStartOf="@+id/capture_button"-->
+        <!--                tools:ignore="ImageContrastCheck"/>-->
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/camera_button"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginEnd="16dp"-->
+        <!--            android:layout_marginBottom="13dp"-->
+        <!--            android:background="@drawable/ic_flip_icon"-->
+        <!--            android:contentDescription="@string/camera"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/record_stop_layout"-->
+        <!--            tools:ignore="ImageContrastCheck" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerVideoFeedsProfile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_follower_tv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

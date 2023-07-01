@@ -1,0 +1,344 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Add these attributes to make the Status bar transparent.-->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="materialCalendarFullscreenTheme">@style/Theme.DatePicker</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <!--    TODO: Add custom font by replacing files in 'font' folder in 'res' directory and changing filename below accordingly-->
+    <style name="Text.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.Small.ExtraBold" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.Medium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.Medium.ExtraBold" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.Large" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.Large.ExtraBold" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Bold" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Rubik.Regular" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/rubik_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.Hint" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/hint_font</item>
+    </style>
+
+    <style name="Text.Roboto.Light" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="Text.Roboto.Regular" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+
+    <style name="Text.Roboto.Medium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Text.Roboto.Bold" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialCalendarDate" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <!-- just override the colors used in the default style -->
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="colorContainer">@color/white</item>
+        <item name="colorOnBackground">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialCalendar" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <!-- just override the colors used in the default style -->
+        <item name="backgroundColor">@color/white</item>
+        <item name="colorContainer">@color/white</item>
+        <!--        <item name="colorOnSurface">@color/white</item>-->
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <!--        <item name="colorPrimary">@color/grey</item>-->
+    </style>
+
+
+    <style name="TextAppearance.MaterialCalendarWidget.Date" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/mcv_text_date_light</item>
+    </style>
+
+    <style name="TextAppearance.MaterialCalendarWidget.WeekDay" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ACACAC</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <!--    <style name="MaterialCalendarTheme_RangeFill" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">-->
+    <!--        <item name="materialCalendarStyle">@style/MyMaterialCalendar</item>-->
+    <!--    </style>-->
+    <!--    <style name="MyMaterialCalendar"  parent="Widget.MaterialComponents.MaterialCalendar">-->
+    <!--        <item name="rangeFillColor">@color/colorPrimary</item>-->
+    <!--    </style>-->
+    <!--    <style name="ThemeMaterialCalendarButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">-->
+    <!--        <item name="android:textColor">@color/grey</item>-->
+    <!--        <item name="android:background">@color/white</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="ThemeMaterialCalendarTextButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog.Flush">-->
+    <!--        <item name="android:textColor">@color/black</item>-->
+    <!--        <item name="iconTint">@color/black</item>-->
+    <!--    </style>-->
+    <style name="TextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">@color/black</item>
+        <item name="hintTextColor">@color/grey</item>
+        <item name="hintTextAppearance">@style/Text.Hint</item>
+        <item name="boxStrokeColor">@color/grey</item>
+        <item name="hintEnabled">true</item>
+        <item name="boxStrokeWidth">0.5dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="endIconTint">@color/grey</item>
+        <item name="endIconDrawable">@drawable/ic_cross</item>
+        <item name="colorOnSurface">@color/grey</item>
+        <item name="colorPrimary">@color/grey</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+
+    <style name="TextInputStyleNew" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintAnimationEnabled">true</item>
+        <item name="hintEnabled">true</item>
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="hintTextColor">@color/grey</item>
+        <item name="boxStrokeColor">@color/grey</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorIconTint">@color/red</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/dimen_5</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/dimen_5</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/dimen_5</item>
+        <item name="boxCornerRadiusTopStart">@dimen/dimen_5</item>
+    </style>
+
+
+    <style name="EditTextStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="font">@font/roboto_regular</item>
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="hintTextAppearance">@style/Text.Hint</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <!--        <item name="android:paddingTop">@dimen/dimen_10</item>-->
+        <!--        <item name="android:paddingBottom">@dimen/dimen_10</item>-->
+    </style>
+
+    <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="BoxTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintAnimationEnabled">true</item>
+        <item name="hintEnabled">true</item>
+        <item name="hintTextColor">@color/color_90</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="android:textColorHint">@color/color_90</item>
+        <item name="boxStrokeColor">@color/color_border</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorIconTint">@color/red</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/dimen_15</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/dimen_15</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/dimen_15</item>
+        <item name="boxCornerRadiusTopStart">@dimen/dimen_15</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen.IconBackground">
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenBackground">@color/colorPrimary</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="android:textSize">@dimen/text_15</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/dimen_16</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+    </style>
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+
+    <style name="SwitchStyle" parent="TextAppearance.AppCompat.Widget.Switch">
+        <item name="android:thumb">@drawable/custom_switch_thumb</item>
+        <item name="track">@drawable/custom_switch_track</item>
+    </style>
+
+    <style name="TextTitleStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+
+    <style name="AlertDialogStyle" parent="Base.Theme.MaterialComponents.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowTitleStyle">@style/TextTitleStyle</item>
+    </style>
+
+    <style name="ProfileImageAppearance">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="TextInputStyle.DatePicker" parent="TextInputStyle">
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+    <style name="Theme.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="materialCalendarHeaderToggleButton">@style/MaterialCalendar.HeaderToggleButton
+        </item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
+        </item>
+        <item name="materialCalendarStyle">@style/Custom_MaterialCalendar.Fullscreen</item>
+        <!-- Customize text field of the text input mode. -->
+        <item name="textInputStyle">@style/TextInputStyle.DatePicker</item>
+    </style>
+
+    <style name="Custom_MaterialCalendar.Fullscreen" parent="@style/Widget.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="MaterialCalendar.HeaderToggleButton" parent="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
+        <item name="android:visibility">gone</item>
+    </style>
+
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <style name="spinnerItemStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_20</item>
+    </style>
+
+    <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem"></style>
+
+
+    //use in challenge tab layout
+
+    <style name="tab_TEXT" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="MatchSpinnerTheme" parent="AppTheme">
+        <item name="android:spinnerItemStyle">@style/MatchSpinnerStyle1</item>
+        <item name="android:dropDownListViewStyle">@style/MatchSpinnerStyle</item>
+        <item name="android:listViewStyle">@style/TextStyleRegular</item>
+    </style>
+
+    <style name="MatchSpinnerStyle1" parent="TextAppearance.AppCompat.Widget.TextView.SpinnerItem">
+        <item name="android:divider">@color/grey</item>
+        <item name="android:dividerHeight">0.1dp</item>
+        <item name="android:padding">@dimen/dimen_5</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+    <style name="MatchSpinnerStyle" parent="android:style/Widget.ListView.DropDown">
+        <item name="android:divider">@color/grey</item>
+        <item name="android:dividerHeight">0.1dp</item>
+        <item name="android:padding">@dimen/dimen_5</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+    <style name="TextStyleRegular">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+
+    <color name="red">#FF0000</color>
+</resources>

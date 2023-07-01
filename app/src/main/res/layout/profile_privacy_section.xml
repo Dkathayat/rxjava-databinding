@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.yewapp.ui.base.BaseViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.yewapp.ui.modules.profile.fragment.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/compare_stats_privacy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintBottom_toBottomOf="@+id/switchCompat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat"
+            style="@style/SwitchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{viewModel.allowCompareStatsPrivacy}"
+            android:elevation="@dimen/dimen_20"
+            android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onCompareStatsPrivacyChanged(compoundButton, checked)}"
+            android:padding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:thumbTint="@color/transparent"
+            app:track="@drawable/alert_switch_track"
+            app:trackTint="@null" />
+
+
+        <TextView
+            android:id="@id/tv_description"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/compare_stats_description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintEnd_toStartOf="@+id/switchCompat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchCompat" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:background="@color/grey_da"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_see_stats"
+            style="@style/Text.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="@string/who_can_see_your_stats"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <TextView
+            android:id="@+id/whoCanSeeYourStats"
+            style="@style/Text.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:onClick="@{viewModel::onActionItemClick}"
+            android:paddingVertical="@dimen/dimen_16"
+            android:text="@{viewModel.whoCanSeeYourStats}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:drawableEndCompat="@drawable/ic_drop_down_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_see_stats" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/whoCanSeeStats"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:onClick="@{viewModel::onActionItemClick}"-->
+        <!--            android:padding="@dimen/dimen_8"-->
+        <!--            android:src="@drawable/ic_drop_down_arrow"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/tvWhoCanSeeYourStats"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/tv_see_stats" />-->
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_da"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/whoCanSeeYourStats" />
+
+        <TextView
+            android:id="@+id/tv_see_points"
+            style="@style/Text.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="@string/allow_to_see_points"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <TextView
+            android:id="@+id/allowSeePoints"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:onClick="@{viewModel::onActionItemClick}"
+            android:paddingVertical="@dimen/dimen_16"
+            android:text="@{viewModel.isUserCanSeeYourPointsText}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:drawableEndCompat="@drawable/ic_drop_down_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_see_points" />
+
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/whoCanSeePoints"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:onClick="@{viewModel::onActionItemClick}"-->
+        <!--            android:padding="@dimen/dimen_8"-->
+        <!--            android:src="@drawable/ic_drop_down_arrow"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/textView18"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/tv_see_points" />-->
+
+        <TextView
+            android:id="@+id/textView19"
+            style="@style/Text.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="@string/privacy_settings"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allowSeePoints" />
+
+        <TextView
+            android:id="@+id/textView20"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="@string/hide_phone_number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintEnd_toStartOf="@+id/switchCompat2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat2"
+            style="@style/SwitchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{viewModel.hideNumber}"
+            android:elevation="@dimen/dimen_20"
+            android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onHideNumberChanged(compoundButton, checked)}"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView20"
+            app:thumbTint="@color/transparent"
+            app:track="@drawable/alert_switch_track"
+            app:trackTint="@null" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:background="@color/grey_da"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchCompat2" />
+
+        <TextView
+            android:id="@+id/textView21"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="@string/hide_email_id"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintEnd_toStartOf="@+id/switchCompat2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat3"
+            style="@style/SwitchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{viewModel.hideEmail}"
+            android:elevation="@dimen/dimen_20"
+            android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onHideEmailChanged(compoundButton, checked)}"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView21"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView21"
+            app:thumbTint="@color/transparent"
+            app:track="@drawable/alert_switch_track"
+            app:trackTint="@null" />
+
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimen_4"
+            android:background="@color/grey_da"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchCompat3" />
+
+        <TextView
+            android:id="@+id/textView22"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="@string/hide_activity_starting_location"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintEnd_toStartOf="@+id/switchCompat2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat4"
+            style="@style/SwitchStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{viewModel.hideActivityStartLocation}"
+            android:elevation="@dimen/dimen_20"
+            android:onCheckedChanged="@{(compoundButton, checked) ->viewModel.onHideActivityStartLocationChanged(compoundButton, checked)}"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView22"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView22"
+            app:thumbTint="@color/transparent"
+            app:track="@drawable/alert_switch_track"
+            app:trackTint="@null" />
+
+
+        <TextView
+            android:id="@+id/becameSponsor"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:background="@drawable/bg_rec_dark_gray"
+            android:gravity="center"
+            android:onClick="@{viewModel::onActionItemClick}"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/become_sponsor"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintEnd_toStartOf="@+id/compareStatistic"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchCompat4" />
+
+        <TextView
+            android:id="@+id/compareStatistic"
+            style="@style/Text.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:background="@drawable/bg_rec_dark_gray"
+            android:gravity="center"
+            android:onClick="@{viewModel::onActionItemClick}"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/become_advertiser"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/becameSponsor"
+            app:layout_constraintTop_toBottomOf="@id/switchCompat4" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
